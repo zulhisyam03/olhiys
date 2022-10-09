@@ -13,7 +13,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Nucleo Icons -->
+    <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+    
     <link href="css/templatemo_style.css" rel="stylesheet">
    	<link rel="stylesheet" href="css/templatemo_misc.css">
 
@@ -56,7 +63,7 @@ ddsmoothmenu.init({
 
 <style type="text/css">
   .container{
-    100%;
+    width:100%;
   }
 
   .header-logo{

@@ -27,7 +27,7 @@ use App\Http\Controllers\PostGaleryController;
 use App\Http\Controllers\UserProfileController;
 
            
-Route::get('/postGaleri', [PostGaleryController::class, 'index']);
+Route::get('/galery', [PostGaleryController::class, 'index']);
 
 Route::get('/admin', function () {return redirect('/dashboard');})->middleware('auth');
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');

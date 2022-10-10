@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PostGalery;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PostGaleryController extends Controller
 {
     //
     public function index(){
-        return view('postGaleri', [
-
+        return view('pages.galery', [
+            "title" => "PostGaleri",
+            "postGaleri" => PostGalery::all()
         ]);
     }
 }

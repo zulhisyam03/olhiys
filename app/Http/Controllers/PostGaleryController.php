@@ -12,7 +12,7 @@ class PostGaleryController extends Controller
     public function index(){
         return view('pages.galery', [
             "title" => "PostGaleri",
-            "postGaleri" => PostGalery::all()
+            "galery" => PostGalery::all()
         ]);
     }
 }

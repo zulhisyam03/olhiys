@@ -9,7 +9,7 @@
         position: relative;
         width: 100%;
         height: 100px;
-        border: 4px dashed rgb(1, 1, 1);
+        border: 4px dashed #09b955;
         border-radius: 8px;
         }
         form p{
@@ -61,7 +61,7 @@
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
-                            <div style="position: relative;padding:10px;min-height:500px;">
+                            <div style="position: relative;padding:10px;min-height:500px;c">
                                 <form class="upload" action="upload.php" method="POST" enctype="multipart/form-data">
                                     <input type="file" multiple name="gambar[]" accept="image/*">
                                     <p>Drag your files here or click in this area.</p>

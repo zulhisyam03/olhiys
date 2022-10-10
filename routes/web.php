@@ -17,14 +17,17 @@ Route::get('/', function () {
     return view('index');
 });
 
+use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ChangePassword;   
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\PostGaleryController;
 use App\Http\Controllers\UserProfileController;
-use App\Http\Controllers\ResetPassword;
-use App\Http\Controllers\ChangePassword;            
-            
+
+           
+Route::get('/postGaleri', [PostGaleryController::class, 'index']);
 
 Route::get('/admin', function () {return redirect('/dashboard');})->middleware('auth');
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');

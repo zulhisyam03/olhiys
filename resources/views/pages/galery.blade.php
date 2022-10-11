@@ -74,10 +74,11 @@
                                     <table align="center" style="text-align: center;border:1px;width:100%;">
                                         <tr>
                                             @foreach ($galery as $galeri)
-                                                <td><img src="{{ $galeri->temp }}{{ $galeri->title }}.{{ $galeri->tipe }}" alt=""></td>
+                                                <td><img style="width:100px;height:100px;" src="{{ $galeri->temp }}{{ $galeri->title }}.{{ $galeri->tipe }}" alt=""></td>
                                             @endforeach
                                             <td>Gambar 3</td>
                                             <td>Gambar 4</td>
+                                            <td>Gambar 5</td>
                                         </tr>
                                     </table>
                                 </center>

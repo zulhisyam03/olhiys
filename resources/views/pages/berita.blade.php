@@ -1,10 +1,21 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
-
 @section('content')
+<style type="text/css">
+    a.judul{
+        color:rgb(125, 128, 125);
+        font-size: 15px;
+        font-weight: bold;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+    a.judul:hover{
+        color:orangered;
+    }
+</style>
     @include('layouts.navbars.auth.topnav', ['title' => 'Berita'])
+
     <div class="container-fluid py-4">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12">SS
                 <div class="card mb-4">
                     <div class="card-header pb-0">
                         <h6>Daftar Berita</h6>
@@ -32,8 +43,8 @@
                                                             alt="user1">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <a href="">
-                                                            <h6 class="mb-0 text-sm">{{ $berita->title }}</h6>
+                                                        <a href="berita/{{ $berita->id }}" class="judul">
+                                                            {{ $berita->title }}
                                                             <p class="text-xs text-secondary mb-0">{{ $berita->author }}</p>    
                                                         </a>                                    
                                                     </div>

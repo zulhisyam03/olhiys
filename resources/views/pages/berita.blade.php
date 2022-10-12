@@ -26,7 +26,7 @@
                                 <thead>
                                     <tr>
                                         <th colspan="3">
-                                            <a href="#">
+                                            <a href="/form-berita">
                                                 <button class="btn btn-primary" style="width: 100%;align:center;">+ Tambah Berita</button>
                                             </a>
                                         </th>

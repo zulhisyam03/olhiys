@@ -43,7 +43,7 @@
                                                             alt="user1">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <a href="{{ route('page', ['page' => 'berita']) }}" class="judul">
+                                                        <a href="berita/{{ $berita->id }}" class="judul">
                                                             {{ $berita->title }}
                                                             <p class="text-xs text-secondary mb-0">{{ $berita->author }}</p>    
                                                         </a>                                    

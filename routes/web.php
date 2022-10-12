@@ -23,12 +23,14 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ChangePassword;   
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\PostGaleryController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserProfileController;
 
            
-Route::get('/galery', [PostGaleryController::class, 'index']);
-Route::get('/berita', [PostGaleryController::class, 'indexBerita']);
+Route::get('/galery', [PostController::class, 'index']);
+Route::get('/berita', [PostController::class, 'indexBerita']);
+//Halaman Single Post Berita
+Route::get('/berita/{slug}', [PostController::class, 'showPost']);
 
 Route::get('/admin', function () {return redirect('/dashboard');})->middleware('auth');
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');

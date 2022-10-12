@@ -7,7 +7,7 @@ use App\Models\PostGalery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PostGaleryController extends Controller
+class PostController extends Controller
 {
     //
     public function index(){
@@ -21,6 +21,13 @@ class PostGaleryController extends Controller
         return view('pages.berita', [
             "title"     =>  "Berita",
             "dataBerita"=>  Berita::all()
+        ]);
+    }
+
+    public function showPost($slug){
+        return view('pages.post', [
+            "title"     =>  "Posting",
+            "posting"=>  Berita::find($slug)
         ]);
     }
 }

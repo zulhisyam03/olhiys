@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/galery', [PostController::class, 'index']);
 	Route::get('/berita', [PostController::class, 'indexBerita']);
 	//Halaman Single Post Berita
-	Route::get('/news/{id}', [PostController::class, 'showPost']);
+	Route::get('/berita/{id}', [PostController::class, 'showPost']);
 	// Route::get('/news', function(){	return view('pages.news');});
 	
 	Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');

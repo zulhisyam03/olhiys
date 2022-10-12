@@ -21,9 +21,16 @@
                         <h6>Daftar Berita</h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
-                        <div class="table-responsive p-0">
+                        <div class="table-responsive p-0">                            
                             <table class="table align-items-center mb-0">
                                 <thead>
+                                    <tr>
+                                        <th colspan="3">
+                                            <a href="#">
+                                                <button class="btn btn-primary" style="width: 100%;align:center;">+ Tambah Berita</button>
+                                            </a>
+                                        </th>
+                                    </tr>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Judul</th>
@@ -43,7 +50,7 @@
                                                             alt="user1">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <a href="news\{{ $berita->id }}" class="judul">
+                                                        <a href="berita\{{ $berita->id }}" class="judul">
                                                             {{ $berita->title }}
                                                             <p class="text-xs text-secondary mb-0">{{ $berita->author }}</p>    
                                                         </a>                                    

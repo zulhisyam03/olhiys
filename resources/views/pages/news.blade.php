@@ -10,6 +10,10 @@
     a.judul:hover{
         color:orangered;
     }
+    .body{
+        width: 100%;
+        padding: 20px;
+    }
 </style>
     @include('layouts.navbars.auth.topnav', ['title' => 'Berita'])
 
@@ -17,57 +21,21 @@
         <div class="row">
             <div class="col-12">SS
                 <div class="card mb-4">
-                    <div class="card-header pb-0">
-                        <h6>Daftar Berita</h6>
-                    </div>
                     <div class="card-body px-0 pt-0 pb-2">
-                        <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0">
-                                <thead>
-                                    <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Judul</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Tgl. Terbit</th>
-                                        <th class="text-secondary opacity-7"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="assets/img/logo-small.png" class="avatar avatar-sm me-3"
-                                                            alt="user1">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                            {{ $posting->title }}
-                                                            <p class="text-xs text-secondary mb-0"></p>    
-                                                                                          
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0"></p>
-                                            </td>
-                                            <td class="align-middle">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    
-                                </tbody>
-                            </table>
+                        <div class="body">
+                            <article>
+                                <h3 class="text-l text-secondary mb-0">{{ $posting->title }}</h3>
+                                <h5 class="text-xs text-secondary mb-3">Post At : {{ $posting->tgl_post }}</h5>
+                                <p>
+                                    {!! $posting->body !!}
+                                </p>
+                            </article>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        @include('layouts.footers.auth.footer')
+        @include('../layouts.footers.auth.footer')
     </div>
 @endsection

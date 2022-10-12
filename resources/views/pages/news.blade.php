@@ -34,7 +34,7 @@
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($dataBerita as $berita)
+
                                         <tr>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
@@ -43,15 +43,14 @@
                                                             alt="user1">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <a href="news\{{ $berita->id }}" class="judul">
-                                                            {{ $berita->title }}
-                                                            <p class="text-xs text-secondary mb-0">{{ $berita->author }}</p>    
-                                                        </a>                                    
+                                                            {{ $posting->title }}
+                                                            <p class="text-xs text-secondary mb-0"></p>    
+                                                                                          
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse($berita->tgl_post)->format('l, d M Y H:i:s') }}</p>
+                                                <p class="text-xs font-weight-bold mb-0"></p>
                                             </td>
                                             <td class="align-middle">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
@@ -60,7 +59,6 @@
                                                 </a>
                                             </td>
                                         </tr>
-                                    @endforeach
                                     
                                 </tbody>
                             </table>

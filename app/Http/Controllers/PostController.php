@@ -24,10 +24,10 @@ class PostController extends Controller
         ]);
     }
 
-    public function showPost($slug){
-        return view('pages.post', [
-            "title"     =>  "Posting",
-            "posting"=>  Berita::find($slug)
+    public function showPost($id){
+        return view('pages.news', [
+            "title"     =>  "Berita",
+            "posting"   =>  Berita::find($id)
         ]);
     }
 }

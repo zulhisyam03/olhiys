@@ -17,7 +17,8 @@
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="card-body">
-                            <form action="" method="" role="form">
+                            <form action="" method="POST" role="form">
+                                @csrf
                                 <div class="form-group">
                                     <label class="label">JUDUL POSTINGAN</label>
                                     <input type="text" class="form-control" name="judul" placeholder="Judul Postingan">

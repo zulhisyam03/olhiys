@@ -16,8 +16,20 @@
                         <h6>Tambah Berita</h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
-                        <div class="body">
-                            
+                        <div class="card-body">
+                            <form action="" method="" role="form">
+                                <div class="form-group">
+                                    <label class="label">JUDUL POSTINGAN</label>
+                                    <input type="text" class="form-control" name="judul" placeholder="Judul Postingan">
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">POSTINGAN</label>
+                                    <textarea name="isiBerita" id="editorBerita" class="form-control" rows="4"></textarea>
+                                </div>    
+                                <div class="form-group">
+                                    <input type="submit" value="Save" class="btn btn-primary">
+                                </div>                            
+                            </form>
                         </div>
                     </div>
                 </div>

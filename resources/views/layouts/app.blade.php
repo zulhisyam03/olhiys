@@ -19,6 +19,7 @@
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="../assets/css/argon-dashboard.css" rel="stylesheet" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script>
 </head>
 
 <body class="{{ $class ?? '' }}">
@@ -45,6 +46,18 @@
             @include('components.fixed-plugin')
         @endif
     @endauth
+
+    <!-- ckeditor5 -->
+    <script>
+        ClassicEditor
+                .create( document.querySelector( '#editorBerita' ) )
+                .then( editor => {
+                        console.log( editor );
+                } )
+                .catch( error => {
+                        console.error( error );
+                } );
+    </script>
 
     <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>

@@ -75,7 +75,9 @@
                                                 <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse($berita->tgl_post)->format('l, d M Y H:i:s') }}</p>
                                             </td>
                                             <td class="align-middle">
-                                                <button class="badge bg-success border-0"><i class="fas fa-edit"></i></button>
+                                                <a href="berita\{{ $berita->id }}\edit">
+                                                    <button class="badge bg-success border-0"><i class="fas fa-edit"></i></button>
+                                                </a>
                                                 <form action="berita\{{ $berita->id }}" method="post" class="d-inline">
                                                     @method('delete')
                                                     @csrf

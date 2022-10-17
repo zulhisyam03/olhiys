@@ -62,7 +62,7 @@ class BeritaController extends Controller
         return view('pages.news', [
             "title"     =>  "Berita",
             "posting"   =>  Berita::find($id)
-        ]);
+        ]); 
     }
 
     /**
@@ -74,6 +74,9 @@ class BeritaController extends Controller
     public function edit($id)
     {
         //
+        return view('pages.editBerita',[
+            'berita' => Berita::find($id)
+        ] );
     }
 
     /**

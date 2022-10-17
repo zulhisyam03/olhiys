@@ -12,6 +12,7 @@ class Berita extends Model
     protected $fillable = [
         'author',
         'title',
-        'body'
+        'body',
+        'slug'
     ];
 }

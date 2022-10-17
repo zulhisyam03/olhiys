@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('author');
             $table->string('title');
+            $table->string('slug');
             $table->timestamp('tgl_post');
             $table->text('body');
             $table->timestamps();

@@ -41,7 +41,8 @@ class BeritaController extends Controller
     {
         //
         $validated = $request->validate([
-            'title' => 'required|min:5|unique:beritas',
+            'title' => 'required|min:5',
+            'slug' => 'required|unique:beritas',
             'body' => 'required',
             'author' => 'required'
         ]);
@@ -56,12 +57,12 @@ class BeritaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($title)
+    public function show($slug)
     {
         //
         return view('pages.news', [
             "title"     =>  "Berita",
-            "posting"   =>  Berita::where('title',$title)->first()
+            "posting"   =>  Berita::where('slug',$slug)->first()
         ]); 
     }
 
@@ -71,11 +72,11 @@ class BeritaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($title)
+    public function edit($slug)
     {
         //
         return view('pages.editBerita',[
-            'berita' => Berita::where('title',$title)->first()
+            'berita' => Berita::where('slug',$slug)->first()
         ] );
     }
 

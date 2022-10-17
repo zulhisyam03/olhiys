@@ -46,7 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/berita/post/{id}', [BeritaController::class, 'show']);
 
 	//Resource Berita untuk menangani Method tiap Form
-	Route::resource('berita/', BeritaController::class)->middleware('auth');
+	Route::resource('/berita', BeritaController::class)->middleware('auth');
 	
 	Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');
 	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');

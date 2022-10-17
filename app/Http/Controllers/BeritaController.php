@@ -94,11 +94,11 @@ class BeritaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Berita $berita)
+    public function destroy($berita)
     {
         //
-        dd($berita);
-        Berita::destroy($berita->id); 
+        
+        Berita::destroy($berita); 
         return redirect('/berita')->with('succes','Sukses Hapus Data !!!');
     }
 }

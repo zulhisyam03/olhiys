@@ -17,7 +17,7 @@
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="card-body">
-                            <form action="../berita/{{ $berita->id }}" method="POST">
+                            <form action="../../berita/{{ $berita->id }}" method="POST">
                                 @method('put')
                                 @csrf
                                 <input type="hidden" name="author" value="Admin">

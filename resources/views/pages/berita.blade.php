@@ -64,7 +64,7 @@
                                                             alt="user1">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <a href="berita\post\{{ $berita->id }}" class="judul">
+                                                        <a href="berita\post\{{ $berita->title }}" class="judul">
                                                             {{ $berita->title }}
                                                             <p class="text-xs text-secondary mb-0">{{ $berita->author }}</p>    
                                                         </a>                                    
@@ -75,10 +75,10 @@
                                                 <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse($berita->tgl_post)->format('l, d M Y H:i:s') }}</p>
                                             </td>
                                             <td class="align-middle">
-                                                <a href="berita\{{ $berita->id }}\edit">
+                                                <a href="berita\{{ $berita->title }}\edit">
                                                     <button class="badge bg-success border-0"><i class="fas fa-edit"></i></button>
                                                 </a>
-                                                <form action="berita\{{ $berita->id }}" method="post" class="d-inline">
+                                                <form action="berita\{{ $berita->title }}" method="post" class="d-inline">
                                                     @method('delete')
                                                     @csrf
                                                     <button class="badge bg-danger border-0" onclick="return confirm('Yakin Hapus Data?')"><i class="fas fa-trash-alt"></i></button>

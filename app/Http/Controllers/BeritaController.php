@@ -56,12 +56,12 @@ class BeritaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($title)
     {
         //
         return view('pages.news', [
             "title"     =>  "Berita",
-            "posting"   =>  Berita::find($id)
+            "posting"   =>  Berita::where('title',$title)->first()
         ]); 
     }
 
@@ -71,11 +71,11 @@ class BeritaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($title)
     {
         //
         return view('pages.editBerita',[
-            'berita' => Berita::find($id)
+            'berita' => Berita::where('title',$title)->first()
         ] );
     }
 
@@ -88,7 +88,11 @@ class BeritaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $berita =Berita::find($id);
+        $input = $request->all();
+        $berita->update($input);
+
+        return redirect('/berita')->with('succes','Sukses Ubah Data !!!');
     }
 
     /**

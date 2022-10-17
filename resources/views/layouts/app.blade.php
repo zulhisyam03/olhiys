@@ -19,7 +19,15 @@
     <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="../../assets/css/argon-dashboard.css" rel="stylesheet" />
-    <script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="../../css/trix.css">
+    <script type="text/javascript" src="../../js/trix.js"></script>
+
+    <style type="text/css">
+        trix-toolbar [data-trix-button-group="file-tools"]{
+            display: none;
+        }
+    </style>
 </head>
 
 <body class="{{ $class ?? '' }}">

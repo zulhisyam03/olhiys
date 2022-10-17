@@ -40,7 +40,7 @@
                                 <thead>
                                     <tr>
                                         <th colspan="3">
-                                            <a href="create-berita/">
+                                            <a href="berita/create">
                                                 <button class="btn btn-primary" style="width: 100%;align:center;">+ Tambah Berita</button>
                                             </a>
                                         </th>
@@ -64,7 +64,7 @@
                                                             alt="user1">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <a href="berita\{{ $berita->id }}" class="judul">
+                                                        <a href="berita\post\{{ $berita->id }}" class="judul">
                                                             {{ $berita->title }}
                                                             <p class="text-xs text-secondary mb-0">{{ $berita->author }}</p>    
                                                         </a>                                    
@@ -75,10 +75,12 @@
                                                 <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse($berita->tgl_post)->format('l, d M Y H:i:s') }}</p>
                                             </td>
                                             <td class="align-middle">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
-                                                </a>
+                                                <button class="badge bg-success border-0"><i class="fas fa-edit"></i></button>
+                                                <form action="../berita/{{ $berita->id }}" method="post" class="d-inline">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button class="badge bg-danger border-0" onclick="return confirm('Yakin Hapus Data?')"><i class="fas fa-trash-alt"></i></button>
+                                                </form>                                                
                                             </td>
                                         </tr>
                                     @endforeach

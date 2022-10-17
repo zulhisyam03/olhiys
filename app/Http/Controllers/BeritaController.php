@@ -28,6 +28,7 @@ class BeritaController extends Controller
     public function create()
     {
         //
+        return view('pages.createBerita');
     }
 
     /**
@@ -93,8 +94,11 @@ class BeritaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Berita $berita)
     {
         //
+        dd($berita);
+        Berita::destroy($berita->id); 
+        return redirect('/berita')->with('succes','Sukses Hapus Data !!!');
     }
 }

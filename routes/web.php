@@ -41,15 +41,12 @@ Route::get('/admin', function () {return redirect('/dashboard');})->middleware('
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/galery', [PostController::class, 'index']);
 	Route::get('/berita', [BeritaController::class, 'index']);
-	Route::get('/berita/new', [BeritaController::class, 'index']);
+	
 	//Halaman Single Post Berita
-	Route::get('/berita/{id}', [BeritaController::class, 'show']);
-	Route::get('/news', function(){	return view('pages.news');});
-	Route::get('/create-berita/', function(){return view('pages.create-berita');});
-	Route::post('/berita/new', [BeritaController::class, 'store']);
+	Route::get('/berita/post/{id}', [BeritaController::class, 'show']);
 
-	Route::get('/lihat', function(){return view('test');});
-
+	//Resource Berita untuk menangani Method tiap Form
+	Route::resource('berita/', BeritaController::class)->middleware('auth');
 	
 	Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');
 	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');

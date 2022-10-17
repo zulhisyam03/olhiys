@@ -17,7 +17,7 @@
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="card-body">
-                            <form action="../berita/new/" method="POST">
+                            <form action="../berita/" method="POST">
                                 @csrf
                                 <input type="hidden" name="author" value="Admin">
                                 <div class="form-group">

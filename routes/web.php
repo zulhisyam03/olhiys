@@ -48,6 +48,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/create-berita/', function(){return view('pages.create-berita');});
 	Route::post('/berita/new', [BeritaController::class, 'store']);
 
+	Route::get('/lihat', function(){return view('test');});
+
 	
 	Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');
 	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');

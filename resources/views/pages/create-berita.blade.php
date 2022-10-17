@@ -17,15 +17,27 @@
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="card-body">
-                            <form action="" method="POST" role="form">
+                            <form action="../berita/new/" method="POST">
                                 @csrf
+                                <input type="hidden" name="author" value="Admin">
                                 <div class="form-group">
                                     <label class="label">JUDUL POSTINGAN</label>
-                                    <input type="text" class="form-control" name="judul" placeholder="Judul Postingan">
+                                    <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="Judul Postingan" required value="{{ old('title') }}">
+                                    @error('title')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label class="label">POSTINGAN</label>
-                                    <textarea name="isiBerita" id="editorBerita" class="form-control" rows="4"></textarea>
+                                    <textarea name="body" id="editorBerita" class="form-control" rows="4">{{ old('body') }}</textarea>
+                                    <div class="@error('body') is-invalid @enderror"></div>
+                                    @error('body')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>    
                                 <div class="form-group">
                                     <input type="submit" value="Save" class="btn btn-primary">

@@ -22,10 +22,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ChangePassword;   
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserProfileController;
-use App\Http\Controllers\BeritaController;
 
 
 Route::get('/admin', function () {return redirect('/dashboard');})->middleware('auth');
@@ -40,11 +40,14 @@ Route::get('/admin', function () {return redirect('/dashboard');})->middleware('
 	Route::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/galery', [PostController::class, 'index']);
-	Route::get('/berita', [PostController::class, 'indexBerita']);
+	Route::get('/berita', [BeritaController::class, 'index']);
+	Route::get('/berita/new', [BeritaController::class, 'index']);
 	//Halaman Single Post Berita
-	Route::get('/berita/{id}', [PostController::class, 'showPost']);
+	Route::get('/berita/{id}', [BeritaController::class, 'show']);
 	Route::get('/news', function(){	return view('pages.news');});
-	Route::post('/form-berita', function(){return view('pages.form-berita');});
+	Route::get('/create-berita/', function(){return view('pages.create-berita');});
+	Route::post('/berita/new', [BeritaController::class, 'store']);
+
 	
 	Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');
 	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');
@@ -57,7 +60,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 	//Penyimpanan Data Berita Ke DB
-	Route::get('/form-berita',[BeritaController::class,'index'])->name('berita');
-	Route::post('/form-berita',[BeritaController::class,'store'])->name('berita.store');
 	
 });

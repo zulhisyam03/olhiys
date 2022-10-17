@@ -1,5 +1,6 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 @section('content')
+
 <style type="text/css">
     a.judul{
         color:rgb(125, 128, 125);
@@ -14,19 +15,28 @@
     @include('layouts.navbars.auth.topnav', ['title' => 'Berita'])
 
     <div class="container-fluid py-4">
+        
+            @if ($message = session()->has('succes'))
+            <div class="px-4 pt-4">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <p class="text-white mb-0">{{ session()->get('succes') }}</p>
+                </div>
+            </div>
+            @endif
+
         <div class="row">
-            <div class="col-12">SS
+            <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
                         <h6>Daftar Berita</h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
-                        <div class="table-responsive p-0">                            
+                        <div class="table-responsive p-0">                              
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
                                         <th colspan="3">
-                                            <a href="/form-berita">
+                                            <a href="create-berita/">
                                                 <button class="btn btn-primary" style="width: 100%;align:center;">+ Tambah Berita</button>
                                             </a>
                                         </th>

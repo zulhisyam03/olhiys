@@ -32,7 +32,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="label">POSTINGAN</label>
-                                    <textarea name="body" id="editorBerita" class="form-control" rows="4">{{ old('body', $berita->body) }}</textarea>
+                                    <input id="body" type="hidden" name="body" value="{{ old('body',$berita->body) }}">
+                                    <trix-editor input="body"></trix-editor>
                                     <div class="@error('body') is-invalid @enderror"></div>
                                     @error('body')
                                         <div class="invalid-feedback">
@@ -52,4 +53,9 @@
         
         @include('../layouts.footers.auth.footer')
     </div>
+    <script>
+        document.addEventListener('trix-file-accept', function(e){
+        e.preventDefaulth();
+        });
+     </script>
 @endsection

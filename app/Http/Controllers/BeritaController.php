@@ -17,7 +17,7 @@ class BeritaController extends Controller
     public function index(){
         return view('pages.berita', [
             "title"     =>  "Berita",
-            "dataBerita"=>  Berita::all()
+            "dataBerita"=>  Berita::orderBy('tgl_post','DESC')->get()
         ]);
     }
 

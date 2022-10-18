@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('author');
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->unique();
+            $table->string('image')->nullable();
             $table->timestamp('tgl_post');
             $table->text('body');
             $table->timestamps();

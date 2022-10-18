@@ -42,7 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/galery', [PostController::class, 'index']);
 	Route::get('/berita', [BeritaController::class, 'index']);
 	
-	//Resource Berita untuk menangani Method tiap Form
+	//Resource Berita untuk menangani Method tiap Form GET,POST,PATCH,DELETE,CREATE
 	Route::resource('/berita', BeritaController::class)->middleware('auth');
 	
 	Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');

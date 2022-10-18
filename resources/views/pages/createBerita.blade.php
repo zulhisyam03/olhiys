@@ -17,7 +17,7 @@
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="card-body">
-                            <form action="../../berita/" method="POST">
+                            <form action="../../berita/" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="author" value="Admin">                                
                                 <div class="form-group">
@@ -28,6 +28,10 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Gambar</label>
+                                    <input type="file" name="image" id="image" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label class="label">POSTINGAN</label>

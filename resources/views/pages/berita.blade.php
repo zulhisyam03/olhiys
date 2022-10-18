@@ -64,7 +64,7 @@
                                                             alt="user1">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <a href="berita\post\{{ $berita->slug }}" class="judul">
+                                                        <a href="berita\{{ $berita->slug }}" class="judul">
                                                             {{ $berita->title }}
                                                             <p class="text-xs text-secondary mb-0">{{ $berita->author }}</p>    
                                                         </a>                                    

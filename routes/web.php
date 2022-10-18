@@ -42,9 +42,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/galery', [PostController::class, 'index']);
 	Route::get('/berita', [BeritaController::class, 'index']);
 	
-	//Halaman Single Post Berita
-	Route::get('/berita/post/{slug}', [BeritaController::class, 'show']);
-
 	//Resource Berita untuk menangani Method tiap Form
 	Route::resource('/berita', BeritaController::class)->middleware('auth');
 	

@@ -40,7 +40,7 @@
                                 <thead>
                                     <tr>
                                         <th colspan="3">
-                                            <a href="berita/create">
+                                            <a href="../berita/create">
                                                 <button class="btn btn-primary" style="width: 100%;align:center;">+ Tambah Berita</button>
                                             </a>
                                         </th>

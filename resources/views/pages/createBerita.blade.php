@@ -17,9 +17,9 @@
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="card-body">
-                            <form action="../berita/" method="POST">
+                            <form action="../../berita/" method="POST">
                                 @csrf
-                                <input type="hidden" name="author" value="Admin">
+                                <input type="hidden" name="author" value="Admin">                                
                                 <div class="form-group">
                                     <label class="label">JUDUL POSTINGAN</label>
                                     <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="Judul Postingan" required value="{{ old('title') }}">
@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="label">POSTINGAN</label>
-                                    <input id="body" type="hidden" name="body">
+                                    <input id="body" type="hidden" name="body" value="{{ old('body') }}">
                                     <trix-editor input="body"></trix-editor>
                                     <div class="@error('body') is-invalid @enderror"></div>
                                     @error('body')

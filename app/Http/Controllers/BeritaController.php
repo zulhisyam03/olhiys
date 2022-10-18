@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -40,14 +41,19 @@ class BeritaController extends Controller
     public function store(Request $request)
     {
         //
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required|min:5',
-            'slug' => 'required|unique:beritas',
+            'slug' =>  'min:5|unique:beritas',
             'body' => 'required',
             'author' => 'required'
         ]);
 
-        Berita::create($validated);
+        Berita::create([
+            'title' => $request->title,
+            'author' => $request->author,
+            'body' => $request->body,
+            'slug'  => Str::slug($request->title,'-')//Membuat Slug Ketika Di Inputkan Ke Database
+        ]);
         return redirect('/berita')->with('succes','Sukses Posting Berita Baru !!!');
     }
 
@@ -90,7 +96,12 @@ class BeritaController extends Controller
     public function update(Request $request, $id)
     {
         $berita =Berita::find($id);
-        $input = $request->all();
+        $input = ([
+            'title' => $request->title,
+            'author' => $request->author,
+            'slug' => Str::slug($request->title,'-'), //Membuat Slug Ketika Di Inputkan Ke Database
+            'body' => $request->body,
+        ]);
         $berita->update($input);
 
         return redirect('/berita')->with('succes','Sukses Ubah Data !!!');

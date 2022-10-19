@@ -30,8 +30,16 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label class="label">Gambar</label>
-                                    <input type="file" name="image" id="image" class="form-control">
+                                    <label for='image' class="form-label">GAMBAR POSTINGAN</label>
+                                    <div class="divImg" style="position: absolute;">
+                                        <img src="" class="img-preview img-fluid mb-3 col-sm-2">
+                                    </div>
+                                    <input type="file" name="image" id="image" onchange="previewImage()" class="form-control @error('image') is-invalid @enderror">
+                                    @error('image')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label class="label">POSTINGAN</label>
@@ -61,5 +69,24 @@
         document.addEventListener('trix-file-accept', function(e){
         e.preventDefaulth();
         });
+
+        //Membuat Preview Image
+        function previewImage(){
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview');
+            const divImg = document.querySelector('.divImg');
+
+            imgPreview.style.display = 'blok';
+            divImg.style.position = 'relative';
+            
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent){
+                imgPreview.src = oFREvent.target.result;                  
+            }
+        }
+        
      </script>
 @endsection

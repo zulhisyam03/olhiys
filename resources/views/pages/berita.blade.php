@@ -78,7 +78,7 @@
                                                 <a href="berita\{{ $berita->slug }}\edit">
                                                     <button class="badge bg-success border-0"><i class="fas fa-edit"></i></button>
                                                 </a>
-                                                <form action="berita\{{ $berita->title }}" method="post" class="d-inline">
+                                                <form action="berita\{{ $berita->slug }}" method="post" class="d-inline">
                                                     @method('delete')
                                                     @csrf
                                                     <button class="badge bg-danger border-0" onclick="return confirm('Yakin Hapus Data?')"><i class="fas fa-trash-alt"></i></button>

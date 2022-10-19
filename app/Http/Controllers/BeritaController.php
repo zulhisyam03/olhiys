@@ -41,18 +41,28 @@ class BeritaController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
+        $validated = $request->validate([
             'title' => 'required|min:5',
             'slug' =>  'min:5|unique:beritas',
+            'image' => 'image|file|max:1024',
             'body' => 'required',
             'author' => 'required'
         ]);
 
+        //Membuat Slug Ketika Di Inputkan Ke Database
+        $validated['slug'] = Str::slug($request->title,'-'); 
+
+        $new_nameFile = $validated['slug'].'.'.$validated['image']->getClientOriginalExtension();
+        if($request->file('image')){
+            $validated['image'] = $request->file('image')->storeAs('upload-images', $new_nameFile);
+        }
+        
         Berita::create([
-            'title' => $request->title,
-            'author' => $request->author,
-            'body' => $request->body,
-            'slug'  => Str::slug($request->title,'-')//Membuat Slug Ketika Di Inputkan Ke Database
+            'title' => $validated['title'],
+            'author' => $validated['author'],
+            'image' => $validated['image'],
+            'body' => $validated['body'],
+            'slug'  => $validated['slug'] 
         ]);
         return redirect('/berita')->with('succes','Sukses Posting Berita Baru !!!');
     }
@@ -113,11 +123,12 @@ class BeritaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($berita)
+    public function destroy($slug)
     {
         //
         
-        Berita::destroy($berita); 
+        $hapus = Berita::where('slug',$slug)->first(); 
+        $hapus->delete();
         return redirect('/berita')->with('succes','Sukses Hapus Data !!!');
     }
 }

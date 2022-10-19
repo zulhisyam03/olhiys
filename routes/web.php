@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
 	
 	//Resource Berita untuk menangani Method tiap Form GET,POST,PATCH,DELETE,CREATE
 	Route::resource('/berita', BeritaController::class)->middleware('auth');
+	Route::get('/news', function() {return redirect('/berita');});
 	
 	Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');
 	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');

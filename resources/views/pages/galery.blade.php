@@ -5,11 +5,11 @@
 
     <style type="text/css">
         /* FORM UPLOAD CSS */
-        form.upload{
+        /* .upload{
+        border: 4px dashed #09b955;
         position: relative;
         width: 100%;
-        height: 100px;
-        border: 4px dashed #09b955;
+        height: 100px;        
         border-radius: 8px;
         }
         form p{
@@ -20,14 +20,30 @@
         color: #060505;
         font-family: Arial;
         }
-        form input{
-        position: absolute;
+        .uploadImg{  
+        position: absolute;      
         margin: 0;
         padding: 0;
         width: 100%;
         height: 100%;
         outline: none;
         opacity: 0;
+        } */
+        .upload{
+            outline: none;      
+            border-radius: 8px;       
+            height: 100px;
+            opacity: 100;
+            border: 4px dashed #09b955;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .textUpload{
+            position: absolute;
+            left:0;
+            padding-top:35px;
+            width: 100%;
+            height: 100px;
         }
         form button{
         margin: 0;
@@ -62,12 +78,30 @@
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
                             <div style="position: relative;padding:10px;min-height:500px;c">
-                                <form class="upload" action="upload.php" method="POST" enctype="multipart/form-data">
-                                    <input type="file" multiple name="gambar[]" accept="image/*">
-                                    <p>Drag your files here or click in this area.</p>
-                                    <button type="submit">Upload</button>
+                                <form class="" action="/galery" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group col-sm-5">
+                                        <label for="title" class="col-form-label">
+                                            JUDUL GAMBAR
+                                        </label>
+                                        <input type="text" name="title" class="form-control d-inline @error('title') is-invalid @enderror">
+                                        @error('title')
+                                            {{ $message }}
+                                        @enderror                                       
+                                    </div>    
+                                    <div class="form-group">     
+                                        <div class="upload">
+                                            <span class="textUpload">
+                                                <p>Drag your files here or click in this area.</p>
+                                            </span>                                            
+                                            <input type="file" style="height:100%;opacity:0;" multiple name="gambar[]" class="form-control @error('gambar') is-invalid @enderror">                                            
+                                        </div>                                                                                                                   
+                                        <button type="submit">Upload</button>
+                                        @error('gambar')
+                                            {{ $message }}
+                                        @enderror  
+                                    </div>                                                                              
                                 </form>
-                                <br>&nbsp;
                                 <hr style="border:4px solid #09b955;">
                                 <br>
                                 <center>

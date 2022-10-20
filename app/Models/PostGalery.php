@@ -11,7 +11,6 @@ class PostGalery extends Model
 
     protected $fillable = [
         'title',
-        'tipe',
         'temp'
     ];
 }

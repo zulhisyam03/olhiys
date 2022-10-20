@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for='image' class="form-label">GAMBAR POSTINGAN</label>
-                                    <img src="" class="img-preview img-fluid mb-3 col-sm-2 d-block">
+                                    <img class="img-preview img-fluid mb-3 col-sm-2 d-block">
                                     <input type="file" name="image" id="image" onchange="previewImage()" class="form-control @error('image') is-invalid @enderror">
                                     @error('image')
                                         <div class="invalid-feedback">
@@ -72,11 +72,8 @@
         function previewImage(){
             const image = document.querySelector('#image');
             const imgPreview = document.querySelector('.img-preview');
-            const divImg = document.querySelector('.divImg');
 
-            imgPreview.style.display = 'blok';
-            divImg.style.position = 'relative';
-            
+            imgPreview.style.display = 'blok';            
 
             const oFReader = new FileReader();
             oFReader.readAsDataURL(image.files[0]);

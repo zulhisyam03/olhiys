@@ -39,8 +39,18 @@ class GaleryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $validated = $request->validate([
+            'title' => 'required',
+            'gambar'=> 'image|file|max:1024'
+        ]);
+
+            return ($validated('gambar')[1]);
+        foreach ($request->gambar as $key => $value) {
+            # code...            
+            
+            // PostGalery::create($validated);
+        }
     }
 
     /**

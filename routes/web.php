@@ -20,7 +20,7 @@ Route::get('/', function () {
 use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ChangePassword;   
@@ -39,7 +39,7 @@ Route::get('/admin', function () {return redirect('/dashboard');})->middleware('
 	Route::post('/change-password', [ChangePassword::class, 'update'])->middleware('guest')->name('change.perform');
 	Route::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::group(['middleware' => 'auth'], function () {
-	Route::get('/galery', [PostController::class, 'index']);
+	Route::get('/galery', [GaleryController::class, 'index']);
 	Route::get('/berita', [BeritaController::class, 'index']);
 	
 	//Resource Berita untuk menangani Method tiap Form GET,POST,PATCH,DELETE,CREATE

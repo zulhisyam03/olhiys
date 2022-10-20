@@ -14,9 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('post_galeries', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('tipe');
+            $table->id()->unique();
+            $table->string('title')->nullable();
             $table->string('temp');
             $table->timestamps();
         });

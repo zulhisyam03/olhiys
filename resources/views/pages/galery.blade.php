@@ -73,12 +73,9 @@
                                 <center>
                                     <table align="center" style="text-align: center;border:1px;width:100%;">
                                         <tr>
-                                            @foreach ($galery as $galeri)
-                                                <td><img style="width:100px;height:100px;" src="{{ $galeri->temp }}{{ $galeri->title }}.{{ $galeri->tipe }}" alt=""></td>
+                                            @foreach ($Galery as $galeri)
+                                                <td><img class="img-fluid col-sm-10" src="{{ $galeri->temp }}" alt=""></td>
                                             @endforeach
-                                            <td>Gambar 3</td>
-                                            <td>Gambar 4</td>
-                                            <td>Gambar 5</td>
                                         </tr>
                                     </table>
                                 </center>

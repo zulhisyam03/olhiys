@@ -54,8 +54,12 @@ class BeritaController extends Controller
         $validated['slug'] = Str::slug($request->title,'-'); 
         
         if($request->file('image')){
-            $new_nameFile = $validated['slug'].'.'.$validated['image']->getClientOriginalExtension();
-            $validated['image'] = $request->file('image')->storeAs('upload-images', $new_nameFile);
+            // ===== JIKA INGIN MENGUBAH NAMA FILE GAMBAR SESUAI DENGAN SLUG =====
+            // $new_nameFile = $validated['slug'].'.'.$validated['image']->getClientOriginalExtension();
+            // $validated['image'] = $request->file('image')->storeAs('upload-images', $new_nameFile);
+            //============================= END ========================
+            
+            $validated['image'] = $request->file('image')->store('upload-images');
         }
         
         Berita::create($validated);
@@ -117,8 +121,8 @@ class BeritaController extends Controller
                 # code...
                 Storage::delete($request->oldImage);
             }
-            $new_nameFile = $validated['slug'].'.'.$validated['image']->getClientOriginalExtension();
-            $validated['image'] = $request->file('image')->storeAs('upload-images', $new_nameFile);
+            
+            $validated['image'] = $request->file('image')->store('upload-images');
         }
 
         $berita =Berita::find($id);

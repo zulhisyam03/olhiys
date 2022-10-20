@@ -31,9 +31,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for='image' class="form-label">GAMBAR POSTINGAN</label>
-                                    <div class="divImg" style="position: absolute;">
-                                        <img src="" class="img-preview img-fluid mb-3 col-sm-2">
-                                    </div>
+                                    <img src="" class="img-preview img-fluid mb-3 col-sm-2 d-block">
                                     <input type="file" name="image" id="image" onchange="previewImage()" class="form-control @error('image') is-invalid @enderror">
                                     @error('image')
                                         <div class="invalid-feedback">

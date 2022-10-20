@@ -6,6 +6,7 @@ use App\Models\Berita;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class BeritaController extends Controller
 {
@@ -44,26 +45,20 @@ class BeritaController extends Controller
         $validated = $request->validate([
             'title' => 'required|min:5',
             'slug' =>  'min:5|unique:beritas',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:1024|nullable',
             'body' => 'required',
             'author' => 'required'
         ]);
 
         //Membuat Slug Ketika Di Inputkan Ke Database
         $validated['slug'] = Str::slug($request->title,'-'); 
-
-        $new_nameFile = $validated['slug'].'.'.$validated['image']->getClientOriginalExtension();
+        
         if($request->file('image')){
+            $new_nameFile = $validated['slug'].'.'.$validated['image']->getClientOriginalExtension();
             $validated['image'] = $request->file('image')->storeAs('upload-images', $new_nameFile);
         }
         
-        Berita::create([
-            'title' => $validated['title'],
-            'author' => $validated['author'],
-            'image' => $validated['image'],
-            'body' => $validated['body'],
-            'slug'  => $validated['slug'] 
-        ]);
+        Berita::create($validated);
         return redirect('/berita')->with('succes','Sukses Posting Berita Baru !!!');
     }
 
@@ -105,15 +100,30 @@ class BeritaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $berita =Berita::find($id);
-        $input = ([
-            'title' => $request->title,
-            'author' => $request->author,
-            'slug' => Str::slug($request->title,'-'), //Membuat Slug Ketika Di Inputkan Ke Database
-            'body' => $request->body,
-        ]);
-        $berita->update($input);
 
+        $validated = $request->validate([
+            'title' => 'required|min:5',
+            'slug' =>  'min:5|unique:beritas',
+            'image' => 'image|file|max:1024',
+            'body' => 'required',
+            'author' => 'required'
+        ]);
+
+        //Membuat Slug Ketika Di Inputkan Ke Database
+        $validated['slug'] = Str::slug($request->title,'-');
+        
+        if($request->file('image')){
+            if ($request->oldImage) {
+                # code...
+                Storage::delete($request->oldImage);
+            }
+            $new_nameFile = $validated['slug'].'.'.$validated['image']->getClientOriginalExtension();
+            $validated['image'] = $request->file('image')->storeAs('upload-images', $new_nameFile);
+        }
+
+        $berita =Berita::find($id);
+        $input = ($validated);
+        $berita->update($input);
         return redirect('/berita')->with('succes','Sukses Ubah Data !!!');
     }
 
@@ -129,6 +139,7 @@ class BeritaController extends Controller
         
         $hapus = Berita::where('slug',$slug)->first(); 
         $hapus->delete();
+        Storage::delete($hapus->image);
         return redirect('/berita')->with('succes','Sukses Hapus Data !!!');
     }
 }

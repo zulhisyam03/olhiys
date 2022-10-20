@@ -40,6 +40,7 @@ Route::get('/admin', function () {return redirect('/dashboard');})->middleware('
 	Route::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/berita', [BeritaController::class, 'index']);
+	Route::get('/galery', [GaleryController::class, 'index']);
 	
 	//Resource Berita untuk menangani Method tiap Form GET,POST,PATCH,DELETE,CREATE
 	Route::resource('/galery', GaleryController::class)->middleware('auth');

@@ -14,10 +14,10 @@
             margin-bottom: 10px;
         }
         .textUpload{
-            border: 2px solid blue;
             position: absolute;
+            padding-top:35px;
             left:0;
-            margin-top:-100px;
+            margin-top:0x;
             width: 100%;
             height: 100px;
         }
@@ -49,6 +49,18 @@
     </style>
 
     <div class="container-fluid py-4">
+        @if ($message = session()->has('succes'))
+            <div class="px-4 pt-4">
+                <div style="color:white;" class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check"></i>
+                    {{ session()->get('succes') }}
+                    <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+            </div>
+            @endif
+
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4">
@@ -70,11 +82,11 @@
                                         @enderror                                       
                                     </div>    
                                     <div class="form-group">     
-                                        <div class="upload">                                                                                        
-                                            <input type="file" name="gambar" id="" class="form-control tombolInput @error('gambar') is-invalid @enderror">
+                                        <div class="upload">                     
                                             <span class="textUpload">
                                                 <p>Drag your files here or click in this area.</p>
-                                            </span>
+                                            </span>                                                                   
+                                            <input type="file" name="gambar" multiple class="form-control tombolInput @error('gambar') is-invalid @enderror">                                            
                                         </div>
                                         
                                         @error('gambar')

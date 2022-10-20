@@ -42,8 +42,22 @@ class GaleryController extends Controller
     {   
         $validated = $request->validate([
             'title' => 'required',
-            'gambar'=> 'image|file|max:1024|required'
+            'gambar.*'=> 'image|file|max:1024|required'
         ]);
+
+        $images = [];
+        
+        foreach ($images as $key => $value) {
+            # code...
+            $input=[
+                'title' => $request->title,
+                'image' => $value 
+            ];
+
+            Galery::create($input);
+        }
+
+        return redirect('/galery')->with('succes','Sukses Tambah Galery !!!');
     }
 
     /**

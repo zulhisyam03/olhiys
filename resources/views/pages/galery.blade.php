@@ -70,11 +70,11 @@
                                                 <p>Drag your files here or click in this area.</p>
                                             </span>                                            
                                             <input type="file" style="height:100%;opacity:0;" multiple name="gambar[]" class="form-control @error('gambar') is-invalid @enderror">                                            
-                                        </div>                                                                                                                   
-                                        <button type="submit">Upload</button>
+                                        </div>         
                                         @error('gambar')
                                             {{ $message }}
-                                        @enderror  
+                                        @enderror                                                                                                           
+                                        <button type="submit">Upload</button>                                         
                                     </div>                                                                              
                                 </form>
                                 <hr style="border:4px solid #09b955;">
@@ -83,7 +83,7 @@
                                     <table align="center" style="text-align: center;border:1px;width:100%;">
                                         <tr>
                                             @foreach ($Galery as $galeri)
-                                                <td><img class="img-fluid col-sm-10" src="{{ $galeri->temp }}" alt=""></td>
+                                                <td><img class="img-fluid col-sm-10" src="{{ $galeri->image }}" alt=""></td>
                                             @endforeach
                                         </tr>
                                     </table>

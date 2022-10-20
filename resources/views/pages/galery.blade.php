@@ -4,31 +4,6 @@
     @include('layouts.navbars.auth.topnav', ['title' => 'Galery'])
 
     <style type="text/css">
-        /* FORM UPLOAD CSS */
-        /* .upload{
-        border: 4px dashed #09b955;
-        position: relative;
-        width: 100%;
-        height: 100px;        
-        border-radius: 8px;
-        }
-        form p{
-        width: 100%;
-        height: 100%;
-        text-align: center;
-        line-height: 90px;
-        color: #060505;
-        font-family: Arial;
-        }
-        .uploadImg{  
-        position: absolute;      
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        outline: none;
-        opacity: 0;
-        } */
         .upload{
             outline: none;      
             border-radius: 8px;       

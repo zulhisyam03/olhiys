@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PostGalery;
+use App\Models\Galery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -18,7 +18,7 @@ class GaleryController extends Controller
         //
         return view('pages.galery',[
             'title'  => 'Galery',
-            'Galery' => PostGalery::all()
+            'Galery' => Galery::all()
         ]);
     }
 

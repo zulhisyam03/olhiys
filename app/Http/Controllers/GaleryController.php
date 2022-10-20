@@ -42,15 +42,8 @@ class GaleryController extends Controller
     {   
         $validated = $request->validate([
             'title' => 'required',
-            'gambar'=> 'image|file|max:1024'
+            'gambar'=> 'image|file|max:1024|required'
         ]);
-
-            return ($validated('gambar')[1]);
-        foreach ($request->gambar as $key => $value) {
-            # code...            
-            
-            // PostGalery::create($validated);
-        }
     }
 
     /**

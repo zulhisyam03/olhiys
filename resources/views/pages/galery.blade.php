@@ -14,11 +14,16 @@
             margin-bottom: 10px;
         }
         .textUpload{
+            border: 2px solid blue;
             position: absolute;
             left:0;
-            padding-top:35px;
+            margin-top:-100px;
             width: 100%;
             height: 100px;
+        }
+        .tombolInput{
+            opacity: 0;
+            height: 100%;
         }
         form button{
         margin: 0;
@@ -65,12 +70,13 @@
                                         @enderror                                       
                                     </div>    
                                     <div class="form-group">     
-                                        <div class="upload">
+                                        <div class="upload">                                                                                        
+                                            <input type="file" name="gambar" id="" class="form-control tombolInput @error('gambar') is-invalid @enderror">
                                             <span class="textUpload">
                                                 <p>Drag your files here or click in this area.</p>
-                                            </span>                                            
-                                            <input type="file" style="height:100%;opacity:0;" multiple name="gambar[]" class="form-control @error('gambar') is-invalid @enderror">                                            
-                                        </div>         
+                                            </span>
+                                        </div>
+                                        
                                         @error('gambar')
                                             {{ $message }}
                                         @enderror                                                                                                           

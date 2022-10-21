@@ -112,7 +112,7 @@
                                     <table width='100%'>
                                         <tr>                                                                         
                                             @foreach ($Galery as $galeri)
-                                                <th>             
+                                                <th style="width:20%">             
                                                     <div class="portfolio-item">
                                                         <div class="portfolio-thumb imgGaleri">
                                                           <img src="storage/{{ $galeri->image }}" alt="{{ $galeri->title }}" style="width: 100%;height:100%;">

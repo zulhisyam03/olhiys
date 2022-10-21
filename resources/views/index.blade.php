@@ -282,22 +282,22 @@ ddsmoothmenu.init({
             <div class="container">
            	  <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
               	<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/1.jpg" alt="portfolio 1">
-								<div class="overlay-p">
-									<a href="images/portfolio/1.jpg" data-rel="lightbox[portfolio]">
-                                    	<ul>
-                                        	<li>Blue Sky</li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-search fa-2x"></li>
-                                        </ul>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-						</div>
+                  <div class="portfolio-thumb">
+                    <img src="images/portfolio/1.jpg" alt="portfolio 1">
+                    <div class="overlay-p">
+                      <a href="images/portfolio/1.jpg" data-rel="lightbox[portfolio]">
+                          <ul>
+                              <li>Blue Sky</li>
+                                <li class="fa fa-circle"></li>
+                                <li class="fa fa-circle fsmall"></li>
+                                <li class="fa fa-circle"></li>
+                                <li class="fa fa-circle fsmall"></li>
+                                <li class="fa fa-search fa-2x"></li>
+                          </ul>
+                      </a>
+                    </div>
+							  </div> <!-- /.portfolio-thumb -->
+						  </div>
       
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              

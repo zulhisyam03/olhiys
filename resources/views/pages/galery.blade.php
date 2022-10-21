@@ -1,9 +1,20 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
+
+
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Galery'])
 
     <style type="text/css">
+        .imgGaleri{
+            width: 100%;
+            height: 150px;
+        }
+        .img-fluid:hover{
+            width: 120px;
+            height: 120px;
+            cursor: pointer;
+        }
         .upload{
             outline: none;      
             border-radius: 8px;       
@@ -72,7 +83,7 @@
                             <div style="position: relative;padding:10px;min-height:500px;c">
                                 <form class="" action="/galery" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    <div class="form-group col-sm-5">
+                                    <div class="form-group">
                                         <label for="title" class="col-form-label">
                                             JUDUL GAMBAR
                                         </label>
@@ -86,7 +97,7 @@
                                             <span class="textUpload">
                                                 <p>Drag your files here or click in this area.</p>
                                             </span>                                                                   
-                                            <input type="file" name="gambar" multiple class="form-control tombolInput @error('gambar') is-invalid @enderror">                                            
+                                            <input type="file" name="gambar[]" multiple class="form-control tombolInput @error('gambar') is-invalid @enderror">                                            
                                         </div>
                                         
                                         @error('gambar')
@@ -97,24 +108,45 @@
                                 </form>
                                 <hr style="border:4px solid #09b955;">
                                 <br>
-                                <center>
-                                    <table align="center" style="text-align: center;border:1px;width:100%;">
-                                        <tr>
+                            
+                                    <table width='100%'>
+                                        <tr>                                                                         
                                             @foreach ($Galery as $galeri)
-                                                <td><img class="img-fluid col-sm-10" src="{{ $galeri->image }}" alt=""></td>
-                                            @endforeach
+                                                <th>             
+                                                    <div class="portfolio-item">
+                                                        <div class="portfolio-thumb imgGaleri">
+                                                          <img src="storage/{{ $galeri->image }}" alt="{{ $galeri->title }}" style="width: 100%;height:100%;">
+                                                          <div class="overlay-p">
+                                                            <a href="storage/{{ $galeri->image }}" data-rel="lightbox[portfolio]">
+                                                                <ul>
+                                                                    <li></li>
+                                                                    <li class="fa fa-circle"></li>
+                                                                    {{-- <li class="fa fa-circle fsmall"></li>
+                                                                    <li class="fa fa-circle"></li> --}}
+                                                                    <li class="fa fa-circle fsmall"></li>
+                                                                    <li class="fa fa-search fa-2x"></li>
+                                                                </ul>
+                                                            </a>
+                                                          </div>
+                                                        </div> <!-- /.portfolio-thumb -->
+                                                    </div>            
+                                                </th>
+                                            @endforeach                                        
                                         </tr>
                                     </table>
-                                </center>
+                               
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         @include('layouts.footers.auth.footer')
     </div>
+
+    <script src="js/bootstrap.min.js"></script>
+
     <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script type="text/javascript">
         $(document).ready(function(){
@@ -123,4 +155,16 @@
             });
         });
     </script>
+  
+  {{-- Modal Galeri Popup --}}
+    <script type="text/javascript">
+        $(window).load(function() {
+            $('#slider').nivoSlider({
+                prevText: '',
+                nextText: '',
+                controlNav: false,
+            });
+        });
+    </script>
+    
 @endsection

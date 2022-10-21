@@ -45,17 +45,24 @@ class GaleryController extends Controller
             'gambar.*'=> 'image|file|max:1024|required'
         ]);
 
-        $images = [];
         
-        foreach ($images as $key => $value) {
-            # code...
-            $input=[
-                'title' => $request->title,
-                'image' => $value 
-            ];
+        if($request->hasfile('gambar')){
+            foreach ($request->file('gambar') as $img) {
+                # code...
+                $image_name = time().'-'.md5(rand(1000, 10000));
+                $ext        = strtolower($img->getClientOriginalExtension());
+                $imgFullName= $image_name.'.'.$ext;
+                $path       = 'upload-images/galery/';
 
-            Galery::create($input);
-        }
+                $images = $path.$imgFullName; //Untuk Di Isi ke Fiel Image pada Tabel
+                $img->storeAs($path,$imgFullName); 
+
+                Galery::create([
+                    'image' => $images,
+                    'title' => $request->title
+                ]);
+            }            
+        } 
 
         return redirect('/galery')->with('succes','Sukses Tambah Galery !!!');
     }

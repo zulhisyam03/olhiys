@@ -18,6 +18,15 @@
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
+    <link href="../../css/templatemo_style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/templatemo_misc.css">
+
+    {{-- MODAL GALERI POPUP --}}
+    <link rel="stylesheet" href="../../css/slimbox2.css" type="text/css" media="screen" /> 
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,600' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/JavaScript" src="../../js/slimbox2.js"></script> 
+
     <link id="pagestyle" href="../../assets/css/argon-dashboard.css" rel="stylesheet" />
     
     <link rel="stylesheet" type="text/css" href="../../css/trix.css">

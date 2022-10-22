@@ -19,7 +19,8 @@ class GaleryController extends Controller
         //
         return view('pages.galery',[
             'title'  => 'Galery',
-            'Galery' => Galery::all()
+            'Galery' => Galery::all(),
+            'jmlGalery' => Galery::count()
         ]);
     }
 

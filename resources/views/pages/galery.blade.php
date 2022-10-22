@@ -6,6 +6,23 @@
     @include('layouts.navbars.auth.topnav', ['title' => 'Galery'])
 
     <style type="text/css">
+        .row{
+            display: flex;
+            flex-wrap: wrap;
+            padding:0;
+            width:99%;
+            margin-left:1%;            
+            padding-right: 4px;
+        }
+        .column{
+            max-width: 20%;
+        }
+        @media screen and (max-width:600px){
+            .column{
+                max-width:100%;
+                flex: 100%;
+            }
+        }
         .imgGaleri{
             width: 100%;
             height: 150px;
@@ -107,36 +124,32 @@
                                     </div>                                                                              
                                 </form>
                                 <hr style="border:4px solid #09b955;">
-                                <br>
-                            
-                                    <table width='100%'>
-                                        <tr>                                                                         
-                                            @foreach ($Galery as $galeri)
-                                                <th style="width:20%;bottom:0;">             
-                                                    <div class="portfolio-item">
-                                                        <div class="portfolio-thumb imgGaleri">
-                                                            <img src="storage/{{ $galeri->image }}" alt="{{ $galeri->title }}" style="width: 100%;height:100%;">
-                                                            <div class="overlay-p">
-                                                                <a href="storage/{{ $galeri->image }}" data-rel="lightbox[portfolio]" style="padding-top:20%;height:100%;">
-                                                                    <ul>
-                                                                        <li class="fa-solid fa-magnifying-glass-plus fa-2xl"></i>
-                                                                    </ul>
-                                                                </a>                                                                                                                              
-                                                            </div>                                                                                                                                                                                                                                              
-                                                        </div> <!-- /.portfolio-thumb -->
-                                                    </div>
-                                                    <div style="margin-top:-20px;">
-                                                        <form action="galery\{{ $galeri->id }}" method="post">
-                                                            @method('delete')
-                                                            @csrf
-                                                            <button class="btn btn-danger" onclick="return confirm('Yakin Hapus Foto ?')"><i class="fa-solid fa-trash-can fa-lg"></i></button>
-                                                        </form> 
-                                                    </div>                                                                 
-                                                </th>
-                                            @endforeach                                        
-                                        </tr>
-                                    </table>
-                               
+                                <br>                                                                
+                                <div class="row">                                        
+                                    @foreach ($Galery as $galeri)
+                                            <div class="column">
+                                                <div class="portfolio-item">
+                                                    <div class="portfolio-thumb imgGaleri">
+                                                        <img src="storage/{{ $galeri->image }}" alt="{{ $galeri->title }}" style="width: 100%;height:100%;">
+                                                        <div class="overlay-p">
+                                                            <a href="storage/{{ $galeri->image }}" data-rel="lightbox[portfolio]" style="padding-top:20%;height:100%;">
+                                                                <ul>
+                                                                    <li class="fa-solid fa-magnifying-glass-plus fa-2xl"></i>
+                                                                </ul>
+                                                            </a>                                                                                                                              
+                                                        </div>                                                                                                                                                                                                                                              
+                                                    </div> <!-- /.portfolio-thumb -->
+                                                </div>
+                                                <div style="margin-top:-20px;">
+                                                    <form action="galery\{{ $galeri->id }}" method="post">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button class="btn btn-danger" onclick="return confirm('Yakin Hapus Foto ?')"><i class="fa-solid fa-trash-can fa-lg"></i></button>
+                                                    </form> 
+                                                </div>                                                                 
+                                            </div>
+                                        @endforeach 
+                                </div>                               
                             </div>
                         </div>
                     </div>

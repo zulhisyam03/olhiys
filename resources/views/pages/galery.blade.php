@@ -112,24 +112,26 @@
                                     <table width='100%'>
                                         <tr>                                                                         
                                             @foreach ($Galery as $galeri)
-                                                <th style="width:20%">             
+                                                <th style="width:20%;bottom:0;">             
                                                     <div class="portfolio-item">
                                                         <div class="portfolio-thumb imgGaleri">
-                                                          <img src="storage/{{ $galeri->image }}" alt="{{ $galeri->title }}" style="width: 100%;height:100%;">
-                                                          <div class="overlay-p">
-                                                            <a href="storage/{{ $galeri->image }}" data-rel="lightbox[portfolio]">
-                                                                <ul>
-                                                                    <li></li>
-                                                                    <li class="fa fa-circle"></li>
-                                                                    {{-- <li class="fa fa-circle fsmall"></li>
-                                                                    <li class="fa fa-circle"></li> --}}
-                                                                    <li class="fa fa-circle fsmall"></li>
-                                                                    <li class="fa fa-search fa-2x"></li>
-                                                                </ul>
-                                                            </a>
-                                                          </div>
+                                                            <img src="storage/{{ $galeri->image }}" alt="{{ $galeri->title }}" style="width: 100%;height:100%;">
+                                                            <div class="overlay-p">
+                                                                <a href="storage/{{ $galeri->image }}" data-rel="lightbox[portfolio]" style="padding-top:20%;height:100%;">
+                                                                    <ul>
+                                                                        <li class="fa-solid fa-magnifying-glass-plus fa-2xl"></i>
+                                                                    </ul>
+                                                                </a>                                                                                                                              
+                                                            </div>                                                                                                                                                                                                                                              
                                                         </div> <!-- /.portfolio-thumb -->
-                                                    </div>            
+                                                    </div>
+                                                    <div style="margin-top:-20px;">
+                                                        <form action="galery\{{ $galeri->id }}" method="post">
+                                                            @method('delete')
+                                                            @csrf
+                                                            <button class="btn btn-danger" onclick="return confirm('Yakin Hapus Foto ?')"><i class="fa-solid fa-trash-can fa-lg"></i></button>
+                                                        </form> 
+                                                    </div>                                                                 
                                                 </th>
                                             @endforeach                                        
                                         </tr>

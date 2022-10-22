@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Galery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class GaleryController extends Controller
 {
@@ -109,6 +110,10 @@ class GaleryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hapus = Galery::find($id);
+        Storage::delete($hapus->image);
+        $hapus->delete();
+
+        return redirect('/galery')->with('succes','Berhasil Menghapus Gambar !!!');
     }
 }

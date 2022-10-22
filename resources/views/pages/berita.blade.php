@@ -4,24 +4,32 @@
 <style type="text/css">
     a.judul{
         color:rgb(125, 128, 125);
-        font-size: 15px;
+        font-size: 13px;
         font-weight: bold;
-        font-family:Arial, Helvetica, sans-serif;
+        font-family:Arial, Helvetica, sans-serif;        
     }
     a.judul:hover{
         color:orangered;
     }
-    .table-non-responsive-new{
-        width:100%;        
+    .respon{
+        display: none;        
     }
-    @media screen and (max-width:600px){
-        .table-responsive-new{
+    .pict img{
+        padding-top:5px;
+        height: 120px;
+    }
+    @media screen and (max-width:1000px){
+        .respon{
+            padding-left: 10px;
+            padding-right: 10px;
             width:100%;
-            display:inline-block;
-            border:1px solid red;
+            display:block;
         }
-        .table-non-responsive-new{
-            visibility: hidden;
+        .respon th{
+            border-bottom: 1px solid rgba(86, 86, 86, 0.321);            
+        }
+        .utama{
+            display: none;
         }
     }
 </style>
@@ -47,78 +55,84 @@
                     <div class="card-header pb-0">
                         <h6>Daftar Berita</h6>
                     </div>
-                    <div class="card-body px-0 pt-0 pb-2" >
-                        <div class="table-responsive">            
+                    <div class="card-body px-0 pt-0 pb-2" >           
                             <div class="form-group" style="padding-left:10px;padding-right:10px;">
                                 <a href="../berita/create">
                                     <button class="btn btn-primary" style="width:100%;">+ Tambah Berita</button>
                                 </a>
-                            </div>   
-                            <div class="table-non-reponsive-new">
-                                <table class="table align-items-center mb-0">
-                                    <thead>                                    
-                                        <tr>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Judul</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Tgl. Terbit</th>
-                                            <th class="text-secondary opacity-7"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                
-                                        @foreach ($dataBerita as $berita)
-                                            <tr>
-                                                <td>
-                                                    <div class="d-flex px-2 py-1">
-                                                        <div>
-                                                            <img src="assets/img/logo-small.png" class="avatar avatar-sm me-3"
-                                                                alt="user1">
-                                                        </div>
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <a href="berita\{{ $berita->slug }}" class="judul">
-                                                                {{ $berita->title }}
-                                                                <p class="text-xs text-secondary mb-0">{{ $berita->author }}</p>    
-                                                            </a>                                    
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse($berita->tgl_post)->format('l, d M Y H:i:s') }}</p>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <a href="berita\{{ $berita->slug }}\edit">
-                                                        <button class="badge bg-success border-0"><i class="fas fa-edit"></i></button>
-                                                    </a>
-                                                    <form action="berita\{{ $berita->slug }}" method="post" class="d-inline">
-                                                        @method('delete')
-                                                        @csrf
-                                                        <button class="badge bg-danger border-0" onclick="return confirm('Yakin Hapus Data?')"><i class="fas fa-trash-alt"></i></button>
-                                                    </form>                                                
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="table-reponsive-new">
-                                <table class="table align-item-center" style="max-width:100%;">                                    
+                            </div>                           
+                            <table class="utama table align-items-center mb-0">
+                                <thead>                                    
+                                    <tr>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Judul</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                            Tgl. Terbit</th>
+                                        <th class="text-secondary opacity-7"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                            
                                     @foreach ($dataBerita as $berita)
-                                        <thead>
-                                            <tr>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Judul</th>
-                                            </tr>                               
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="assets/img/logo-small.png" class="avatar avatar-sm me-3"
+                                                            alt="user1">
+                                                    </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <a href="berita\{{ $berita->slug }}" class="judul">
+                                                            {{ Str::limit($berita->title,50,'...') }}
+                                                            <p class="text-xs text-secondary mb-0">{{ $berita->author }}</p>    
+                                                        </a>                                    
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse($berita->tgl_post)->format('l, d M Y H:i:s') }}</p>
+                                            </td>
+                                            <td class="align-middle">
+                                                <a href="berita\{{ $berita->slug }}\edit">
+                                                    <button class="badge bg-success border-0"><i class="fas fa-edit"></i></button>
+                                                </a>
+                                                <form action="berita\{{ $berita->slug }}" method="post" class="d-inline">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button class="badge bg-danger border-0" onclick="return confirm('Yakin Hapus Data?')"><i class="fas fa-trash-alt"></i></button>
+                                                </form>                                                
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    
+                                </tbody>
+                            </table>
+
+
+                            <table class="respon">                                    
+                                @foreach ($dataBerita as $berita)
+                                    <thead>
+                                        <tr>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Judul</th>
+                                        </tr>                               
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="pict">
+                                                    @if ($berita->image != '')
+                                                        <img src="storage/{{ $berita->image }}" class="" alt="">
+                                                    @else
+                                                        <img src="images/no-image.png" class="" alt="">
+                                                    @endif                                                    
+                                                </div>
+                                                <div class="d-block">
+                                                    <p style="line-height: 15px;">
+                                                        <a href="berita\{{ $berita->slug }}" class="judul">
                                                             {{ $berita->title }}
-                                                            <p class="text-xs font-weight-bold mb-0">At: {{ $berita->tgl_post }}</p> 
-                                                        </a>                                                                                           
-                                                    </div>                                                
+                                                            <p class="text-xs mb-0" style="line-height:2px;">Date: {{ $berita->tgl_post }}</p> 
+                                                        </a>   
+                                                    </p>                                                                                                                                                                                       
                                                     <p class="text-xs font-weight-bold mb-0 d-inline">
                                                         <a href="berita\{{ $berita->slug }}\edit">
                                                             <button class="btn btn-success btn-sm border-0"><i class="fas fa-edit"></i></button>
@@ -129,13 +143,12 @@
                                                             <button class="btn btn-danger btn-sm border-0" onclick="return confirm('Yakin Hapus Data?')"><i class="fas fa-trash-alt"></i></button>
                                                         </form>
                                                     </p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    @endforeach
-                                </table>
-                            </div>
-                        </div>
+                                                </div>                                                    
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                @endforeach
+                            </table>                            
                     </div>
                 </div>
             </div>

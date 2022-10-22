@@ -6,16 +6,15 @@
     @include('layouts.navbars.auth.topnav', ['title' => 'Galery'])
 
     <style type="text/css">
-        .row{
+        .row-galery{
             display: flex;
-            flex-wrap: wrap;
-            padding:0;
-            width:99%;
-            margin-left:1%;            
-            padding-right: 4px;
+            flex-wrap: wrap;                                  
         }
         .column{
+            /* margin: 0 auto; */
             max-width: 20%;
+            padding-left:2px;
+            padding-right: 2px;
         }
         @media screen and (max-width:600px){
             .column{
@@ -25,7 +24,8 @@
         }
         .imgGaleri{
             width: 100%;
-            height: 150px;
+            height: 100%;
+            border: 4px solid rgba(255, 0, 0, 0.284);
         }
         .img-fluid:hover{
             width: 120px;
@@ -125,12 +125,12 @@
                                 </form>
                                 <hr style="border:4px solid #09b955;">
                                 <br>                                                                
-                                <div class="row">                                        
+                                <div class="row-galery">                                        
                                     @foreach ($Galery as $galeri)
                                             <div class="column">
                                                 <div class="portfolio-item">
                                                     <div class="portfolio-thumb imgGaleri">
-                                                        <img src="storage/{{ $galeri->image }}" alt="{{ $galeri->title }}" style="width: 100%;height:100%;">
+                                                        <img src="storage/{{ $galeri->image }}" alt="{{ $galeri->title }}" >
                                                         <div class="overlay-p">
                                                             <a href="storage/{{ $galeri->image }}" data-rel="lightbox[portfolio]" style="padding-top:20%;height:100%;">
                                                                 <ul>
@@ -144,7 +144,7 @@
                                                     <form action="galery\{{ $galeri->id }}" method="post">
                                                         @method('delete')
                                                         @csrf
-                                                        <button class="btn btn-danger" onclick="return confirm('Yakin Hapus Foto ?')"><i class="fa-solid fa-trash-can fa-lg"></i></button>
+                                                        <button class="btn btn-danger" onclick="return confirm('Yakin Hapus Foto ?')" style="border-radius:0 0 5px 5px;"><i class="fa-solid fa-trash-can fa-lg"></i></button>
                                                     </form> 
                                                 </div>                                                                 
                                             </div>

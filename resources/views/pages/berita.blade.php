@@ -60,7 +60,8 @@
                                 <a href="../berita/create">
                                     <button class="btn btn-primary" style="width:100%;">+ Tambah Berita</button>
                                 </a>
-                            </div>                           
+                                <p class="text-xs mb-0">Data : {{ $cekBerita }} Record </p> 
+                            </div>                                                                                                                                
                             <table class="utama table align-items-center mb-0">
                                 <thead>                                    
                                     <tr>
@@ -71,9 +72,13 @@
                                         <th class="text-secondary opacity-7"></th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                            
-                                    @foreach ($dataBerita as $berita)
+                                <tbody>        
+                                    @if ($cekBerita < '1')
+                                        <tr>
+                                            <td colspan="3" align="center">Data Tidak Ditemukan !!!</td>
+                                        </tr>
+                                    @endif                                                                                                                                                                                                                                             
+                                    @foreach ($dataBerita as $berita)                                                                                                                                       
                                         <tr>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
@@ -96,20 +101,24 @@
                                                 <a href="berita\{{ $berita->slug }}\edit">
                                                     <button class="badge bg-success border-0"><i class="fas fa-edit"></i></button>
                                                 </a>
-                                                <form action="berita\{{ $berita->slug }}" method="post" class="d-inline">
+                                                <form action="\berita\{{ $berita->slug }}" method="post" class="d-inline">
                                                     @method('delete')
                                                     @csrf
                                                     <button class="badge bg-danger border-0" onclick="return confirm('Yakin Hapus Data?')"><i class="fas fa-trash-alt"></i></button>
                                                 </form>                                                
                                             </td>
-                                        </tr>
-                                    @endforeach
-                                    
+                                        </tr>                                   
+                                    @endforeach                                
                                 </tbody>
                             </table>
 
 
-                            <table class="respon">                                    
+                            <table class="respon">   
+                                @if ($cekBerita < '1')
+                                        <tr>
+                                            <td align="center">Data Tidak Ditemukan !!!</td>
+                                        </tr>
+                                    @endif                                                                
                                 @foreach ($dataBerita as $berita)
                                     <thead>
                                         <tr>
@@ -147,7 +156,7 @@
                                             </td>
                                         </tr>
                                     </tbody>
-                                @endforeach
+                                @endforeach                            
                             </table>                            
                     </div>
                 </div>

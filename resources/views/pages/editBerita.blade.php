@@ -6,7 +6,7 @@
         padding: 20px;
     }
 </style>
-    @include('layouts.navbars.auth.topnav', ['title' => 'Edit Berita'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'Berita'])
 
     <div class="container-fluid py-4">
         <div class="row">

@@ -17,9 +17,11 @@
                             <article>
                                 <h3 class="text-l text-secondary mb-0">{{ $posting->title }}</h3>
                                 <h5 class="text-xs text-secondary mb-3">Post At : {{ $posting->tgl_post }}</h5>
-                                <div style="max-height: 350px;overflow:hidden;">
-                                    <img src="{{ asset('storage/'.$posting->image) }}" alt="{{ $posting->slug }}" class="img-fluid">
-                                </div>
+                                @if (!is_null($posting->image))
+                                    <div style="max-height: 350px;overflow:hidden;">
+                                        <img src="{{ asset('storage/'.$posting->image) }}" alt="{{ $posting->slug }}" class="img-fluid">
+                                    </div>
+                                @endif                                
                                 <p>
                                     {!! $posting->body !!}
                                 </p>

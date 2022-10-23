@@ -24,7 +24,7 @@
         }
         .imgGaleri{
             width: 100%;
-            height: 100%;
+            min-height: 147px;;
             border: 4px solid rgba(255, 0, 0, 0.284);
         }
         .img-fluid:hover{
@@ -52,8 +52,13 @@
         .tombolInput{
             opacity: 0;
             height: 100%;
-        }
-        form button{
+        }     
+        .btnDelete{
+            margin-top:-40px;
+            width: 100%;
+            padding: 0;
+        }   
+        .form-group button{
         margin: 0;
         color: #fff;
         background: #16a085;
@@ -66,12 +71,9 @@
         transition: all .2s ease;
         outline: none;
         }
-        form button:hover{
+        .form-group button:hover{
         background: #149174;
             color: #0C5645;
-        }
-        form button:active{
-        border:0;
         }
         /* END FORM UPLOAD CSS */
     </style>
@@ -104,7 +106,7 @@
                                         <label for="title" class="col-form-label">
                                             JUDUL GAMBAR
                                         </label>
-                                        <input type="text" name="title" class="form-control d-inline @error('title') is-invalid @enderror">
+                                        <input type="text" name="title" class="form-control d-inline @error('title') is-invalid @enderror" required>
                                         @error('title')
                                             {{ $message }}
                                         @enderror                                       
@@ -114,7 +116,7 @@
                                             <span class="textUpload">
                                                 <p>Drag your files here or click in this area.</p>
                                             </span>                                                                   
-                                            <input type="file" name="gambar[]" multiple class="form-control tombolInput @error('gambar') is-invalid @enderror">                                            
+                                            <input type="file" name="gambar[]" multiple class="form-control tombolInput @error('gambar') is-invalid @enderror" required>                                            
                                         </div>
                                         
                                         @error('gambar')
@@ -123,32 +125,36 @@
                                         <button type="submit">Upload</button>                                         
                                     </div>                                                                              
                                 </form>
-                                <hr style="border:4px solid #09b955;">
-                                <br>                                                                
-                                <div class="row-galery">                                        
-                                    @foreach ($Galery as $galeri)
-                                            <div class="column">
-                                                <div class="portfolio-item">
-                                                    <div class="portfolio-thumb imgGaleri">
-                                                        <img src="storage/{{ $galeri->image }}" alt="{{ $galeri->title }}" >
-                                                        <div class="overlay-p">
-                                                            <a href="storage/{{ $galeri->image }}" data-rel="lightbox[portfolio]" style="padding-top:20%;height:100%;">
-                                                                <ul>
-                                                                    <li class="fa-solid fa-magnifying-glass-plus fa-2xl"></i>
-                                                                </ul>
-                                                            </a>                                                                                                                              
-                                                        </div>                                                                                                                                                                                                                                              
-                                                    </div> <!-- /.portfolio-thumb -->
-                                                </div>
-                                                <div style="margin-top:-20px;">
-                                                    <form action="galery\{{ $galeri->id }}" method="post">
-                                                        @method('delete')
-                                                        @csrf
-                                                        <button class="btn btn-danger" onclick="return confirm('Yakin Hapus Foto ?')" style="border-radius:0 0 5px 5px;"><i class="fa-solid fa-trash-can fa-lg"></i></button>
-                                                    </form> 
-                                                </div>                                                                 
+                                <hr style="border:4px solid #09b955;">                        
+                                <p align='center'>Jumlah Galery : {{ $jmlGalery }}</p> 
+                                <br>
+                                @if ($jmlGalery < '1')
+                                    <center>Galery Tidak Ditemukan !!!</center>
+                                @endif                                      
+                                <div class="row-galery">                                                                            
+                                    @foreach ($Galery as $galeri)                                    
+                                        <div class="column">
+                                            <div class="portfolio-item">
+                                                <div class="portfolio-thumb imgGaleri">
+                                                    <img src="storage/{{ $galeri->image }}" alt="{{ $galeri->title }}" style="height: 100%;">
+                                                    <div class="overlay-p">
+                                                        <a href="storage/{{ $galeri->image }}" data-rel="lightbox[portfolio]" style="padding-top:20%;height:100%;">
+                                                            <ul>
+                                                                <li class="fa-solid fa-magnifying-glass-plus fa-2xl"></i>
+                                                            </ul>
+                                                        </a>                                                                                                                              
+                                                    </div>                                                                                                                                                                                                                                              
+                                                </div> <!-- /.portfolio-thumb -->
                                             </div>
-                                        @endforeach 
+                                            <div class="btnDelete">
+                                                <form action="galery\{{ $galeri->id }}" method="post">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button class="btn btn-danger " onclick="return confirm('Yakin Hapus Foto ?')" style="border-radius:0 0 5px 5px;width:100%;"><i class="fa-solid fa-trash-can fa-lg"></i></button>
+                                                </form> 
+                                            </div>                                                                 
+                                        </div>
+                                    @endforeach 
                                 </div>                               
                             </div>
                         </div>

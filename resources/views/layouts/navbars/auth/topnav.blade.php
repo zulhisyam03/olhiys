@@ -1,3 +1,29 @@
+<style>
+    .topNavSmall{
+        display: none;
+    }
+    @media screen and (max-width:870px){
+        .topNavBig{
+            display: none;
+        }
+        .topNavSmall{                             
+            display: block;
+            padding: 0;
+            margin: 0 auto;
+            margin-top:10px;
+            margin-bottom:-10px;
+        }
+        .topNavSmall input{
+            width:80%;
+            border-radius: 5px 0 0 5px;
+            display: inline-block;
+        }
+        .topNavSmall button{
+            border-radius:0 5px 5px 0;
+            width : 20%;            
+        }
+    }
+</style>
 <!-- Navbar -->
 <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl
         {{ str_contains(Request::url(), 'virtual-reality') == true ? ' mt-3 mx-3 bg-primary' : '' }}" id="navbarBlur"
@@ -11,15 +37,26 @@
             <h6 class="font-weight-bolder text-white mb-0">{{ $title }}</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-            {{-- Search Script --}}
-            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                <div class="input-group">
-                    <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" placeholder="Type here...">
-                </div>
-            </div>
+            {{-- Search Script --}}       
+            <div class="topNavBig">
+                <div class="ms-md-auto pe-md-3 d-flex align-items-center" style="width:250px;">
+                    @if ($title == 'Berita')
+                        <form action="\findBerita" method="POST">
+                    @elseif($title == 'Galery')
+                        <form action="\findGalery" method="POST">
+                    @endif                                  
+                        @csrf
+                        <div class="input-group" style="border:2px solid white;border-radius:11px;">                                          
+                            <input name="find" type="text" class="form-control" placeholder="Type here..." required>
+                            <button type="submit" class="btn btn-primary mb-0">
+                                <i class="fas fa-search"></i>
+                            </button>                     
+                        </div>
+                    </form>
+                </div>   
+            </div>                    
             {{-- END SEARCH --}}
-            <ul class="navbar-nav  justify-content-end">
+            <ul class="navbar-nav  justify-content-end" style="width:100%;">
                 <li class="nav-item d-flex align-items-center">
                     <form role="form" method="post" action="{{ route('logout') }}" id="logout-form">
                         @csrf
@@ -31,7 +68,7 @@
                         </a>
                     </form>
                 </li>
-                <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                {{-- <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                     <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
                         <div class="sidenav-toggler-inner">
                             <i class="sidenav-toggler-line bg-white"></i>
@@ -127,8 +164,23 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
             </ul>
+        </div>
+        <div class="topNavSmall">
+            @if ($title == 'Berita')
+                <form action="\findBerita" method="POST">
+            @elseif($title == 'Galery')
+                <form action="\findGalery" method="POST">
+            @endif                                  
+            @csrf           
+            <div class="input-group">
+                <input type="find" class="form-control" placeholder="Search ... " required/>
+                <button type="submit" class="btn-success">
+                    <i class="fas fa-search"></i>
+                </button>  
+            </div>                                                                                         
+            </form>
         </div>
     </div>
 </nav>

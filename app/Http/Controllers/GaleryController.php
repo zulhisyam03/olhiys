@@ -17,10 +17,28 @@ class GaleryController extends Controller
     public function index()
     {
         //
-        return view('pages.galery',[
+        return view('pages.galery', [
             'title'  => 'Galery',
             'Galery' => Galery::orderBy('created_at', 'DESC')->get(),
             'jmlGalery' => Galery::count()
+        ]);
+    }
+
+    public function findGalery(Request $search)
+    {
+        $find= $search->find;
+        $cekGalery = Galery::where('title','like','%'.$find.'%')->get();
+
+        return view('pages.galery',[
+            'title'     => 'Galery',
+            'Galery'    => Galery::where('title','like','%'.$find.'%')->get(),
+            'jmlGalery' => count($cekGalery)
+        ]);
+    }
+
+    public function showGalery(){
+        return view('index', [
+            'dataGalery' => Galery::all()
         ]);
     }
 
@@ -44,7 +62,7 @@ class GaleryController extends Controller
     {   
         $validated = $request->validate([
             'title' => 'required',
-            'gambar.*'=> 'image|file|max:1024|required'
+            'gambar.*'=> 'image|file|max:10240|required'
         ]);
 
         

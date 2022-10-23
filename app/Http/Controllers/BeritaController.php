@@ -16,9 +16,23 @@ class BeritaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        return view('pages.berita', [
+        $jmlBerita  = Berita::count();
+
+        return view('pages.berita', [            
             "title"     =>  "Berita",
-            "dataBerita"=>  Berita::orderBy('created_at','DESC')->get()
+            "dataBerita"=>  Berita::orderBy('created_at','DESC')->get(),
+            "cekBerita" =>  $jmlBerita
+        ]);
+    }
+
+    public function findBerita(Request $search){
+        $find = $search->find;
+        $cekData = Berita::where('title','like','%'.$find.'%')->get();
+        
+        return view('pages.berita',[
+            'title'     => 'Berita',
+            'dataBerita'=> Berita::where('title','like','%'.$find.'%')->get(),
+            'cekBerita'      => count($cekData)
         ]);
     }
 
@@ -93,6 +107,7 @@ class BeritaController extends Controller
         return view('pages.editBerita',[
             'berita' => Berita::where('slug',$slug)->first()
         ] );
+
     }
 
     /**
@@ -140,10 +155,9 @@ class BeritaController extends Controller
     public function destroy($slug)
     {
         //
-        
         $hapus = Berita::where('slug',$slug)->first(); 
         $hapus->delete();
-        Storage::delete($hapus->image);
+        !is_null($hapus->image) && Storage::delete($hapus->image);
         return redirect('/berita')->with('succes','Sukses Hapus Data !!!');
     }
 }

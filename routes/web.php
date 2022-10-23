@@ -2,6 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ResetPassword;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\GaleryController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\ChangePassword;   
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,19 +22,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
-use App\Http\Controllers\ResetPassword;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PageController;
-use App\Http\Controllers\GaleryController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\BeritaController;
-use App\Http\Controllers\ChangePassword;   
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\UserProfileController;
+Route::get('/', function () { return view('index');});
+Route::get('/', [GaleryController::class, 'showGalery']);
+// Route::get('/', [BeritaController::class, 'showBerita']);
 
 
 Route::get('/admin', function () {return redirect('/dashboard');})->middleware('auth');
@@ -46,6 +45,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('/galery', GaleryController::class)->middleware('auth');
 	Route::resource('/berita', BeritaController::class)->middleware('auth');
 	Route::get('/news', function() {return redirect('/berita');});
+	Route::get('findBerita/', function() {return redirect('/berita');});
+	Route::get('findGalery/', function() {return redirect('/galery');});
+	Route::post('findBerita/', [BeritaController::class,'findBerita']);
+	Route::post('findGalery/', [GaleryController::class,'findGalery']);
 	
 	Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');
 	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');

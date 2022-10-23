@@ -4,7 +4,7 @@
     <title>OLHIYS | Organisasi Lingkungan Hidup Sehat</title>
     <link rel="shortcut icon" href="images/logo-OLHIYS.png" type="image/x-icon">
     <meta name="keywords" content="" />
-	<meta name="description" content="" />
+	  <meta name="description" content="" />
     <!-- 
     Smoothy Template 
     https://templatemo.com/tm-396-smoothy
@@ -280,171 +280,28 @@ ddsmoothmenu.init({
             <p>Kumpulan Dokumentasi dari kegiatan OLHYS</p>
            	
             <div class="container">
-           	  <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-              	<div class="portfolio-item">
-                  <div class="portfolio-thumb">
-                    <img src="images/portfolio/1.jpg" alt="portfolio 1">
-                    <div class="overlay-p">
-                      <a href="images/portfolio/1.jpg" data-rel="lightbox[portfolio]">
-                          <ul>
-                              <li>Blue Sky</li>
-                                <li class="fa fa-circle"></li>
-                                <li class="fa fa-circle fsmall"></li>
-                                <li class="fa fa-circle"></li>
-                                <li class="fa fa-circle fsmall"></li>
-                                <li class="fa fa-search fa-2x"></li>
-                          </ul>
-                      </a>
-                    </div>
-							  </div> <!-- /.portfolio-thumb -->
-						  </div>
-      
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-              	<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/2.jpg" alt="portfolio 2">
-								<div class="overlay-p">
-									<a href="images/portfolio/2.jpg" data-rel="lightbox[portfolio]">
-                                    	<ul>
-                                        	<li>Forest</li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-search fa-2x"></li>
-                                        </ul>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-						</div>
-      
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-              	<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/3.jpg" alt="portfolio 3">
-								<div class="overlay-p">
-									<a href="images/portfolio/3.jpg" data-rel="lightbox[portfolio]">
-                                    	<ul>
-                                        	<li>Forest</li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-search fa-2x"></li>
-                                        </ul>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-						</div>
-      
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-              	<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/4.jpg" alt="portfolio 4">
-								<div class="overlay-p">
-									<a href="images/portfolio/4.jpg" data-rel="lightbox[portfolio]">
-                                    	<ul>
-                                        	<li>Black and White</li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-search fa-2x"></li>
-                                        </ul>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-						</div>
-      
-              </div>
-             </div>
-               <div class="clear"></div>
-              <div class="container">
-              		<div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-              	<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/5.jpg" alt="portfolio 5">
-								<div class="overlay-p">
-									<a href="images/portfolio/5.jpg" data-rel="lightbox[portfolio]">
-                                    	<ul>
-                                        	<li>Rotary</li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-search fa-2x"></li>
-                                        </ul>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-						</div>
-      
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-              	<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/6.jpg" alt="portfolio 6">
-								<div class="overlay-p">
-									<a href="images/portfolio/6.jpg" data-rel="lightbox[portfolio]">
-                                    	<ul>
-                                        	<li>Rotary</li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-search fa-2x"></li>
-                                        </ul>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-						</div>
-      
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-              	<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/7.jpg" alt="portfolio 7">
-								<div class="overlay-p">
-									<a href="images/portfolio/7.jpg" data-rel="lightbox[portfolio]">
-                                    	<ul>
-                                        	<li>Blue Sky</li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-search fa-2x"></li>
-                                        </ul>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-						</div>
-      
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-              	<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/8.jpg" alt="portfolio 8">
-								<div class="overlay-p">
-									<a href="images/portfolio/8.jpg" data-rel="lightbox[portfolio]">
-                                    	<ul>
-                                        	<li>Black and White</li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-circle"></li>
-                                            <li class="fa fa-circle fsmall"></li>
-                                            <li class="fa fa-search fa-2x"></li>
-                                        </ul>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-						</div>
-      
-              </div>
-              
-              </div>
+              @foreach ($dataGalery as $item)
+                <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12"  style="border:1px solid red;min-height:230px;">              
+                  <div class="portfolio-item">
+                    <div class="portfolio-thumb" style="border:1px solid yellow;">
+                      <img src="storage/{{ $item->image }}" alt="{{ $item->title }}" style="border:2px solid blue;">
+                        <div class="overlay-p">
+                          <a href="storage/{{ $item->image }}" data-rel="lightbox[portfolio]">
+                              <ul>                              
+                                  <li class="fa fa-circle"></li>
+                                  <li class="fa fa-circle fsmall"></li>
+                                  <li class="fa fa-circle"></li>
+                                  <li class="fa fa-circle fsmall"></li>
+                                  <li class="fa fa-search fa-2x"></li>
+                              </ul>
+                          </a>
+                        </div>
+                    </div> <!-- /.portfolio-thumb -->
+                  </div>      
+                </div>
+              @endforeach
+
+            </div>
             <a class="btn btn-large btn-primary" href="#">View More</a>
     </div>
     <!--Our Portfolio End-->

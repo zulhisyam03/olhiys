@@ -200,78 +200,31 @@ ddsmoothmenu.init({
     <div class="clear"></div>
     <div class="templatemo_reasonbg">
     	<h2>Our blog</h2>
-        	<p>Check out our latest posts.</p>
-        <div class="clear"></div>
-        <div class="container" style="width:100%">
-       		<div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-            	<div class="templatemo_wrapperblogbox">
-                	<a href="#" class="fa fa-calendar tooltip1" title="28 January 2084"></a>
-                    <a href="#" class="fa fa-user tooltip2" title="Booker"></a>
-                    <a href="#" class="fa fa-tag tooltip3" title="HTML5, CSS3"></a>
-                    <a href="#" class="fa fa-comment tooltip4" title="Comments (4)"></a>
-                </div>
-                <div class="clear"></div>
-                <img src="images/templatemo_blogimage01.jpg" alt="blog image 1">
-                <div class="clear"></div>
-                <div class="templatemo_blogtext">
-                	<span class="left">New Touring</span>
-                    <span class="right">
-                    <a href="#" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-                    </span>
-                </div>
-        	</div>
-            <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-            	<div class="templatemo_wrapperblogbox">
-                	<a href="#" class="fa fa-calendar tooltip1" title="26 January 2084"></a>
-                    <a href="#" class="fa fa-user tooltip2" title="George"></a>
-                    <a href="#" class="fa fa-tag tooltip3" title="Template, Design"></a>
-                    <a href="#" class="fa fa-comment tooltip4" title="Comments (8)"></a>
-                </div>
-                <div class="clear"></div>
-                <img src="images/templatemo_blogimage02.jpg" alt="blog image 2">
-                <div class="clear"></div>
-                <div class="templatemo_blogtext">
-                	<span class="left">Coffee Shop</span>
-                    <span class="right">
-                    <a href="#" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-                    </span>
-                </div>
-        	</div>
-            <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12 templatemo_margintop10">
-            	<div class="templatemo_wrapperblogbox">
-                	<a href="#" class="fa fa-calendar tooltip1" title="24 January 2084"></a>
-                    <a href="#" class="fa fa-user tooltip2" title="Jelly Bean"></a>
-                    <a href="#" class="fa fa-tag tooltip3" title="Web Design, Portfolio"></a>
-                    <a href="#" class="fa fa-comment tooltip4" title="Comments (16)"></a>
-                </div>
-                <div class="clear"></div>
-                <img src="images/templatemo_blogimage03.jpg" alt="blog image 3">
-                <div class="clear"></div>
-                <div class="templatemo_blogtext">
-                	<span class="left">Tea Time</span>
-                    <span class="right">
-                    <a href="#" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-                    </span>
-                </div>
-        	</div>
-            <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12 templatemo_margintop10">
-            	<div class="templatemo_wrapperblogbox">
-                	<a href="#" class="fa fa-calendar tooltip1" title="22 January 2084"></a>
-                    <a href="#" class="fa fa-user tooltip2" title="John Walker"></a>
-                    <a href="#" class="fa fa-tag tooltip3" title="Logo, Creative"></a>
-                    <a href="#" class="fa fa-comment tooltip4" title="Comments (32)"></a>
-                </div>
-                <div class="clear"></div>
-                <img src="images/templatemo_blogimage04.jpg" alt="blog image 4">
-                <div class="clear"></div>
-                <div class="templatemo_blogtext">
-                	<span class="left">Mobile First</span>
-                    <span class="right">
-                    <a href="#" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-                    </span>
-                </div>
-        	</div>
+      <p>Check out our latest posts.</p>
+      <div class="clear"></div>
+      <div class="container" style="width:100%">
+        @foreach ($dataBerita as $berita)                  
+        <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12" style="padding-bottom: 10px;">
+          <div class="templatemo_wrapperblogbox">
+            <a href="#" class="fa fa-calendar tooltip1" title="{{ $berita->created_at }}"></a>
+            <a href="#" class="fa fa-user tooltip2" title="{{ $berita->author }}"></a>              
+          </div>
+          <div class="clear"></div>
+          @if ($berita->image != '')
+              <img src="storage/{{ $berita->image }}" alt="{{ $berita->title }}" style="height:250px;">
+          @else
+              <img src="images/templatemo_blogimage03.jpg" alt="{{ $berita->title }}" style="height:250px;">
+          @endif          
+          <div class="clear"></div>
+          <div class="templatemo_blogtext">
+            <span class="left">{{ Str::limit($berita->title,30,'...') }}</span>
+            <span class="right">
+            <a href="#" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
+            </span>
+          </div>
         </div>
+        @endforeach
+      </div>      
     </div>
     <div class="clear"></div>
     <!--Our Portfolio Start-->
@@ -281,10 +234,10 @@ ddsmoothmenu.init({
            	
             <div class="container">
               @foreach ($dataGalery as $item)
-                <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12"  style="border:1px solid red;min-height:230px;">              
+                <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12"  style="height:250px;">              
                   <div class="portfolio-item">
-                    <div class="portfolio-thumb" style="border:1px solid yellow;">
-                      <img src="storage/{{ $item->image }}" alt="{{ $item->title }}" style="border:2px solid blue;">
+                    <div class="portfolio-thumb">
+                      <img src="storage/{{ $item->image }}" alt="{{ $item->title }}" style="height:250px;">
                         <div class="overlay-p">
                           <a href="storage/{{ $item->image }}" data-rel="lightbox[portfolio]">
                               <ul>                              
@@ -302,7 +255,7 @@ ddsmoothmenu.init({
               @endforeach
 
             </div>
-            <a class="btn btn-large btn-primary" href="#">View More</a>
+            <a class="btn btn-large btn-primary" href="#" style="margin-top:20px;">View More</a>
     </div>
     <!--Our Portfolio End-->
     <div class="clear"></div>

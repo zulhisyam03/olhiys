@@ -34,13 +34,7 @@ class GaleryController extends Controller
             'Galery'    => Galery::where('title','like','%'.$find.'%')->get(),
             'jmlGalery' => count($cekGalery)
         ]);
-    }
-
-    public function showGalery(){
-        return view('index', [
-            'dataGalery' => Galery::all()
-        ]);
-    }
+    }    
 
     /**
      * Show the form for creating a new resource.

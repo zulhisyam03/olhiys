@@ -34,7 +34,7 @@ class BeritaController extends Controller
             'dataBerita'=> Berita::where('title','like','%'.$find.'%')->get(),
             'cekBerita'      => count($cekData)
         ]);
-    }
+    }    
 
     /**
      * Show the form for creating a new resource.

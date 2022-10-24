@@ -23,7 +23,7 @@ use App\Http\Controllers\UserProfileController;
 */
 
 Route::get('/', function () { return view('index');});
-Route::get('/', [GaleryController::class, 'showGalery']);
+Route::get('/', [HomeController::class, 'data']);
 // Route::get('/', [BeritaController::class, 'showBerita']);
 
 

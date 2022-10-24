@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
+use App\Models\Galery;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -24,5 +27,12 @@ class HomeController extends Controller
     public function index()
     {
         return redirect('/berita');
+    }
+
+    public function data(){
+        return view('index', [
+            'dataGalery' => Galery::all(),
+            'dataBerita' => Berita::all()
+        ]);
     }
 }

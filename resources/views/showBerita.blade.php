@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>OLHIYS | Organisasi Lingkungan Hidup Sehat</title>
-    <link rel="shortcut icon" href="images/logo-OLHIYS.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('images/logo-OLHIYS.png') }}" type="image/x-icon">
     <meta name="keywords" content="" />
 	  <meta name="description" content="" />
     <!-- 
@@ -12,23 +12,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     
     <!-- Nucleo Icons -->
-    <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     
-    <link href="css/templatemo_style.css" rel="stylesheet">
-   	<link rel="stylesheet" href="css/templatemo_misc.css">
+    <link href="{{ asset('css/templatemo_style.css') }}" rel="stylesheet">
+   	<link rel="stylesheet" href="{{ asset('css/templatemo_misc.css') }}">
 
-    <link rel="stylesheet" href="css/nivo-slider.css">
-    <link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen" /> 
+    <link rel="stylesheet" href="{{ asset('css/nivo-slider.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/slimbox2.css') }}" type="text/css" media="screen" /> 
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,600' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/JavaScript" src="js/slimbox2.js"></script> 
+    <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+    <script type="text/JavaScript" src="{{ asset('js/slimbox2.js') }}"></script> 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,9 +36,9 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/ddsmoothmenu.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/ddsmoothmenu.css') }}" />
+	<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/ddsmoothmenu.js') }}"></script>
 
 <!--/***********************************************
 * Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
@@ -51,17 +51,17 @@
 
 <script type="text/javascript">
 
-ddsmoothmenu.init({
+    ddsmoothmenu.init({
 	mainmenuid: "templatemo_flicker", //menu DIV id
 	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
 	classname: 'ddsmoothmenu', //class added to menu's outer DIV
 	//customtheme: ["#1c5a80", "#18374a"],
 	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
-})
+    })
 
 </script>
 
-<style type="text/css">
+<style type="text/css">    
   .container{
     width:100%;
   }
@@ -95,16 +95,16 @@ ddsmoothmenu.init({
         <div class="row">
           <div class="col-sm-3 col-md-3">
             <div class="logo">
-              <a href="#"><img src="images/logo-OLHIYS.png" alt="smoothy template mo" class="header-logo"> <h2 style="float: right;font-weight:bold;color:#72b842;">OLHIYS</h2></a>
+              <a href="#"><img src="{{ asset('images/logo-OLHIYS.png') }}" alt="smoothy template mo" class="header-logo"> <h2 style="float: right;font-weight:bold;color:#72b842;">OLHIYS</h2></a>
             </div>
           </div>
           <div class="col-sm-9 col-md-9 templatemo_col9">
           	<div id="top-menu">
             <nav class="mainMenu">
               <ul class="nav">
-                <li><a class="menu" href="#templatemo_home">Home</a></li>
+                <li><a class="menu" href="/">Home</a></li>
                 <li><a class="menu" href="#templatemo_berita">Berita</a></li>
-                <li><a class="menu" href="#templatemo_galeri">Galeri</a></li>
+                <li><a class="menu" href="/#templatemo_galeri">Galeri</a></li>
                 {{-- <li><a class="menu" href="#templatemo_blog">Blog</a></li> --}}
                 <li><a class="menu" href="#templatemo_contact">Contact</a></li>
               </ul>
@@ -115,230 +115,27 @@ ddsmoothmenu.init({
       </div>
     </div>
     </div>
-    <div class="clear"></div>
-    <!-- end menu -->
-    
-      	<div  id="slider"  class="nivoSlider templatemo_slider">
-        	<a href="#">
-            <img src="images/slider/img_1_blank.jpg" alt="slide 1" />
-          </a>           	
-			    <a href="#"><img src="images/slider/img_2_blank.jpg" alt="slide 2" /></a>  
-          <a href="#"><img src="images/slider/img_3_blank.jpg" alt="slide 3" /></a> 	        	
-    	  </div>
 
-        <div class="templatemo_caption">
-          <div class="templatemo_slidetitle">OLHIY'S (Organisasi Lingkungan Hidup Yang Sehat)</div>
-          <div class="clear"></div>
-          <h1>Visi & Misi</h1>
-          <div class="clear"></div>
-          <p>Smoothy Template is from templatemo website. Download it free to edit and use this layout for your personal or commercial websites. Credit goes to <a rel="nofollow" href="https://unsplash.com" target="_parent">Unsplash</a> for photos used in this template.</p>
-          <a class="btn btn-large btn-primary" href="#">Read More</a>
-        </div>  
-          
-  </header>
   	<div class="templatemo_lightgrey_about" id="templatemo_berita">
 	<div class="container">
-        {{-- <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-            <div class="item project-post">
-              <div class="templatemo_about_box">
-                            <div class="square_coner">
-                            <span class="texts-a"><i class="fa fa-bell-o"></i></span>
-                            </div>                          
-                          Pixel Perfect Design</div>
-              <div class="col-xs-12 col-sm-6 col-md-3 hover-box" >
-                <div class="inner-hover-box">								
-                  <p>Nunc sed ullamcorper massa, vitae tristique lectus. Curabitur ultricies, nunc ac tincidunt sollicitudin, neque leo commodo nisl.</p>
-                </div>
-              </div>
-            </div> 	
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-            <div class="item project-post">
-              <div class="templatemo_about_box">
-                            <div class="square_coner">
-                            <span class="texts-a"><i class="fa fa-tablet"></i></span>
-                            </div>
-                          Responsive Layout</div>
-              <div class="col-xs-6 col-sm-6 col-md-3 hover-box" >
-                <div class="inner-hover-box">								
-                  <p>You are NOT allowed to redistribute this template on any download website. However, you are allowed to use this template for your websites.</p>
-                </div>
-              </div>
-            </div> 	
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12 templatemo_margintop10">
-            <div class="item project-post">
-              <div class="templatemo_about_box">
-                            <div class="square_coner">
-                            <span class="texts-a"><i class="fa fa-lock"></i></span>
-                            </div>
-                          Secured Website</div>
-              <div class="col-xs-6 col-sm-6 col-md-3 hover-box" >
-                <div class="inner-hover-box">								
-                  <p>Please mention templatemo to your friends to support us. Vivamus neque eros, sollicitudin a ligula quis.</p>
-                </div>
-              </div>
-            </div> 	
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12 templatemo_margintop10">
-            <div class="item project-post">
-              <div class="templatemo_about_box">
-                            <div class="square_coner">
-                            <span class="texts-a"><i class="fa fa-rocket"></i></span>
-                            </div>
-                          Quick Service</div>
-              <div class="col-xs-6 col-sm-6 col-md-3 hover-box" >
-                <div class="inner-hover-box">								
-                  <p>Vestibulum convallis leo vel tortor ultricies aliquam. Nullam faucibus urna vel volutpat ornare. Donec molestie accumsan ante.</p>
-                </div>
-              </div>
-            </div> 	
-          </div>
-      </div>
-      </div> --}}
+        
 
     <div class="clear"></div>
-    <div class="templatemo_reasonbg">
-    	<h2>Our blog</h2>
-      <p>Check out our latest posts.</p>
+    <div class="templatemo_reasonbg" style="">
+    	<h2>{{ $dataBerita->title }}</h2>
+      <p>Oleh : {{ $dataBerita->author }}</p>
+      <p>Date : {{ $dataBerita->created_at }}</p>
       <div class="clear"></div>
-      <div class="container" style="width:100%">
-        @foreach ($dataBerita as $berita)                  
-        <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12" style="padding-bottom: 10px;">
-          <div class="templatemo_wrapperblogbox">
-            <a href="#" class="fa fa-calendar tooltip1" title="{{ $berita->created_at }}"></a>
-            <a href="#" class="fa fa-user tooltip2" title="{{ $berita->author }}"></a>              
-          </div>
-          <div class="clear"></div>
-          @if ($berita->image != '')
-              <img src="storage/{{ $berita->image }}" alt="{{ $berita->title }}" style="height:250px;">
-          @else
-              <img src="images/templatemo_blogimage03.jpg" alt="{{ $berita->title }}" style="height:250px;">
-          @endif          
-          <div class="clear"></div>
-          <div class="templatemo_blogtext">
-            <span class="left">{{ Str::limit($berita->title,30,'...') }}</span>
-            <span class="right">
-            <a href="showBerita/{{ $berita->slug }}" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-            </span>
-          </div>
-        </div>
-        @endforeach
+      <div class="container" style="width:90%;text-align:justify;background:rgba(7, 6, 6, 0.363);padding:20px;">
+        @if ($dataBerita->image !='')
+            <img src="{{ asset('storage/'.$dataBerita->image) }}" alt="{{ $dataBerita->title }}"/>            
+        @endif
+        <p>
+            {!! $dataBerita->body !!}
+        </p>
       </div>      
     </div>
-    <div class="clear"></div>
-    <!--Our Portfolio Start-->
-    <div class="templatemo_portfolio" id="templatemo_galeri">
-        	<h2>Galeri</h2>
-            <p>Kumpulan Dokumentasi dari kegiatan OLHYS</p>
-           	
-            <div class="container">
-              @foreach ($dataGalery as $item)
-                <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12"  style="height:250px;">              
-                  <div class="portfolio-item">
-                    <div class="portfolio-thumb">
-                      <img src="storage/{{ $item->image }}" alt="{{ $item->title }}" style="height:250px;">
-                        <div class="overlay-p">
-                          <a href="storage/{{ $item->image }}" data-rel="lightbox[portfolio]">
-                              <ul>                              
-                                  <li class="fa fa-circle"></li>
-                                  <li class="fa fa-circle fsmall"></li>
-                                  <li class="fa fa-circle"></li>
-                                  <li class="fa fa-circle fsmall"></li>
-                                  <li class="fa fa-search fa-2x"></li>
-                              </ul>
-                          </a>
-                        </div>
-                    </div> <!-- /.portfolio-thumb -->
-                  </div>      
-                </div>
-              @endforeach
-
-            </div>
-            <a class="btn btn-large btn-primary" href="#" style="margin-top:20px;">View More</a>
-    </div>
-    <!--Our Portfolio End-->
-    <div class="clear"></div>
-    <!--Our Blog Start-->
-    {{-- <div class="templatemo_blog" id="templatemo_blog">
-    	<h2>Our blog</h2>
-        	<p>Check out our latest posts.</p>
-        <div class="clear"></div>
-        <div class="container">
-       		<div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-            	<div class="templatemo_wrapperblogbox">
-                	<a href="#" class="fa fa-calendar tooltip1" title="28 January 2084"></a>
-                    <a href="#" class="fa fa-user tooltip2" title="Booker"></a>
-                    <a href="#" class="fa fa-tag tooltip3" title="HTML5, CSS3"></a>
-                    <a href="#" class="fa fa-comment tooltip4" title="Comments (4)"></a>
-                </div>
-                <div class="clear"></div>
-                <img src="images/templatemo_blogimage01.jpg" alt="blog image 1">
-                <div class="clear"></div>
-                <div class="templatemo_blogtext">
-                	<span class="left">New Touring</span>
-                    <span class="right">
-                    <a href="#" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-                    </span>
-                </div>
-        	</div>
-            <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-            	<div class="templatemo_wrapperblogbox">
-                	<a href="#" class="fa fa-calendar tooltip1" title="26 January 2084"></a>
-                    <a href="#" class="fa fa-user tooltip2" title="George"></a>
-                    <a href="#" class="fa fa-tag tooltip3" title="Template, Design"></a>
-                    <a href="#" class="fa fa-comment tooltip4" title="Comments (8)"></a>
-                </div>
-                <div class="clear"></div>
-                <img src="images/templatemo_blogimage02.jpg" alt="blog image 2">
-                <div class="clear"></div>
-                <div class="templatemo_blogtext">
-                	<span class="left">Coffee Shop</span>
-                    <span class="right">
-                    <a href="#" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-                    </span>
-                </div>
-        	</div>
-            <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12 templatemo_margintop10">
-            	<div class="templatemo_wrapperblogbox">
-                	<a href="#" class="fa fa-calendar tooltip1" title="24 January 2084"></a>
-                    <a href="#" class="fa fa-user tooltip2" title="Jelly Bean"></a>
-                    <a href="#" class="fa fa-tag tooltip3" title="Web Design, Portfolio"></a>
-                    <a href="#" class="fa fa-comment tooltip4" title="Comments (16)"></a>
-                </div>
-                <div class="clear"></div>
-                <img src="images/templatemo_blogimage03.jpg" alt="blog image 3">
-                <div class="clear"></div>
-                <div class="templatemo_blogtext">
-                	<span class="left">Tea Time</span>
-                    <span class="right">
-                    <a href="#" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-                    </span>
-                </div>
-        	</div>
-            <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12 templatemo_margintop10">
-            	<div class="templatemo_wrapperblogbox">
-                	<a href="#" class="fa fa-calendar tooltip1" title="22 January 2084"></a>
-                    <a href="#" class="fa fa-user tooltip2" title="John Walker"></a>
-                    <a href="#" class="fa fa-tag tooltip3" title="Logo, Creative"></a>
-                    <a href="#" class="fa fa-comment tooltip4" title="Comments (32)"></a>
-                </div>
-                <div class="clear"></div>
-                <img src="images/templatemo_blogimage04.jpg" alt="blog image 4">
-                <div class="clear"></div>
-                <div class="templatemo_blogtext">
-                	<span class="left">Mobile First</span>
-                    <span class="right">
-                    <a href="#" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-                    </span>
-                </div>
-        	</div>
-        </div>
-    </div> --}}
-    <!--Our Blog End-->
-	<!--Our Partner Start-->
-
-    <!--Our Partner End-->
+    
     <!--Our Client Start-->
     <div class="templatemo_reasonbg">
       <div class="container">
@@ -360,14 +157,14 @@ ddsmoothmenu.init({
             data-cycle-prev="#prev"
             data-cycle-carousel-fluid=true
             >
-            <img alt="partner 1" src="images/partners/partner1.jpg" >
-            <img alt="partner 2" src="images/partners/partner2.jpg" >
-            <img alt="partner 3" src="images/partners/partner3.jpg" >
-            <img alt="partner 4" src="images/partners/partner4.jpg" >
-            <img alt="partner 5" src="images/partners/partner5.jpg" >
-            <img alt="partner 6" src="images/partners/partner6.jpg" >
-            <img alt="partner 7" src="images/partners/partner7.jpg" >
-            <img alt="partner 8" src="images/partners/partner8.jpg" >
+            <img alt="partner 1" src="{{ asset('images/partners/partner1.jpg') }}" >
+            <img alt="partner 2" src="{{ asset('images/partners/partner2.jpg') }}" >
+            <img alt="partner 3" src="{{ asset('images/partners/partner3.jpg') }}" >
+            <img alt="partner 4" src="{{ asset('images/partners/partner4.jpg') }}" >
+            <img alt="partner 5" src="{{ asset('images/partners/partner5.jpg') }}" >
+            <img alt="partner 6" src="{{ asset('images/partners/partner6.jpg') }}" >
+            <img alt="partner 7" src="{{ asset('images/partners/partner7.jpg') }}" >
+            <img alt="partner 8" src="{{ asset('images/partners/partner8.jpg') }}" >
         </div>
         <a href="#" id="prev">&lt;&lt; Prev </a>
         <a href="#" id="next"> Next &gt;&gt; </a>
@@ -485,14 +282,14 @@ ddsmoothmenu.init({
             	<h2>Flicker</h2>
 					<div id="templatemo_flicker" >
           <ul class="nobullet footer_gallery">
-                <li><a href="images/flicker/1.jpg" data-rel="lightbox[gallery]"><img src="images/flicker/s1.jpg" alt="image 1" /></a></li>
-                <li><a href="images/flicker/2.jpg" data-rel="lightbox[gallery]"><img src="images/flicker/s2.jpg" alt="image 2" /></a></li>
-                <li><a href="images/flicker/3.jpg" data-rel="lightbox[gallery]"><img src="images/flicker/s3.jpg" alt="image 3" /></a></li>
-                <li><a href="images/flicker/4.jpg" data-rel="lightbox[gallery]"><img src="images/flicker/s4.jpg" alt="image 4" /></a></li>
-                <li><a href="images/flicker/5.jpg" data-rel="lightbox[gallery]"><img src="images/flicker/s5.jpg" alt="image 5" /></a></li>
-          	    <li><a href="images/flicker/6.jpg" data-rel="lightbox[gallery]"><img src="images/flicker/s6.jpg" alt="image 6" /></a></li>
-                <li><a href="images/flicker/7.jpg" data-rel="lightbox[gallery]"><img src="images/flicker/s7.jpg" alt="image 7" /></a></li>
-                <li><a href="images/flicker/8.jpg" data-rel="lightbox[gallery]"><img src="images/flicker/s8.jpg" alt="image 8" /></a></li>
+                <li><a href="{{ asset('images/flicker/1.jpg') }}" data-rel="lightbox[gallery]"><img src="{{ asset('images/flicker/1.jpg') }}" alt="image 1" /></a></li>
+                <li><a href="{{ asset('images/flicker/2.jpg') }}" data-rel="lightbox[gallery]"><img src="{{ asset('images/flicker/2.jpg') }}" alt="image 2" /></a></li>
+                <li><a href="{{ asset('images/flicker/3.jpg') }}" data-rel="lightbox[gallery]"><img src="{{ asset('images/flicker/3.jpg') }}" alt="image 3" /></a></li>
+                <li><a href="{{ asset('images/flicker/4.jpg') }}" data-rel="lightbox[gallery]"><img src="{{ asset('images/flicker/4.jpg') }}" alt="image 4" /></a></li>
+                <li><a href="{{ asset('images/flicker/5.jpg') }}" data-rel="lightbox[gallery]"><img src="{{ asset('images/flicker/5.jpg') }}" alt="image 5" /></a></li>
+          	    <li><a href="{{ asset('images/flicker/6.jpg') }}" data-rel="lightbox[gallery]"><img src="{{ asset('images/flicker/6.jpg') }}" alt="image 6" /></a></li>
+                <li><a href="{{ asset('images/flicker/7.jpg') }}" data-rel="lightbox[gallery]"><img src="{{ asset('images/flicker/7.jpg') }}" alt="image 7" /></a></li>
+                <li><a href="{{ asset('images/flicker/8.jpg') }}" data-rel="lightbox[gallery]"><img src="{{ asset('images/flicker/8.jpg') }}" alt="image 8" /></a></li>
             </ul>
             <br style="clear: left" />
         </div>
@@ -538,12 +335,12 @@ ddsmoothmenu.init({
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
-    <script src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/jquery.cookie.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.cycle2.min.js"></script>
-    <script src="js/jquery.cycle2.carousel.min.js"></script>
-    <script src="js/jquery.nivo.slider.pack.js"></script>
+    <script src="{{ asset('js/jquery-1.10.2.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.cookie.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.cycle2.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.cycle2.carousel.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.nivo.slider.pack.js') }}"></script>
     <script>$.fn.cycle.defaults.autoSelector = '.slideshow';</script>
     <script type="text/javascript">
       $(function(){
@@ -613,7 +410,7 @@ ddsmoothmenu.init({
           });
       });
     </script>
-	<script src="js/jquery.singlePageNav.js"></script>
+	<script src="{{ asset('js/jquery.singlePageNav.js') }}"></script>
 	
     <script type="text/javascript">
     $(window).load(function() {

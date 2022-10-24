@@ -610,7 +610,7 @@ and (max-width : 480px) {
 }
 @media(max-width:767px){
 	.templatemo_col9	{ padding: 0px;}
-	.templatemo_slider	{ top: 0;}
+	.templatemo_slider	{ top: 0; max-height: 200px;}
 	.templatemo_lightgrey_about	{ padding-top: 50px;}
 	.templatemo_portfolio	{ padding-top: 50px; }
 	.templatemo_blog	{ padding-top: 50px;}

@@ -26,6 +26,12 @@
 	width: 100% !important;
 }
 
+@media screen and (max-width:767px) {
+	.nivoSlider img{
+		height: 100% ;
+	}
+}
+
 /* If an image is wrapped in a link */
 .nivoSlider a.nivo-imageLink {
 	position:absolute;

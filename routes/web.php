@@ -24,7 +24,7 @@ use App\Http\Controllers\UserProfileController;
 
 Route::get('/', function () { return view('index');});
 Route::get('/', [HomeController::class, 'data']);
-// Route::get('/', [BeritaController::class, 'showBerita']);
+Route::get('showBerita/{slug}', [BeritaController::class, 'beritaGuest']);
 
 
 Route::get('/admin', function () {return redirect('/dashboard');})->middleware('auth');

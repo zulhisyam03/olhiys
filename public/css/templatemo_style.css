@@ -249,8 +249,10 @@ img {
 }
 
 .templatemo_portfolio {
-	padding: 80px 0px;
+	padding-top:10px;
+	padding-bottom: 10px;
 	text-align: center;
+	background-color: whitesmoke;
 }
 
 .templatemo_portfolio p { padding-bottom: 50px; }

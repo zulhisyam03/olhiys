@@ -62,8 +62,13 @@ ddsmoothmenu.init({
 </script>
 
 <style type="text/css">
-  .container{
-    width:100%;
+  body{
+    background-color: #72b842;
+    /* background: url(images/templatemo_reasonbg.jpg); */
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
   }
 
   .header-logo{
@@ -86,7 +91,7 @@ ddsmoothmenu.init({
 </style>
 
   </head>
-  <body>
+  <body background="blue">
     <header>
     <!-- start menu -->
     <div id="templatemo_home">
@@ -137,329 +142,152 @@ ddsmoothmenu.init({
           
   </header>
   	<div class="templatemo_lightgrey_about" id="templatemo_berita">
-	<div class="container">
-        {{-- <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-            <div class="item project-post">
-              <div class="templatemo_about_box">
-                            <div class="square_coner">
-                            <span class="texts-a"><i class="fa fa-bell-o"></i></span>
-                            </div>                          
-                          Pixel Perfect Design</div>
-              <div class="col-xs-12 col-sm-6 col-md-3 hover-box" >
-                <div class="inner-hover-box">								
-                  <p>Nunc sed ullamcorper massa, vitae tristique lectus. Curabitur ultricies, nunc ac tincidunt sollicitudin, neque leo commodo nisl.</p>
-                </div>
-              </div>
-            </div> 	
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-            <div class="item project-post">
-              <div class="templatemo_about_box">
-                            <div class="square_coner">
-                            <span class="texts-a"><i class="fa fa-tablet"></i></span>
-                            </div>
-                          Responsive Layout</div>
-              <div class="col-xs-6 col-sm-6 col-md-3 hover-box" >
-                <div class="inner-hover-box">								
-                  <p>You are NOT allowed to redistribute this template on any download website. However, you are allowed to use this template for your websites.</p>
-                </div>
-              </div>
-            </div> 	
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12 templatemo_margintop10">
-            <div class="item project-post">
-              <div class="templatemo_about_box">
-                            <div class="square_coner">
-                            <span class="texts-a"><i class="fa fa-lock"></i></span>
-                            </div>
-                          Secured Website</div>
-              <div class="col-xs-6 col-sm-6 col-md-3 hover-box" >
-                <div class="inner-hover-box">								
-                  <p>Please mention templatemo to your friends to support us. Vivamus neque eros, sollicitudin a ligula quis.</p>
-                </div>
-              </div>
-            </div> 	
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12 templatemo_margintop10">
-            <div class="item project-post">
-              <div class="templatemo_about_box">
-                            <div class="square_coner">
-                            <span class="texts-a"><i class="fa fa-rocket"></i></span>
-                            </div>
-                          Quick Service</div>
-              <div class="col-xs-6 col-sm-6 col-md-3 hover-box" >
-                <div class="inner-hover-box">								
-                  <p>Vestibulum convallis leo vel tortor ultricies aliquam. Nullam faucibus urna vel volutpat ornare. Donec molestie accumsan ante.</p>
-                </div>
-              </div>
-            </div> 	
-          </div>
-      </div>
-      </div> --}}
-
-    <div class="clear"></div>
-    <div class="templatemo_reasonbg">
-    	<h2>Our blog</h2>
-      <p>Check out our latest posts.</p>
+	  <div class="container">    
       <div class="clear"></div>
-      <div class="container" style="width:100%">
-        @foreach ($dataBerita as $berita)                  
-        <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12" style="padding-bottom: 10px;">
-          <div class="templatemo_wrapperblogbox">
-            <a href="#" class="fa fa-calendar tooltip1" title="{{ $berita->created_at }}"></a>
-            <a href="#" class="fa fa-user tooltip2" title="{{ $berita->author }}"></a>              
-          </div>
-          <div class="clear"></div>
-          @if ($berita->image != '')
-              <img src="storage/{{ $berita->image }}" alt="{{ $berita->title }}" style="height:250px;">
-          @else
-              <img src="images/templatemo_blogimage03.jpg" alt="{{ $berita->title }}" style="height:250px;">
-          @endif          
-          <div class="clear"></div>
-          <div class="templatemo_blogtext">
-            <span class="left">{{ Str::limit($berita->title,30,'...') }}</span>
-            <span class="right">
-            <a href="showBerita/{{ $berita->slug }}" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-            </span>
-          </div>
-        </div>
-        @endforeach
-      </div>      
-    </div>
-    <div class="clear"></div>
-    <!--Our Portfolio Start-->
-    <div class="templatemo_portfolio" id="templatemo_galeri">
-        	<h2>Galeri</h2>
-            <p>Kumpulan Dokumentasi dari kegiatan OLHYS</p>
-           	
-            <div class="container">
-              @foreach ($dataGalery as $item)
-                <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12"  style="height:250px;">              
-                  <div class="portfolio-item">
-                    <div class="portfolio-thumb">
-                      <img src="storage/{{ $item->image }}" alt="{{ $item->title }}" style="height:250px;">
-                        <div class="overlay-p">
-                          <a href="storage/{{ $item->image }}" data-rel="lightbox[portfolio]">
-                              <ul>                              
-                                  <li class="fa fa-circle"></li>
-                                  <li class="fa fa-circle fsmall"></li>
-                                  <li class="fa fa-circle"></li>
-                                  <li class="fa fa-circle fsmall"></li>
-                                  <li class="fa fa-search fa-2x"></li>
-                              </ul>
-                          </a>
-                        </div>
-                    </div> <!-- /.portfolio-thumb -->
-                  </div>      
-                </div>
-              @endforeach
-
-            </div>
-            <a class="btn btn-large btn-primary" href="#" style="margin-top:20px;">View More</a>
-    </div>
-    <!--Our Portfolio End-->
-    <div class="clear"></div>
-    <!--Our Blog Start-->
-    {{-- <div class="templatemo_blog" id="templatemo_blog">
-    	<h2>Our blog</h2>
-        	<p>Check out our latest posts.</p>
+      <div class="templatemo_reasonbg">
+        <h2>Our blog</h2>
+        <p>Check out our latest posts.</p>
         <div class="clear"></div>
-        <div class="container">
-       		<div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-            	<div class="templatemo_wrapperblogbox">
-                	<a href="#" class="fa fa-calendar tooltip1" title="28 January 2084"></a>
-                    <a href="#" class="fa fa-user tooltip2" title="Booker"></a>
-                    <a href="#" class="fa fa-tag tooltip3" title="HTML5, CSS3"></a>
-                    <a href="#" class="fa fa-comment tooltip4" title="Comments (4)"></a>
-                </div>
-                <div class="clear"></div>
-                <img src="images/templatemo_blogimage01.jpg" alt="blog image 1">
-                <div class="clear"></div>
-                <div class="templatemo_blogtext">
-                	<span class="left">New Touring</span>
-                    <span class="right">
-                    <a href="#" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-                    </span>
-                </div>
-        	</div>
-            <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-            	<div class="templatemo_wrapperblogbox">
-                	<a href="#" class="fa fa-calendar tooltip1" title="26 January 2084"></a>
-                    <a href="#" class="fa fa-user tooltip2" title="George"></a>
-                    <a href="#" class="fa fa-tag tooltip3" title="Template, Design"></a>
-                    <a href="#" class="fa fa-comment tooltip4" title="Comments (8)"></a>
-                </div>
-                <div class="clear"></div>
-                <img src="images/templatemo_blogimage02.jpg" alt="blog image 2">
-                <div class="clear"></div>
-                <div class="templatemo_blogtext">
-                	<span class="left">Coffee Shop</span>
-                    <span class="right">
-                    <a href="#" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-                    </span>
-                </div>
-        	</div>
-            <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12 templatemo_margintop10">
-            	<div class="templatemo_wrapperblogbox">
-                	<a href="#" class="fa fa-calendar tooltip1" title="24 January 2084"></a>
-                    <a href="#" class="fa fa-user tooltip2" title="Jelly Bean"></a>
-                    <a href="#" class="fa fa-tag tooltip3" title="Web Design, Portfolio"></a>
-                    <a href="#" class="fa fa-comment tooltip4" title="Comments (16)"></a>
-                </div>
-                <div class="clear"></div>
-                <img src="images/templatemo_blogimage03.jpg" alt="blog image 3">
-                <div class="clear"></div>
-                <div class="templatemo_blogtext">
-                	<span class="left">Tea Time</span>
-                    <span class="right">
-                    <a href="#" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-                    </span>
-                </div>
-        	</div>
-            <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12 templatemo_margintop10">
-            	<div class="templatemo_wrapperblogbox">
-                	<a href="#" class="fa fa-calendar tooltip1" title="22 January 2084"></a>
-                    <a href="#" class="fa fa-user tooltip2" title="John Walker"></a>
-                    <a href="#" class="fa fa-tag tooltip3" title="Logo, Creative"></a>
-                    <a href="#" class="fa fa-comment tooltip4" title="Comments (32)"></a>
-                </div>
-                <div class="clear"></div>
-                <img src="images/templatemo_blogimage04.jpg" alt="blog image 4">
-                <div class="clear"></div>
-                <div class="templatemo_blogtext">
-                	<span class="left">Mobile First</span>
-                    <span class="right">
-                    <a href="#" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
-                    </span>
-                </div>
-        	</div>
-        </div>
-    </div> --}}
-    <!--Our Blog End-->
-	<!--Our Partner Start-->
+        <div class="container" style="width:100%">
+          @foreach ($dataBerita as $berita)                  
+          <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12" style="padding-bottom: 10px;">
+            <div class="templatemo_wrapperblogbox">
+              <a href="#" class="fa fa-calendar tooltip1" title="{{ $berita->created_at }}"></a>
+              <a href="#" class="fa fa-user tooltip2" title="{{ $berita->author }}"></a>              
+            </div>
+            <div class="clear"></div>
+            @if ($berita->image != '')
+                <img src="storage/{{ $berita->image }}" alt="{{ $berita->title }}" style="height:200px;">
+            @else
+                <img src="images/templatemo_blogimage03.jpg" alt="{{ $berita->title }}" style="height:200px;">
+            @endif          
+            <div class="clear"></div>
+            <div class="templatemo_blogtext">
+              <span class="left">{{ Str::limit($berita->title,30,'...') }}</span>
+              <span class="right">
+              <a href="showBerita/{{ $berita->slug }}" title="Click more"><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i></a>
+              </span>
+            </div>
+          </div>
+          @endforeach
+        </div>      
+      </div>
+      <div class="clear"></div>
+      <!--Our Portfolio Start-->
+      <div class="templatemo_portfolio" id="templatemo_galeri" style="padding-top:10px;">
+        <h2>Galeri</h2>
+          <p>Kumpulan Dokumentasi dari kegiatan OLHYS</p>
+          
+          <div class="container" style="width:100%;">
+            @foreach ($dataGalery as $item)
+              <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12"  style="height:250px;">              
+                <div class="portfolio-item">
+                  <div class="portfolio-thumb">
+                    <img src="storage/{{ $item->image }}" alt="{{ $item->title }}" style="height:250px;">
+                      <div class="overlay-p">
+                        <a href="storage/{{ $item->image }}" data-rel="lightbox[portfolio]">
+                            <ul>                              
+                                <li class="fa fa-circle"></li>
+                                <li class="fa fa-circle fsmall"></li>
+                                <li class="fa fa-circle"></li>
+                                <li class="fa fa-circle fsmall"></li>
+                                <li class="fa fa-search fa-2x"></li>
+                            </ul>
+                        </a>
+                      </div>
+                  </div> <!-- /.portfolio-thumb -->
+                </div>      
+              </div>
+            @endforeach
 
-    <!--Our Partner End-->
-    <!--Our Client Start-->
-    <div class="templatemo_reasonbg">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="secHeader">
-              <h2 class="text-center">Our partners</h2>
-              <p class="text-center">Sponsor yang selalu mendukung OLHYS</p>
+          </div>
+          <a class="btn btn-large btn-primary" href="#" style="margin-top:20px;">View More</a>
+      </div>
+      <!--Our Portfolio End-->
+      <div class="clear"></div>
+      <!--Our Client Start-->
+      <div class="templatemo_reasonbg">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="secHeader">
+                <h2 class="text-center">Our partners</h2>
+                <p class="text-center">Sponsor yang selalu mendukung OLHYS</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="partnerWrap">
-        <div class="slideshow" 
-            data-cycle-fx=carousel
-            data-cycle-timeout=0
-            data-cycle-carousel-visible=4
-            data-cycle-next="#next"
-            data-cycle-prev="#prev"
-            data-cycle-carousel-fluid=true
-            >
-            <img alt="partner 1" src="images/partners/partner1.jpg" >
-            <img alt="partner 2" src="images/partners/partner2.jpg" >
-            <img alt="partner 3" src="images/partners/partner3.jpg" >
-            <img alt="partner 4" src="images/partners/partner4.jpg" >
-            <img alt="partner 5" src="images/partners/partner5.jpg" >
-            <img alt="partner 6" src="images/partners/partner6.jpg" >
-            <img alt="partner 7" src="images/partners/partner7.jpg" >
-            <img alt="partner 8" src="images/partners/partner8.jpg" >
-        </div>
-        <a href="#" id="prev">&lt;&lt; Prev </a>
-        <a href="#" id="next"> Next &gt;&gt; </a>
-      </div>
-    	{{-- <h2>What our clients say?</h2>
-        <div class="container">
-        	<div class="col-xs-11 templatemo_col12 templatemo_clientwrapper">
-            	<div class="templatemo_clientimage">
-                <p class="templatemo_clientdes">Duis consequat ut quam ut sollicitudin. Donec eget congue ligula, eget pharetra urna. Nam tempor tellus sit amet bibendum dapibus.</p>
-            	  <img src="images/client/1.jpg" alt="client image 1" />
-                  <div class="clear"></div>
-                  <div class="fa fa-circle mleft1"></div>
-			  	</div>
-                <div class="templatemo_clientimage">
-                <p class="templatemo_clientdes">Nam auctor elementum dolor. Donec euismod, justo sed convallis blandit, ipsum erat mattis lectus, vel pharetra neque enim tristique risus.</p>
-  				<img src="images/client/2.jpg" alt="client image 2" /> 
-                <div class="clear"></div>
-                  <div class="fa fa-circle mleft2"></div>				 
-				</div>
-                <div class="templatemo_clientimage">
-                <p class="templatemo_clientdes">Quisque tincidunt risus et enim. Vestibulum gravida sem at sem bibendum vehicula. Sed et leo. </p>
-  				<img src="images/client/3.jpg" alt="client image 3" /> 		
-                <div class="clear"></div>
-                  <div class="fa fa-circle mleft3"></div>		 
-				</div>
-                <div class="templatemo_clientimage next templatemo_marginleft50">
-                <p class="templatemo_clientdes">Curabitur commodo arcu vel enim mollis consequat. Nulla pharetra tortor vel arcu. In rhoncus fermentum ipsum. </p>
-  				<img src="images/client/4.jpg" alt="client image 4" />
-                <div class="clear"></div>
-                  <div class="fa fa-circle mleft4"></div>
- 				 
-				</div>
-              <div class="templatemo_clientimage next">
-                <p class="templatemo_clientdes">Nam auctor elementum dolor. Donec euismod, justo sed convallis blandit, ipsum erat mattis lectus, vel pharetra neque enim tristique risus. </p>
-		      <img src="images/client/5.jpg" alt="client image 5" />
- 				 <div class="clear"></div>
-                  <div class="fa fa-circle mleft5"></div>
-				</div>
-                
+        <div class="partnerWrap">
+          <div class="slideshow" 
+              data-cycle-fx=carousel
+              data-cycle-timeout=0
+              data-cycle-carousel-visible=4
+              data-cycle-next="#next"
+              data-cycle-prev="#prev"
+              data-cycle-carousel-fluid=true
+              >
+              <img alt="partner 1" src="images/partners/partner1.jpg" >
+              <img alt="partner 2" src="images/partners/partner2.jpg" >
+              <img alt="partner 3" src="images/partners/partner3.jpg" >
+              <img alt="partner 4" src="images/partners/partner4.jpg" >
+              <img alt="partner 5" src="images/partners/partner5.jpg" >
+              <img alt="partner 6" src="images/partners/partner6.jpg" >
+              <img alt="partner 7" src="images/partners/partner7.jpg" >
+              <img alt="partner 8" src="images/partners/partner8.jpg" >
           </div>
-            <div class="clear"></div>
-        </div> --}}
-        
-	</div>
-     <div class="clear"></div>
+          <a href="#" id="prev">&lt;&lt; Prev </a>
+          <a href="#" id="next"> Next &gt;&gt; </a>
+        </div>
+    	</div>
+      <div class="clear"></div>
     <!--Our Client End-->
     <!--Contact Start -->
-    <div class="templatemo_lightgrey" id="templatemo_contact">
+    <div class="templatemo_portfolio" id="templatemo_contact">
     	<div class="templatemo_paracenter">
-    	<h2>Contact us</h2></div>
-        <div class="clear"></div>
-        <div class="container">
+        <h2>Contact us</h2>
+      </div>
+      <div class="clear"></div>
+        <div class="container" style="padding:5px;width:100%;">
         	<div class="templatemo_paracenter">
             Pellentesque aliquam in risus eu ultrices. Suspendisse id interdum nibh. Etiam vel mattis augue, a vestibulum arcu. Nam rutrum diam dolor, eu vehicula nisl tincidunt non. Fusce tincidunt id justo eu tempor. Phasellus sit amet ante lobortis, mattis sapien id, dictum ipsum.
-            </div>
+          </div>
             <div class="clear"></div>
-            <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="templatemo_maps">
-              <div class="fluid-wrapper">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d428.5019120788602!2d119.91638727559204!3d-0.9527664595988282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d8bf107d7216b05%3A0x247ff434eb903f4d!2s2WX8%2B2J7%2C%20Jl.%20Poros%20Palu-Palolo%2C%20Mpanau%2C%20Kec.%20Sigi%20Biromaru%2C%20Kabupaten%20Sigi%2C%20Sulawesi%20Tengah%2094231!5e0!3m2!1sid!2sid!4v1664227514709!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+          <div class="container" style="padding:5px;width:100%;">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="templatemo_maps">
+                  <div class="fluid-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d428.5019120788602!2d119.91638727559204!3d-0.9527664595988282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d8bf107d7216b05%3A0x247ff434eb903f4d!2s2WX8%2B2J7%2C%20Jl.%20Poros%20Palu-Palolo%2C%20Mpanau%2C%20Kec.%20Sigi%20Biromaru%2C%20Kabupaten%20Sigi%2C%20Sulawesi%20Tengah%2094231!5e0!3m2!1sid!2sid!4v1664227514709!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+                  </div>
+                </div>
+              </div>
+              <div class="container" style="width: 100%;padding-left:15px;padding-right:15px;">
+                <div class="row">
+                  <div class="col-md-3">
+                    <form role="form">
+                      <div class="form-group">
+                        <input name="fullname" type="text" class="form-control" id="fullname" placeholder="Your Name" maxlength="30">
+                      </div>
+                      <div class="form-group">
+                        <input name="email" type="text" class="form-control" id="email" placeholder="Your Email" maxlength="30">
+                      </div>
+                      <div class="form-group">
+                        <input name="subject" type="text" class="form-control" id="subject" placeholder="Your Subject" maxlength="40">
+                      </div>
+                      <div><button type="button" class="btn btn-primary">Send Message</button></div>
+                    </form>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="txtarea">
+                      <textarea name="message" rows="10" class="form-control" id="message"></textarea>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="container">
-        <div class="row">
-          <div class="col-md-3">
-            <form role="form">
-              <div class="form-group">
-                <input name="fullname" type="text" class="form-control" id="fullname" placeholder="Your Name" maxlength="30">
-              </div>
-              <div class="form-group">
-                <input name="email" type="text" class="form-control" id="email" placeholder="Your Email" maxlength="30">
-              </div>
-              <div class="form-group">
-                <input name="subject" type="text" class="form-control" id="subject" placeholder="Your Subject" maxlength="40">
-              </div>
-              <div><button type="button" class="btn btn-primary">Send Message</button></div>
-            </form>
-          </div>
-          <div class="col-md-9">
-            <div class="txtarea">
-              <textarea name="message" rows="10" class="form-control" id="message"></textarea>
-            </div>
-          </div>
         </div>
-      </div>
-        </div>
-      </div>
-        </div>
-  </div>
+    </div>
     
     <!--Contact End-->
     <!--Footer Start-->
@@ -515,7 +343,7 @@ ddsmoothmenu.init({
         </div>
     </div>
    <!--Footer End-->
-	<!-- Bottom Start -->
+	  <!-- Bottom Start -->
     <div class="templatemo_bottom">
     	<div class="container" style="width: 100%;">
         	<div class="row" style="padding-left:10px;padding-right:10px;">
@@ -613,7 +441,7 @@ ddsmoothmenu.init({
           });
       });
     </script>
-	<script src="js/jquery.singlePageNav.js"></script>
+	  <script src="js/jquery.singlePageNav.js"></script>
 	
     <script type="text/javascript">
     $(window).load(function() {

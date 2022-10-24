@@ -61,155 +61,129 @@
 
 </script>
 
-<style type="text/css">    
-  .container{
-    width:100%;
-  }
-
-  .header-logo{
-    width: 80px;
-    height: 75px;
-    position: relative;
-  }
-
-  @media screen and (max-width:800px){
-    .templatemo_reasonbg{
-      background-position:center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 100%;
+<style type="text/css">   
+    .bodyBerita{
+        margin-top:50px;
+        width: 100%;
+        padding: 20px;
+        font-size: 12px;
+        text-align: justify;
     }
-    #slider{
-      height: 400px;
+
+    .header-logo{
+        width: 80px;
+        height: 75px;
+        position: relative;
     }
-  }
+
+    @media screen and (max-width:800px){
+        .templatemo_reasonbg{
+        background-position:center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+        }
+        #slider{
+        height: 400px;
+        }
+        .bodyBerita{
+            font-size: 10px;           
+        }
+    }
 </style>
 
   </head>
   <body>
     <header>
     <!-- start menu -->
+    
     <div id="templatemo_home">
     	<div class="templatemo_top">
-      <div class="container templatemo_container">
-        <div class="row">
-          <div class="col-sm-3 col-md-3">
-            <div class="logo">
-              <a href="#"><img src="{{ asset('images/logo-OLHIYS.png') }}" alt="smoothy template mo" class="header-logo"> <h2 style="float: right;font-weight:bold;color:#72b842;">OLHIYS</h2></a>
+            <div class="container templatemo_container">
+                <div class="row">
+                    <div class="col-sm-3 col-md-3">
+                        <div class="logo">
+                        <a href="#"><img src="{{ asset('images/logo-OLHIYS.png') }}" alt="smoothy template mo" class="header-logo"> <h2 style="float: right;font-weight:bold;color:#72b842;">OLHIYS</h2></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 col-md-9 templatemo_col9">
+                        <div id="top-menu">
+                        <nav class="mainMenu">
+                        <ul class="nav">
+                            <li><a class="menu" href="/">Home</a></li>
+                            <li><a class="menu" href="#templatemo_berita">Berita</a></li>
+                            <li><a class="menu" href="/#templatemo_galeri">Galeri</a></li>
+                            {{-- <li><a class="menu" href="#templatemo_blog">Blog</a></li> --}}
+                            <li><a class="menu" href="#templatemo_contact">Contact</a></li>
+                        </ul>
+                        </nav>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-sm-9 col-md-9 templatemo_col9">
-          	<div id="top-menu">
-            <nav class="mainMenu">
-              <ul class="nav">
-                <li><a class="menu" href="/">Home</a></li>
-                <li><a class="menu" href="#templatemo_berita">Berita</a></li>
-                <li><a class="menu" href="/#templatemo_galeri">Galeri</a></li>
-                {{-- <li><a class="menu" href="#templatemo_blog">Blog</a></li> --}}
-                <li><a class="menu" href="#templatemo_contact">Contact</a></li>
-              </ul>
-            </nav>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-    </div>
-
-  	<div class="templatemo_lightgrey_about" id="templatemo_berita">
-	<div class="container">
-        
-
     <div class="clear"></div>
-    <div class="templatemo_reasonbg" style="">
-    	<h2>{{ $dataBerita->title }}</h2>
-      <p>Oleh : {{ $dataBerita->author }}</p>
-      <p>Date : {{ $dataBerita->created_at }}</p>
-      <div class="clear"></div>
-      <div class="container" style="width:90%;text-align:justify;background:rgba(7, 6, 6, 0.363);padding:20px;">
-        @if ($dataBerita->image !='')
-            <img src="{{ asset('storage/'.$dataBerita->image) }}" alt="{{ $dataBerita->title }}"/>            
-        @endif
-        <p>
-            {!! $dataBerita->body !!}
-        </p>
-      </div>      
-    </div>
-    
-    <!--Our Client Start-->
-    <div class="templatemo_reasonbg">
-      <div class="container">
+    <div class="container" id="templatemo_berita">
         <div class="row">
-          <div class="col-md-12">
-            <div class="secHeader">
-              <h2 class="text-center">Our partners</h2>
-              <p class="text-center">Sponsor yang selalu mendukung OLHYS</p>
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="bodyBerita">
+                            <article>
+                                <h3 class="text-l text-secondary mb-0">{{ $dataBerita->title }}</h3>
+                                <h5 class="text-xs text-secondary mb-3">Post At : {{ $dataBerita->tgl_post }}</h5>
+                                @if (!is_null($dataBerita->image))
+                                    <div style="max-height: 350px;overflow:hidden;">
+                                        <img src="{{ asset('storage/'.$dataBerita->image) }}" alt="{{ $dataBerita->slug }}" class="img-fluid">
+                                    </div>
+                                @endif                                
+                                <p>
+                                    {!! $dataBerita->body !!}
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="partnerWrap">
-        <div class="slideshow" 
-            data-cycle-fx=carousel
-            data-cycle-timeout=0
-            data-cycle-carousel-visible=4
-            data-cycle-next="#next"
-            data-cycle-prev="#prev"
-            data-cycle-carousel-fluid=true
-            >
-            <img alt="partner 1" src="{{ asset('images/partners/partner1.jpg') }}" >
-            <img alt="partner 2" src="{{ asset('images/partners/partner2.jpg') }}" >
-            <img alt="partner 3" src="{{ asset('images/partners/partner3.jpg') }}" >
-            <img alt="partner 4" src="{{ asset('images/partners/partner4.jpg') }}" >
-            <img alt="partner 5" src="{{ asset('images/partners/partner5.jpg') }}" >
-            <img alt="partner 6" src="{{ asset('images/partners/partner6.jpg') }}" >
-            <img alt="partner 7" src="{{ asset('images/partners/partner7.jpg') }}" >
-            <img alt="partner 8" src="{{ asset('images/partners/partner8.jpg') }}" >
+    </div>
+                           
+        <!--Our Client Start-->
+        <div class="container templatemo_reasonbg">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="secHeader">
+                    <h2 class="text-center">Our partners</h2>
+                    <p class="text-center">Sponsor yang selalu mendukung OLHYS</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="partnerWrap">
+                <div class="slideshow" 
+                    data-cycle-fx=carousel
+                    data-cycle-timeout=0
+                    data-cycle-carousel-visible=4
+                    data-cycle-next="#next"
+                    data-cycle-prev="#prev"
+                    data-cycle-carousel-fluid=true
+                    >
+                    <img alt="partner 1" src="{{ asset('images/partners/partner1.jpg') }}" >
+                    <img alt="partner 2" src="{{ asset('images/partners/partner2.jpg') }}" >
+                    <img alt="partner 3" src="{{ asset('images/partners/partner3.jpg') }}" >
+                    <img alt="partner 4" src="{{ asset('images/partners/partner4.jpg') }}" >
+                    <img alt="partner 5" src="{{ asset('images/partners/partner5.jpg') }}" >
+                    <img alt="partner 6" src="{{ asset('images/partners/partner6.jpg') }}" >
+                    <img alt="partner 7" src="{{ asset('images/partners/partner7.jpg') }}" >
+                    <img alt="partner 8" src="{{ asset('images/partners/partner8.jpg') }}" >
+                </div>
+                <a href="#" id="prev">&lt;&lt; Prev </a>
+                <a href="#" id="next"> Next &gt;&gt; </a>
+            </div>  
         </div>
-        <a href="#" id="prev">&lt;&lt; Prev </a>
-        <a href="#" id="next"> Next &gt;&gt; </a>
-      </div>
-    	{{-- <h2>What our clients say?</h2>
-        <div class="container">
-        	<div class="col-xs-11 templatemo_col12 templatemo_clientwrapper">
-            	<div class="templatemo_clientimage">
-                <p class="templatemo_clientdes">Duis consequat ut quam ut sollicitudin. Donec eget congue ligula, eget pharetra urna. Nam tempor tellus sit amet bibendum dapibus.</p>
-            	  <img src="images/client/1.jpg" alt="client image 1" />
-                  <div class="clear"></div>
-                  <div class="fa fa-circle mleft1"></div>
-			  	</div>
-                <div class="templatemo_clientimage">
-                <p class="templatemo_clientdes">Nam auctor elementum dolor. Donec euismod, justo sed convallis blandit, ipsum erat mattis lectus, vel pharetra neque enim tristique risus.</p>
-  				<img src="images/client/2.jpg" alt="client image 2" /> 
-                <div class="clear"></div>
-                  <div class="fa fa-circle mleft2"></div>				 
-				</div>
-                <div class="templatemo_clientimage">
-                <p class="templatemo_clientdes">Quisque tincidunt risus et enim. Vestibulum gravida sem at sem bibendum vehicula. Sed et leo. </p>
-  				<img src="images/client/3.jpg" alt="client image 3" /> 		
-                <div class="clear"></div>
-                  <div class="fa fa-circle mleft3"></div>		 
-				</div>
-                <div class="templatemo_clientimage next templatemo_marginleft50">
-                <p class="templatemo_clientdes">Curabitur commodo arcu vel enim mollis consequat. Nulla pharetra tortor vel arcu. In rhoncus fermentum ipsum. </p>
-  				<img src="images/client/4.jpg" alt="client image 4" />
-                <div class="clear"></div>
-                  <div class="fa fa-circle mleft4"></div>
- 				 
-				</div>
-              <div class="templatemo_clientimage next">
-                <p class="templatemo_clientdes">Nam auctor elementum dolor. Donec euismod, justo sed convallis blandit, ipsum erat mattis lectus, vel pharetra neque enim tristique risus. </p>
-		      <img src="images/client/5.jpg" alt="client image 5" />
- 				 <div class="clear"></div>
-                  <div class="fa fa-circle mleft5"></div>
-				</div>
-                
-          </div>
-            <div class="clear"></div>
-        </div> --}}
-        
-	</div>
-     <div class="clear"></div>
+	
+    <div class="clear"></div>
     <!--Our Client End-->
     <!--Contact Start -->
     <div class="templatemo_lightgrey" id="templatemo_contact">

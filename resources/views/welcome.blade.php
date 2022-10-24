@@ -44,4 +44,10 @@
         </button>
     </div>
     {{-- End SLider --}}
+
+    <div class="container position-relative py-3" style="background:rgba(255, 255, 255, 0.355);min-height: 200px;">
+        <div class="container-fluid bg-light position-relative py-2 rounded text-center" style="min-height:200px">
+            <h1>Halaman Utama</h1>
+        </div>
+    </div>
 @endsection

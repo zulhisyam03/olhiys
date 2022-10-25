@@ -14,9 +14,9 @@
                         <div class="col text-start mt-1">                                                    
                             <div class="itemBerita">
                                 @if ($galery->image != '')
-                                    <img class="img-fluid" src="storage/{{ $galery->image }}" alt="{{ $galery->title }}">
+                                    <img class="img-fluid border border-3 border-success" src="storage/{{ $galery->image }}" alt="{{ $galery->title }}">
                                 @else
-                                    <img class="img-fluid" src="images/templatemo_blogimage03.jpg" alt="{{ $galery->title }}">
+                                    <img class="img-fluid border" src="images/templatemo_blogimage03.jpg" alt="{{ $galery->title }}">
                                 @endif
                             </div>                        
                         </div>

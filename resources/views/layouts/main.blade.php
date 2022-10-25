@@ -99,7 +99,15 @@
         }
 
         @media screen and (max-width:992px) {
+            .carouselExampleDark .carousel-inner .carousel-item{
+                height:200px;
+            }
+
             .colBerita {
+                width: 100%;
+            }
+
+            .colGalery {
                 width: 100%;
             }
 

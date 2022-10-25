@@ -5,10 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>OLHIY'S</title>
+    <title>OLHIY'S | {{ $title }}</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/62c979b04d.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    {{-- MODAL GALERI POPUP --}}
+    <link rel="stylesheet" href="../../css/slimbox2.css" type="text/css" media="screen" /> 
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,600' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/JavaScript" src="../../js/slimbox2.js"></script> 
+
 
     <style type="text/css">
         body {
@@ -16,77 +24,93 @@
             padding: 0;
             background-color: #0e6cc4;
             font-family: sans-serif;
-        }    
-
-        a:hover{
-            color:orangered;
         }
 
-        .link{
-            text-decoration: none;        
-            background: grey;   
+        a:hover {
+            color: orangered;
+        }
+
+        .link {
+            text-decoration: none;
+            background: grey;
             margin: 0;
             padding: 8px;
             color: white
         }
-        .popupJudul{
-            display: none;                       
+
+        .popupJudul {
+            display: none;
         }
 
-        .link:hover{
+        .link:hover {
             background: #1eac6a;
-            color: white;            
+            color: white;
         }
-        .link:hover .popupJudul{
+
+        .link:hover .popupJudul {
             display: block;
             background: #1eac6a;
-            padding:4px;             
+            padding: 4px;
             position: absolute;
         }
 
-        .judul{
-            font-size:1.5em;
+        .judul {
+            font-size: 1.5em;
         }
 
-        .nav-link{
+        .nav-link {
             height: 50px;
             width: 80px;
-            padding-top:10px;
+            color: white;
+            padding-top: 10px;
             text-align: center;
-        }
+        }        
+
         .nav-link:hover {
             color: white;
             background: #1eac6a;
             font-weight: bold;
-            padding-left:5px;            
+            border-radius: 5px 5px 0 0;
+            padding-left: 5px;
         }
-        .nav-item .active{
+
+        #navbarTogglerDemo02 li a.active{
             color: white;
             background: #1eac6a;
             font-weight: bold;
+            border-radius: 5px 5px 0 0;
         }
-        .itemBerita img{ 
-            width: 100%;           
+
+        .itemBerita img {
+            width: 100%;
             height: 150px;
         }
-        .colBerita{
-            padding-top:1px;
-            width:25%;
+
+        .colBerita {
+            padding-top: 1px;
+            width: 25%;
             background: url('images/templatemo_reasonbg.jpg');
             color: white;
         }
+        .colGalery {
+            padding:0;
+            width: 20%;
+            color: white;
+        }
 
-        @media screen and (max-width:992px){
-            .colBerita{
-                width:100%;
-            }
-            .itemBerita img{
-                width:100%;
-            }
-            .nav-link{
+        @media screen and (max-width:992px) {
+            .colBerita {
                 width: 100%;
             }
-        }        
+
+            .itemBerita img {
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+            }
+        }
 
         /*waves****************************/
 
@@ -272,7 +296,6 @@
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-
 
     {{-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

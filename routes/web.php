@@ -22,9 +22,11 @@ use App\Http\Controllers\UserProfileController;
 |
 */
 
-Route::get('/', function () { return view('welcome');});
+Route::get('/', function() { return view('welcome');});
 Route::get('/', [HomeController::class, 'data']);
 Route::get('showBerita/{slug}', [BeritaController::class, 'beritaGuest']);
+
+Route::get('/guest-galery', [HomeController::class, 'galery']);
 
 
 Route::get('/admin', function () {return redirect('/dashboard');})->middleware('auth');

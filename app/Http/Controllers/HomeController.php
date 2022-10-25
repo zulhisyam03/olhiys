@@ -30,9 +30,9 @@ class HomeController extends Controller
     }
 
     public function data(){
-        return view('index', [
-            'dataGalery' => Galery::all(),
-            'dataBerita' => Berita::all()
+        return view('welcome', [
+            'dataGalery' => Galery::orderBy('created_at','DESC')->get(),
+            'dataBerita' => Berita::orderBy('created_at','DESC')->get()
         ]);
     }
 }

@@ -8,39 +8,86 @@
     <title>OLHIY'S</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/62c979b04d.js" crossorigin="anonymous"></script>
 
     <style type="text/css">
         body {
             margin: 0;
             padding: 0;
             background-color: #0e6cc4;
-            overflow-x: hidden;
-            overflow-y: hidden;
             font-family: sans-serif;
+        }    
+
+        a:hover{
+            color:orangered;
         }
 
-        /* .nav-link {
-            text-align: center;
-            min-width: 75px;
-            padding-top: 12px;
-            height: 50px;
-        } */
+        .link{
+            text-decoration: none;        
+            background: grey;   
+            margin: 0;
+            padding: 8px;
+            color: white
+        }
+        .popupJudul{
+            display: none;                       
+        }
 
+        .link:hover{
+            background: #1eac6a;
+            color: white;            
+        }
+        .link:hover .popupJudul{
+            display: block;
+            background: #1eac6a;
+            padding:4px;             
+            position: absolute;
+        }
+
+        .judul{
+            font-size:1.5em;
+        }
+
+        .nav-link{
+            height: 50px;
+            width: 80px;
+            padding-top:10px;
+            text-align: center;
+        }
         .nav-link:hover {
             color: white;
-            background: rgba(31, 177, 31, 0.845);
+            background: #1eac6a;
             font-weight: bold;
-            padding-left:5px;
+            padding-left:5px;            
+        }
+        .nav-item .active{
+            color: white;
+            background: #1eac6a;
+            font-weight: bold;
+        }
+        .itemBerita img{ 
+            width: 100%;           
+            height: 150px;
+        }
+        .colBerita{
+            padding-top:1px;
+            width:25%;
+            background: url('images/templatemo_reasonbg.jpg');
+            color: white;
         }
 
-        /* @media screen and (max-width:786px){
-            .collapse{
-                position: static;
-                display: block;
-                background: #F8F9FA;
-                padding-bottom: 5px;
+        @media screen and (max-width:992px){
+            .colBerita{
+                width:100%;
             }
-        } */
+            .itemBerita img{
+                width:100%;
+            }
+            .nav-link{
+                width: 100%;
+            }
+        }        
+
         /*waves****************************/
 
 

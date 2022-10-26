@@ -4,7 +4,7 @@
     @include('layouts.slider')
     @include('layouts.navbars.guest.topNav')
 
-    <div class="container bg-light position-relative py-2 rounded" id="navBerita" style="min-height:200px">
+    <div class="container bg-light position-relative py-2 " id="navBerita" style="min-height:200px;border-radius:5px 5px 0 0;">
         <p class="text-muted"><small><b> Home</b> <i class="fa-solid fa-angles-right"></i> Berita</small> </p> 
         <div class="row mx-2">
             @foreach ($dataBerita as $berita)

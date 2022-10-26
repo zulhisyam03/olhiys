@@ -12,12 +12,9 @@
     <script src="https://kit.fontawesome.com/62c979b04d.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    {{-- MODAL GALERI POPUP --}}
-    <link rel="stylesheet" href="{{ asset('css/slimbox2.css') }}" type="text/css" media="screen" /> 
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,600' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
-    <script type="text/JavaScript" src="{{ asset('js/slimbox2.js') }}"></script> 
-
+    {{-- Magnific Popup CDN --}}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
 
     <style type="text/css">
         body {
@@ -323,7 +320,9 @@
     </div>
     <div class="container position-relative py-0 pb-2" style="background:rgba(255, 255, 255, 0.355);min-height: 200px;">
         @yield('content')
-    </div>
+
+        @include('layouts.footers.guest.footer')
+    </div>    
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

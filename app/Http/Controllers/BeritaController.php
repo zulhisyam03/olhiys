@@ -39,7 +39,8 @@ class BeritaController extends Controller
     public function beritaGuest($slug){
         return view('showBerita', [
             'title' => 'Berita',
-            'dataBerita' => Berita::where('slug',$slug)->first()
+            'dataBerita' => Berita::where('slug',$slug)->first(),
+            'active' => 'berita'
         ]);
     }
 

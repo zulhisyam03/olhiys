@@ -7,15 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>OLHIY'S | {{ $title }}</title>
 
+    <link rel="icon" href="{{ asset('images/logo-olhiys.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/62c979b04d.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     {{-- MODAL GALERI POPUP --}}
-    <link rel="stylesheet" href="../../css/slimbox2.css" type="text/css" media="screen" /> 
+    <link rel="stylesheet" href="{{ asset('css/slimbox2.css') }}" type="text/css" media="screen" /> 
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,600' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="../../js/jquery.min.js"></script>
-    <script type="text/JavaScript" src="../../js/slimbox2.js"></script> 
+    <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+    <script type="text/JavaScript" src="{{ asset('js/slimbox2.js') }}"></script> 
 
 
     <style type="text/css">
@@ -33,9 +34,7 @@
         .link {
             text-decoration: none;
             background: grey;
-            margin: 0;
-            padding: 8px;
-            color: white
+            color:white;            
         }
 
         .popupJudul {
@@ -55,8 +54,13 @@
         }
 
         .judul {
-            font-size: 1.5em;
+            color:white;
+            text-decoration: none;
         }
+        .judul:hover{
+            color:orangered;
+        }
+
 
         .nav-link {
             height: 50px;
@@ -98,9 +102,28 @@
             color: white;
         }
 
+        /* @media screen and (max-width:765px){
+            .carouselExampleDark{
+                height:150px;
+            }
+            .carouse .carousel-inner .carousel-item{
+                height:150px;
+            }
+        } */
+
         @media screen and (max-width:992px) {
-            .carouselExampleDark .carousel-inner .carousel-item{
+            .carousel {
+                padding-top:5px;
+                height: 200px;
+            }
+            .carousel .carousel-inner{
                 height:200px;
+            }
+            .carousel .carousel-inner .carousel-item{
+                height:200px;
+            }
+            .carousel .carousel-inner .carousel-item img{
+                height:100%;
             }
 
             .colBerita {
@@ -298,7 +321,9 @@
         <div class='wave -two'></div>
         <div class='wave -three'></div>
     </div>
-    @yield('content')
+    <div class="container position-relative py-0 pb-2" style="background:rgba(255, 255, 255, 0.355);min-height: 200px;">
+        @yield('content')
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

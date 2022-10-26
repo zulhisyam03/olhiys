@@ -20,10 +20,11 @@
     }
     @media screen and (max-width:1000px){
         .respon{
+            display:block;
+            border:2px solid red;
             padding-left: 10px;
             padding-right: 10px;
-            width:100%;
-            display:block;
+            width:100%;                        
         }
         .respon th{
             border-bottom: 1px solid rgba(86, 86, 86, 0.321);            
@@ -112,8 +113,22 @@
                                 </tbody>
                             </table>
 
+                            <div class="repon">                                
+                                @foreach ($dataBerita as $berita)
+                                    <div class="card-body m-0 p-2">
+                                        <span class="text-muted fs-5">{{ $berita->title }}</span>
+                                        <div class="pict">
+                                            @if ($berita->image != '')
+                                                <img src="storage/{{ $berita->image }}" class="" alt="">
+                                            @else
+                                                <img src="images/no-image.png" class="" alt="">
+                                            @endif                                                    
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
 
-                            <table class="respon">   
+                            {{-- <table class="respon border" width="100%">   
                                 @if ($cekBerita < '1')
                                         <tr>
                                             <td align="center">Data Tidak Ditemukan !!!</td>
@@ -157,7 +172,7 @@
                                         </tr>
                                     </tbody>
                                 @endforeach                            
-                            </table>                            
+                            </table>                             --}}
                     </div>
                 </div>
             </div>

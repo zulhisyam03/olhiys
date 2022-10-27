@@ -18,7 +18,7 @@
         padding-top:5px;
         height: 120px;
     }
-    @media screen and (max-width:1000px){
+    @media screen and (max-width:680px){
         .respon{
             display:block;
             border:2px solid red;
@@ -89,7 +89,7 @@
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <a href="berita\{{ $berita->slug }}" class="judul">
-                                                            {{ Str::limit($berita->title,50,'...') }}
+                                                            {{ Str::limit($berita->title,35,'...') }}
                                                             <p class="text-xs text-secondary mb-0">{{ $berita->author }}</p>    
                                                         </a>                                    
                                                     </div>
@@ -113,7 +113,7 @@
                                 </tbody>
                             </table>
 
-                            <div class="repon">                                
+                            <div class="respon">                                
                                 @foreach ($dataBerita as $berita)
                                     <div class="card-body m-0 p-2">
                                         <span class="text-muted fs-5">{{ $berita->title }}</span>

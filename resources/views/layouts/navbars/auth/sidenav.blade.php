@@ -8,8 +8,8 @@
         </a>
     </div>
     <hr class="horizontal dark mt-0">
-    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-        <ul class="navbar-nav">
+    <div class="collapse navbar-collapse w-auto " id="sidenav-collapse-main">
+        <ul class="navbar-nav position-absolute" style="width:100%">
             {{-- <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" href="{{ route('home') }}">
                     <div

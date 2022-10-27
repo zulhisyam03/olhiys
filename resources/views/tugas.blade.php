@@ -102,6 +102,27 @@
         </div>
     </div>
 
+    <div class="container text-light">
+        <form action="">
+            <div class="form-group">
+                <label for="Nama">Nama</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <input type="password" class="form-control">
+            </div>
+            <div class="form-group text-end py-2">
+                <button class="btn btn-success">Simpan</button>
+            </div>
+        </form>
+    </div>
+    
+
     <footer class="bg-success text-center text-light">Copyright &copy; Chelsy 2022</footer>
 
 </body>

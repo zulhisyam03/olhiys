@@ -28,6 +28,11 @@
                 </div>
             </div>
             @endforeach
-        </div>        
+        </div>    
+        @if ($dataBerita->hasPages())
+            <div class="mt-2 align-content-center">                
+                {{ $dataBerita->links() }}  
+            </div>            
+        @endif    
     </div>    
 @endsection

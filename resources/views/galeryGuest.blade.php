@@ -28,6 +28,11 @@
                 </div>
             @endforeach
         </div>
+        @if ($dataGalery->hasPages())
+            <div class="mt-2 me-auto justify-content-center">                
+                {{ $dataGalery->links() }}  
+            </div>            
+        @endif 
     </div>
 
     <script type="text/javascript">

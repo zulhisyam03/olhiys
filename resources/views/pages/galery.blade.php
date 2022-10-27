@@ -126,8 +126,7 @@
                                     </div>                                                                              
                                 </form>
                                 <hr style="border:4px solid #09b955;">                        
-                                <p align='center'>Jumlah Galery : {{ $jmlGalery }}</p> 
-                                <br>
+
                                 @if ($jmlGalery < '1')
                                     <center>Galery Tidak Ditemukan !!!</center>
                                 @endif                                      
@@ -155,7 +154,15 @@
                                             </div>                                                                 
                                         </div>
                                     @endforeach 
-                                </div>                               
+                                </div>         
+                                <div class="mx-2">
+                                    <span style="">
+                                        {!! str_replace(['Next','Previous'], '',$Galery) !!}
+                                    </span>
+                                    <div class="d-none">
+                                        {!! $Galery->links() !!}
+                                    </div>                                    
+                                </div>                      
                             </div>
                         </div>
                     </div>

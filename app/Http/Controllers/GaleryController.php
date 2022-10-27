@@ -19,7 +19,7 @@ class GaleryController extends Controller
         //
         return view('pages.galery', [
             'title'  => 'Galery',
-            'Galery' => Galery::orderBy('created_at', 'DESC')->get(),
+            'Galery' => Galery::orderBy('created_at', 'DESC')->paginate(15),
             'jmlGalery' => Galery::count()
         ]);
     }

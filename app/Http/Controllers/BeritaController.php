@@ -20,7 +20,7 @@ class BeritaController extends Controller
 
         return view('pages.berita', [            
             "title"     =>  "Berita",
-            "dataBerita"=>  Berita::orderBy('created_at','DESC')->get(),
+            "dataBerita"=>  Berita::orderBy('created_at','DESC')->paginate(10),
             "cekBerita" =>  $jmlBerita
         ]);
     }

@@ -21,14 +21,10 @@
     @media screen and (max-width:680px){
         .respon{
             display:block;
-            border:2px solid red;
             padding-left: 10px;
             padding-right: 10px;
             width:100%;                        
-        }
-        .respon th{
-            border-bottom: 1px solid rgba(86, 86, 86, 0.321);            
-        }
+        }       
         .utama{
             display: none;
         }
@@ -60,8 +56,7 @@
                             <div class="form-group" style="padding-left:10px;padding-right:10px;">
                                 <a href="../berita/create">
                                     <button class="btn btn-primary" style="width:100%;">+ Tambah Berita</button>
-                                </a>
-                                <p class="text-xs mb-0">Data : {{ $cekBerita }} Record </p> 
+                                </a>   
                             </div>                                                                                                                                
                             <table class="utama table align-items-center mb-0">
                                 <thead>                                    
@@ -109,25 +104,55 @@
                                                 </form>                                                
                                             </td>
                                         </tr>                                   
-                                    @endforeach                                
+                                    @endforeach 
+                                        <tr>
+                                            <td colspan='3'>
+                                                @if ($dataBerita->hasPages())
+                                                <div class="mx-2">
+                                                    {{ $dataBerita->links() }}
+                                                </div>
+                                                @endif    
+                                            </td>    
+                                        </tr>                               
                                 </tbody>
                             </table>
 
-                            <div class="respon">                                
+                            <div class="respon" style="margin-top:-20px;">                                
                                 @foreach ($dataBerita as $berita)
-                                    <div class="card-body m-0 p-2">
-                                        <span class="text-muted fs-5">{{ $berita->title }}</span>
-                                        <div class="pict">
+                                    <div class="card-body pt-0 px-2 pb-0">
+                                        <a href="berita\{{ $berita->slug }}" class="judul" style="font-size:16px;">
+                                            {{ $berita->title }}
+                                            <p class="text-xs mb-0" style="line-height:2px;"><i class="fa-regular fa-clock"></i> {{ $berita->tgl_post }}</p> 
+                                        </a>
+                                        <div class="pict mb-1">
                                             @if ($berita->image != '')
                                                 <img src="storage/{{ $berita->image }}" class="" alt="">
                                             @else
                                                 <img src="images/no-image.png" class="" alt="">
                                             @endif                                                    
                                         </div>
+                                        <div class="d-inline">
+                                            <a href="berita\{{ $berita->slug }}\edit">
+                                                <button class="btn btn-success btn-sm border-0" style="width:48%;"><i class="fas fa-edit"></i></button>
+                                            </a>
+                                            <form action="berita\{{ $berita->slug }}" method="post" class="d-inline">
+                                                @method('delete')
+                                                @csrf
+                                                <button class="btn btn-danger float-end btn-sm border-0" style="width:48%;" onclick="return confirm('Yakin Hapus Data?')"><i class="fas fa-trash-alt"></i></button>
+                                            </form>
+                                        </div>
                                     </div>
-                                @endforeach
-                            </div>
-
+                                @endforeach                                  
+                                <div class="d-flex justify-content-center">
+                                    <span style="">
+                                        {!! str_replace(['Next','Previous'], '',$dataBerita) !!}
+                                    </span>
+                                    <div class="d-none">
+                                        {!! $dataBerita->links() !!}
+                                    </div>                                    
+                                </div>                                                              
+                            </div>                           
+                            
                             {{-- <table class="respon border" width="100%">   
                                 @if ($cekBerita < '1')
                                         <tr>

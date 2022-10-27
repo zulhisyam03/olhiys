@@ -20,7 +20,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>   
+          <a class="nav-link" href="/admin">Login</a>   
       </li>
       </ul>
       <form class="d-flex pt-0 }}" role="search">

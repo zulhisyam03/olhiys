@@ -31,8 +31,7 @@ class HomeController extends Controller
 
     public function data(){
         return view('welcome', [
-            'dataGalery' => Galery::orderBy('created_at','DESC')->get(),
-            'dataBerita' => Berita::orderBy('created_at','DESC')->get(),
+            'dataBerita' => Berita::orderBy('created_at','DESC')->paginate(8),
             'slide'      => Berita::orderBy('created_at','DESC')->limit(3)->get(),
             'active'     => 'home',
             'title'      => 'Home'
@@ -42,7 +41,7 @@ class HomeController extends Controller
     public function galery(){
 
         return view('galeryGuest',[
-            'dataGalery' => Galery::orderBy('created_at','DESC')->get(),
+            'dataGalery' => Galery::orderBy('created_at','DESC')->paginate(20),
             'jmlGalery' => Galery::count(),
             'slide'      => Berita::orderBy('created_at','DESC')->limit(3)->get(),
             'active' => 'galery',

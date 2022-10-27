@@ -1,14 +1,13 @@
 @extends('layouts.main', ['title' => 'Home'])
-
 @section('content')    
     @include('layouts.slider')
     @include('layouts.navbars.guest.topNav')
-
-    <div class="container bg-light position-relative py-2 " id="navBerita" style="min-height:200px;border-radius:5px 5px 0 0;">
-        <p class="text-muted"><small><b> Home</b> <i class="fa-solid fa-angles-right"></i> Berita</small> </p> 
-        <div class="row mx-2">
+    
+    <div class="container bg-light position-relative py-2 rounded" id="" style="min-height:200px">
+        <p class="text-muted"><small><b> Home</b> <i class="fa-solid fa-angles-right"></i> Berita</small> </p>
+        <div class="row mx-2">            
             @foreach ($dataBerita as $berita)
-            <div class="colBerita border">
+            <div class="colBerita p-1 border">
                 <div class="row">
                     <div class="col text-start">
                         <div class="mx-0 py-1">
@@ -28,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            @endforeach                
+            @endforeach
         </div>
-    </div>        
+    </div>
 @endsection

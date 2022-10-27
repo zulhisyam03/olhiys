@@ -24,7 +24,7 @@
         }
         .imgGaleri{
             width: 100%;
-            min-height: 147px;;
+            min-height: 100%;
             border: 4px solid rgba(255, 0, 0, 0.284);
         }
         .img-fluid:hover{
@@ -135,7 +135,7 @@
                                     @foreach ($Galery as $galeri)                                    
                                         <div class="column">
                                             <div class="portfolio-item">
-                                                <div class="portfolio-thumb imgGaleri">
+                                                <div class="portfolio-thumb border border-2 border-danger p-0" style="height:150px;width:100%;">
                                                     <img src="storage/{{ $galeri->image }}" alt="{{ $galeri->title }}" style="height: 100%;">
                                                     <div class="overlay-p">
                                                         <a href="storage/{{ $galeri->image }}" data-rel="lightbox[portfolio]" style="padding-top:20%;height:100%;">

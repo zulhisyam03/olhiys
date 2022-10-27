@@ -13,8 +13,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     {{-- Magnific Popup CDN --}}
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
 
     <style type="text/css">
         body {
@@ -31,7 +33,7 @@
         .link {
             text-decoration: none;
             background: grey;
-            color:white;            
+            color: white;
         }
 
         .popupJudul {
@@ -51,11 +53,12 @@
         }
 
         .judul {
-            color:white;
+            color: white;
             text-decoration: none;
         }
-        .judul:hover{
-            color:orangered;
+
+        .judul:hover {
+            color: orangered;
         }
 
 
@@ -65,7 +68,7 @@
             color: white;
             padding-top: 10px;
             text-align: center;
-        }        
+        }
 
         .nav-link:hover {
             color: white;
@@ -75,7 +78,7 @@
             padding-left: 5px;
         }
 
-        #navbarTogglerDemo02 li a.active{
+        #navbarTogglerDemo02 li a.active {
             color: white;
             background: #1eac6a;
             font-weight: bold;
@@ -93,10 +96,84 @@
             background: url('images/templatemo_reasonbg.jpg');
             color: white;
         }
+
         .colGalery {
-            padding:0;
+            padding: 0;
             width: 20%;
             color: white;
+        }
+
+        figure img {
+            max-width: 100%;
+        }
+
+        @media screen and (max-width:460px) {
+            figure img {
+                max-width: 100%;
+                max-height: 200px;
+            }
+        }
+
+        /* CSS Magnific Popup Image */
+        #portfolio {
+            background: #fff;
+            padding: 30px 0;
+        }
+
+        #portfolio .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            transition: all ease-in-out 0.4s;
+        }
+
+        #portfolio .portfolio-item {
+            overflow: hidden;
+            position: relative;
+            padding: 0;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #portfolio .portfolio-item h2 {
+            color: #ffffff;
+            font-size: 24px;
+            margin: 0;
+            text-transform: capitalize;
+            font-weight: 700;
+        }
+
+        #portfolio .portfolio-item img {
+            transition: all ease-in-out 0.4s;
+            width: 100%;
+        }
+
+        #portfolio .portfolio-item:hover img {
+            cursor: zoom-in;
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        #portfolio .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        #portfolio .portfolio-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        #gambar:hover {
+            cursor: zoom-in;
         }
 
         /* @media screen and (max-width:765px){
@@ -110,17 +187,25 @@
 
         @media screen and (max-width:992px) {
             .carousel {
-                padding-top:5px;
+                padding-top: 5px;
                 height: 200px;
             }
-            .carousel .carousel-inner{
-                height:200px;
+
+            .carousel-caption {
+                margin-bottom: 100px;
+
             }
-            .carousel .carousel-inner .carousel-item{
-                height:200px;
+
+            .carousel .carousel-inner {
+                height: 200px;
             }
-            .carousel .carousel-inner .carousel-item img{
-                height:100%;
+
+            .carousel .carousel-inner .carousel-item {
+                height: 200px;
+            }
+
+            .carousel .carousel-inner .carousel-item img {
+                height: 100%;
             }
 
             .colBerita {
@@ -322,7 +407,7 @@
         @yield('content')
 
         @include('layouts.footers.guest.footer')
-    </div>    
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

@@ -24,7 +24,7 @@ use App\Http\Controllers\UserProfileController;
 
 Route::get('/', function() { return view('welcome');});
 Route::get('/', [HomeController::class, 'data']);
-Route::get('showBerita/{slug}', [BeritaController::class, 'beritaGuest']);
+Route::get('/showBerita/{slug}', [HomeController::class, 'beritaGuest']);
 Route::get('/guest-galery', [HomeController::class, 'galery']);
 
 

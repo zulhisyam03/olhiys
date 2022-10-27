@@ -1,15 +1,4 @@
 @extends('layouts.main', ['title' => 'Home >> Berita'])
-<style type="text/css">
-    figure img{
-        max-width: 100%;
-    }
-    @media screen and (max-width:460px){
-        figure img{
-        max-width: 100%;
-        max-height:200px;
-    }
-    }
-</style>
 @section('content')
     @include('layouts.slider')
     @include('layouts.navbars.guest.topNav')

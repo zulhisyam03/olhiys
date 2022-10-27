@@ -34,15 +34,7 @@ class BeritaController extends Controller
             'dataBerita'=> Berita::where('title','like','%'.$find.'%')->get(),
             'cekBerita'      => count($cekData)
         ]);
-    }
-    
-    public function beritaGuest($slug){
-        return view('showBerita', [
-            'title' => 'Berita',
-            'dataBerita' => Berita::where('slug',$slug)->first(),
-            'active' => 'berita'
-        ]);
-    }
+    }    
 
     /**
      * Show the form for creating a new resource.

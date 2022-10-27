@@ -1,4 +1,5 @@
 {{-- Slider --}}
+
 <div class="container px-0">
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -8,27 +9,21 @@
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000" style="height: 300px;">
-                <img src="{{ asset('images/slider/img_1_blank.jpg') }}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+            <span style="visibility: hidden">{{ $no = 0; }}</span>            
+            @foreach ($slide as $item)                
+                <div class="carousel-item {{ ($no == '0') ? 'active' : '' }}" data-bs-interval="5000" style="height: 300px;">
+                    @if ($item->image == '')
+                        <img src="{{ asset('images/slider/img_1_blank.jpg') }}" class="d-block w-100" alt="...">
+                    @else
+                        <img src="{{ asset('storage/'.$item->image) }}" class="d-block w-100" alt="...">
+                    @endif                
+                    <div class="carousel-caption text-uppercase d-none d-md-block text-light rounded-4" style="background: rgba(0, 0, 0, 0.56)">
+                        <h5>{{ $item->title }}</h5>
+                        <p><a href="/showBerita/{{ $item->slug }}"><button class="btn btn-success">Read More</button></a></p>
+                    </div>
                 </div>
-            </div>
-            <div class="carousel-item" data-bs-interval="2000" style="height: 300px;">
-                <img src="{{ asset('images/slider/img_2_blank.jpg') }}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
-                </div>
-            </div>
-            <div class="carousel-item" style="height: 300px;">
-                <img src="{{ asset('images/slider/img_3_blank.jpg') }}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
-                </div>
-            </div>
+                {{ $no++ }}
+            @endforeach                    
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

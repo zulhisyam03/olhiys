@@ -405,9 +405,11 @@
     </div>
     <div class="container position-relative py-0 pb-2" style="background:rgba(255, 255, 255, 0.355);min-height: 200px;">
         @yield('content')
-
+        
         @include('layouts.footers.guest.footer')
     </div>
+
+    <a href="#" target="_top" class="" style="position:fixed;bottom:30px;right:40px;background:#1eac6a;width:40px;height:40px;border-radius:20px;padding-top:9px;padding-left:4px"><i class="fa-regular fa-circle-up fa-2xl text-light rounded-circle"></i></a>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

@@ -1,5 +1,15 @@
 @extends('layouts.main', ['title' => 'Home >> Berita'])
-
+<style type="text/css">
+    figure img{
+        max-width: 100%;
+    }
+    @media screen and (max-width:460px){
+        figure img{
+        max-width: 100%;
+        max-height:200px;
+    }
+    }
+</style>
 @section('content')
     @include('layouts.slider')
     @include('layouts.navbars.guest.topNav')
@@ -16,10 +26,10 @@
                             {{ $dataBerita->title }}                        
                         </div>
                         <p class="text-muted mt-0" style="font-size:11px;"><b> {{ $dataBerita->author }}</b> Dibuat {{ $dataBerita->created_at->diffForHumans() }}</small> </p>
-                        @if (!empty($dataBerita->image))
-                            <img src="{{ asset('storage/'.$dataBerita->image) }}" alt="{{ $dataBerita->title }}" class="img-fluid pb-3"/>
+                        @if (!empty($dataBerita->image))                        
+                            <center><img src="{{ asset('storage/'.$dataBerita->image) }}" alt="{{ $dataBerita->title }}" class="img-fluid pb-3"/></center>
                         @endif
-                        <article style="text-align: justify">
+                        <article class="artikel text-dark" style="text-align: justify">
                           <p>
                               {!! $dataBerita->body !!}
                           </p>                  

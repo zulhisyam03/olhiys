@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Http\Controllers\Controller;
 
 class UserProfileController extends Controller
 {
@@ -26,17 +27,17 @@ class UserProfileController extends Controller
             'about' => ['max:255']
         ]);
 
-        auth()->user()->update([
-            'username' => $request->get('username'),
-            'firstname' => $request->get('firstname'),
-            'lastname' => $request->get('lastname'),
-            'email' => $request->get('email') ,
-            'address' => $request->get('address'),
-            'city' => $request->get('city'),
-            'country' => $request->get('country'),
-            'postal' => $request->get('postal'),
-            'about' => $request->get('about')
-        ]);
+        // auth()->user()->update([
+        //     'username' => $request->get('username'),
+        //     'firstname' => $request->get('firstname'),
+        //     'lastname' => $request->get('lastname'),
+        //     'email' => $request->get('email') ,
+        //     'address' => $request->get('address'),
+        //     'city' => $request->get('city'),
+        //     'country' => $request->get('country'),
+        //     'postal' => $request->get('postal'),
+        //     'about' => $request->get('about')
+        // ]);
         return back()->with('succes', 'Profile succesfully updated');
     }
 }

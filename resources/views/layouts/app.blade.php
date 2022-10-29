@@ -113,7 +113,7 @@
             var btnAcounHide = document.getElementById("btnAcountHide");
 
             btnAcount.style.display     = "none";
-            btnAcountHide.style.display = "block";
+            $("#btnAcountHide").fadeToggle("slow");
             $("#password").prop("disabled", false);                                
         }
 

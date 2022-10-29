@@ -9,10 +9,8 @@
                     <div class="card-header pb-0">
                         <h6>About</h6>
                     </div>
-                    <div class="card-body px-0 pt-0 pb-2">
-                        <form action="/setabout" method="post">
-                            @csrf
-                            <div class="form-group px-4">
+                    <div class="card-body px-0 pt-0 pb-2">                                                
+                            <div class="form-group px-4" id="aboutShow">
                                 <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label" for="formDisabled">Visi & Misi</label>  
                                     <div class="col-sm">
@@ -20,33 +18,74 @@
                                     </div>                              
                                 </div>   
                                 <div class="mb-3 row">
+                                    <label class="col-sm-3 col-form-label" for="formDisabled">Tentang OLHIY'S</label>  
+                                    <div class="col-sm">
+                                        <input type="text" class="form-control" name="tentang" disabled>
+                                    </div>                              
+                                </div> 
+                                <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label " for="formDisabled">Struktur Organisasi</label>  
-                                    <div class="col-sm-4 ">
-                                        <input type="file" class="form-control" name="struktur">
+                                    <div class="col-sm-4">
+                                        <img src="http://pelayananterpadu.menlhk.go.id/images/berita/2015/Struktur-Organisasi-LHK1.jpg" alt="" class="img-fluid">
                                     </div>                              
                                 </div>
                                 <div class="mb-3 row">                                
-                                    <div class="col-sm ">
-                                        <button class="btn btn-success"><i class="fa fa-pencil"></i> Edit</button>
+                                    <div class="col-sm text-center">
+                                        <button type="button" class="btn btn-success w-100" onclick="aboutBtn()"><i class="fa fa-pencil"></i> Edit</button>
                                     </div>                              
                                 </div>
                             </div>
-                        </form>
+
+                            <form action="/setabout" method="post" id="aboutEdit">
+                                <div class="form-group px-4">
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label" for="formDisabled">Visi & Misi</label>  
+                                        <div class="col-sm">
+                                            <input type="text" class="form-control" name="visiMisi">
+                                        </div>                              
+                                    </div>   
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label" for="formDisabled">Tentang OLHIY'S</label>  
+                                        <div class="col-sm">
+                                            <input type="text" class="form-control" name="tentang">
+                                        </div>                              
+                                    </div> 
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label " for="formDisabled">Struktur Organisasi</label>  
+                                        <div class="col-sm-4">
+                                            <input type="file" class="form-control" name="struktur">
+                                            <img src="http://pelayananterpadu.menlhk.go.id/images/berita/2015/Struktur-Organisasi-LHK1.jpg" alt="" class="img-fluid">
+                                        </div>                              
+                                    </div>
+                                    <div class="mb-3 row">                                
+                                        <div class="col-sm text-center">
+                                            <button class="btn btn-success" id=""><i class="fa fa-pencil"></i> Save</button>
+                                            <button class="btn btn-danger" onclick="aboutBtn()" type="button"><i class="fa-solid fa-x"></i> Cancel</button>
+                                        </div>                              
+                                    </div>
+                                </div>
+                            </form>
+                      
                         <hr>
-                        <form action="/setaccount" method="post">
+                        <form action="/setaccount" method="post" id="account">
                             @csrf
                             <div class="form-group px-4">
                                 <div class="mb-3 row">                                
                                     <div class="col-sm-5">
                                         <label class="col-form-label for="staticEmail">E-Mail</label>
-                                        <input type="email" class="form-control" name="email" readonly>
+                                        <input type="email" class="form-control" id="email" name="email" readonly>
                                     </div>       
                                     <div class="col-sm-5">
                                         <label class="col-form-label" for="password">Password</label>
-                                        <input type="password" class="form-control" name="password" readonly>
+                                        <input type="password" class="form-control" id="password" name="password" disabled>
                                     </div> 
                                     <div class="col-sm  py-0" style="margin-top:39px;">                                    
-                                        <button class="btn btn-success mb-0" style=""><i class="fa fa-pencil"></i> Edit</button>
+                                        <button class="btn btn-success mb-0" type="button" id="btnAcount" onclick="acountBtn()"><i class="fa fa-pencil"></i> Edit</button>
+                                        {{-- Button Ketika Edit Aktif --}}
+                                        <div id="btnAcountHide">
+                                            <button class="btn btn-success mb-0"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+                                            <button class="btn btn-danger mb-0" type="button" onclick="btnAcountCancel()"><i class="fa-solid fa-x"></i> Batal</button>
+                                        </div>                                        
                                     </div>                         
                                 </div>   
                             </div>

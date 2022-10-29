@@ -22,18 +22,27 @@
     <link rel="stylesheet" href="../../css/templatemo_misc.css">
 
     {{-- MODAL GALERI POPUP --}}
-    <link rel="stylesheet" href="../../css/slimbox2.css" type="text/css" media="screen" /> 
+    <link rel="stylesheet" href="../../css/slimbox2.css" type="text/css" media="screen" />
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,600' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="../../js/jquery.min.js"></script>
-    <script type="text/JavaScript" src="../../js/slimbox2.js"></script> 
+    <script type="text/JavaScript" src="../../js/slimbox2.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <link id="pagestyle" href="../../assets/css/argon-dashboard.css" rel="stylesheet" />
-    
+
     <link rel="stylesheet" type="text/css" href="../../css/trix.css">
     <script type="text/javascript" src="../../js/trix.js"></script>
 
     <style type="text/css">
-        trix-toolbar [data-trix-button-group="file-tools"]{
+        trix-toolbar [data-trix-button-group="file-tools"] {
+            display: none;
+        }
+
+        #aboutEdit {
+            display: none;
+        }
+        #btnAcountHide{
             display: none;
         }
     </style>
@@ -46,20 +55,24 @@
     @endguest
 
     @auth
-        @if (in_array(request()->route()->getName(), ['sign-in-static', 'sign-up-static', 'login', 'register', 'recover-password', 'rtl', 'virtual-reality']))
+        @if (in_array(request()->route()->getName(),
+            ['sign-in-static', 'sign-up-static', 'login', 'register', 'recover-password', 'rtl', 'virtual-reality']))
             @yield('content')
         @else
-            @if (!in_array(request()->route()->getName(), ['profile', 'profile-static']))
+            @if (!in_array(request()->route()->getName(),
+                ['profile', 'profile-static']))
                 <div class="min-height-300 bg-primary position-absolute w-100"></div>
-            @elseif (in_array(request()->route()->getName(), ['profile-static', 'profile']))
-                <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg'); background-position-y: 50%;">
+            @elseif (in_array(request()->route()->getName(),
+                ['profile-static', 'profile']))
+                <div class="position-absolute w-100 min-height-300 top-0"
+                    style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg'); background-position-y: 50%;">
                     <span class="mask bg-primary opacity-6"></span>
                 </div>
             @endif
             @include('layouts.navbars.auth.sidenav')
-                <main class="main-content border-radius-lg">
-                    @yield('content')
-                </main>
+            <main class="main-content border-radius-lg">
+                @yield('content')
+            </main>
             @include('components.fixed-plugin')
         @endif
     @endauth
@@ -67,13 +80,13 @@
     <!-- ckeditor5 -->
     <script>
         ClassicEditor
-                .create( document.querySelector( '#editorBerita' ) )
-                .then( editor => {
-                        console.log( editor );
-                } )
-                .catch( error => {
-                        console.error( error );
-                } );
+            .create(document.querySelector('#editorBerita'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
     </script>
 
     <!--   Core JS Files   -->
@@ -81,6 +94,39 @@
     <script src="../../assets/js/core/bootstrap.min.js"></script>
     <script src="../../assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="../../assets/js/plugins/smooth-scrollbar.min.js"></script>
+
+    <script>
+        function aboutBtn() {
+            var show = document.getElementById("aboutShow");
+            var edit = document.getElementById("aboutEdit");
+            if (show.style.display === "none") {
+                show.style.display = "block";
+                edit.style.display = "none";
+            } else {
+                show.style.display = "none";
+                $("#aboutEdit").fadeToggle("slow");
+            }
+        }
+
+        function acountBtn() {
+            var btnAcount = document.getElementById("btnAcount");
+            var btnAcounHide = document.getElementById("btnAcountHide");
+
+            btnAcount.style.display     = "none";
+            btnAcountHide.style.display = "block";
+            $("#password").prop("disabled", false);                                
+        }
+
+        function btnAcountCancel() {
+            var btnAcount = document.getElementById("btnAcount");
+            var btnAcounHide = document.getElementById("btnAcountHide");
+
+            btnAcountHide.style.display = "none";
+            $("#password").prop("disabled", true); 
+            btnAcount.style.display     = "block";                                                   
+        }
+    </script>
+
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {

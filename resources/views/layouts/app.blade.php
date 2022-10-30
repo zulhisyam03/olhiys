@@ -42,7 +42,7 @@
         #aboutEdit {
             display: none;
         }
-        #btnAcountHide{
+        #acountEdit{
             display: none;
         }
     </style>
@@ -109,21 +109,19 @@
         }
 
         function acountBtn() {
-            var btnAcount = document.getElementById("btnAcount");
-            var btnAcounHide = document.getElementById("btnAcountHide");
+            var acountShow = document.getElementById("acountShow");
+            var acountEdit = document.getElementById("acountEdit");
 
-            btnAcount.style.display     = "none";
-            $("#btnAcountHide").fadeToggle("slow");
-            $("#password").prop("disabled", false);                                
+            acountShow.style.display     = "none";
+            $("#acountEdit").fadeToggle("slow");                                          
         }
 
         function btnAcountCancel() {
-            var btnAcount = document.getElementById("btnAcount");
-            var btnAcounHide = document.getElementById("btnAcountHide");
+            var acountShow = document.getElementById("acountShow");
+            var acountEdit = document.getElementById("acountEdit");
 
-            btnAcountHide.style.display = "none";
-            $("#password").prop("disabled", true); 
-            btnAcount.style.display     = "block";                                                   
+            acountEdit.style.display     = "none";
+            $("#acountShow").fadeToggle("slow");                                                  
         }
     </script>
 

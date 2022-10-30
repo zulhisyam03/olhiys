@@ -3,91 +3,188 @@
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
     <div class="container-fluid py-4">
+        @if ($message = session()->has('succes'))
+            <div class="px-4 pt-4">
+                <div style="color:white;" class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check"></i>
+                    {{ session()->get('succes') }}
+                    <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+            </div>
+        @endif
+        @if ($message = session()->has('gagal'))
+            <div class="px-4 pt-4">
+                <div style="color:white;" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check"></i>
+                    {{ session()->get('gagal') }}
+                    <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+            </div>
+        @endif
+
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
                         <h6>About</h6>
                     </div>
-                    <div class="card-body px-0 pt-0 pb-2">                                                
-                            <div class="form-group px-4" id="aboutShow">
-                                <div class="mb-3 row">
-                                    <label class="col-sm-3 col-form-label" for="formDisabled">Visi & Misi</label>  
-                                    <div class="col-sm">
-                                        <input type="text" class="form-control" name="visiMisi" disabled>
-                                    </div>                              
-                                </div>   
-                                <div class="mb-3 row">
-                                    <label class="col-sm-3 col-form-label" for="formDisabled">Tentang OLHIY'S</label>  
-                                    <div class="col-sm">
-                                        <input type="text" class="form-control" name="tentang" disabled>
-                                    </div>                              
-                                </div> 
-                                <div class="mb-3 row">
-                                    <label class="col-sm-3 col-form-label " for="formDisabled">Struktur Organisasi</label>  
-                                    <div class="col-sm-4">
-                                        <img src="http://pelayananterpadu.menlhk.go.id/images/berita/2015/Struktur-Organisasi-LHK1.jpg" alt="" class="img-fluid">
-                                    </div>                              
-                                </div>
-                                <div class="mb-3 row">                                
-                                    <div class="col-sm text-center">
-                                        <button type="button" class="btn btn-success w-100" onclick="aboutBtn()"><i class="fa fa-pencil"></i> Edit</button>
-                                    </div>                              
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="form-group px-4" id="aboutShow">
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label" for="formDisabled">Visi</label>
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" name="visi" value="{{ Str::limit($about->visi,40,'..') }}" disabled>
                                 </div>
                             </div>
-
-                            <form action="/setabout" method="post" id="aboutEdit">
-                                <div class="form-group px-4">
-                                    <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label" for="formDisabled">Visi & Misi</label>  
-                                        <div class="col-sm">
-                                            <input type="text" class="form-control" name="visiMisi">
-                                        </div>                              
-                                    </div>   
-                                    <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label" for="formDisabled">Tentang OLHIY'S</label>  
-                                        <div class="col-sm">
-                                            <input type="text" class="form-control" name="tentang">
-                                        </div>                              
-                                    </div> 
-                                    <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label " for="formDisabled">Struktur Organisasi</label>  
-                                        <div class="col-sm-4">
-                                            <input type="file" class="form-control" name="struktur">
-                                            <img src="http://pelayananterpadu.menlhk.go.id/images/berita/2015/Struktur-Organisasi-LHK1.jpg" alt="" class="img-fluid">
-                                        </div>                              
-                                    </div>
-                                    <div class="mb-3 row">                                
-                                        <div class="col-sm text-center">
-                                            <button class="btn btn-success" id=""><i class="fa fa-pencil"></i> Save</button>
-                                            <button class="btn btn-danger" onclick="aboutBtn()" type="button"><i class="fa-solid fa-x"></i> Cancel</button>
-                                        </div>                              
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label" for="formDisabled">Misi</label>
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" name="misi" value="{{ Str::limit($about->misi,40,'..') }}" disabled>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label" for="formDisabled">Tentang OLHIY'S</label>
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" name="tentang" value="{{ Str::limit($about->tentang,40,'..') }}" disabled>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label " for="formDisabled">Struktur Organisasi</label>
+                                <div class="col-sm-4">
+                                    <div class="portfolio-item">
+                                        <div class="portfolio-thumb border border-2 border-success p-0"
+                                            style="height:150px;width:100%;">
+                                            <img src="Storage/{{ $about->so }}" alt="Struktur Organisasi" style="height: 100%;">
+                                            <div class="overlay-p">
+                                                <a href="Storage/{{ $about->so }}"
+                                                    data-rel="lightbox[portfolio]" style="padding-top:20%;height:100%;">
+                                                    <ul>
+                                                        <li class="fa-solid fa-magnifying-glass-plus fa-2xl"></i>
+                                                    </ul>
+                                                </a>
+                                            </div>
+                                        </div> <!-- /.portfolio-thumb -->
                                     </div>
                                 </div>
-                            </form>
-                      
+                            </div>
+                            <div class="mb-3 row">
+                                <div class="col-sm text-center">
+                                    <button type="button" class="btn btn-success w-100" onclick="aboutBtn()"><i
+                                            class="fa fa-pencil"></i> Edit</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form action="/setabout" method="post" id="aboutEdit">
+                            <div class="form-group px-4">
+                                <div class="mb-3 row">
+                                    <label class="col-sm-3 col-form-label" for="formDisabled">Visi</label>
+                                    <div class="col-sm">
+                                        <input type="text" class="form-control" name="visi" value="{{ Str::limit($about->visi,40,'..') }}" required autofocus>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-sm-3 col-form-label" for="formDisabled">Misi</label>
+                                    <div class="col-sm">
+                                        <input type="text" class="form-control" name="misi" value="{{ Str::limit($about->misi,40,'..') }}" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-sm-3 col-form-label" for="formDisabled">Tentang OLHIY'S</label>
+                                    <div class="col-sm">
+                                        <input type="text" class="form-control" name="tentang" value="{{ Str::limit($about->tentang,40,'..') }}" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-sm-3 col-form-label " for="formDisabled">Struktur Organisasi</label>
+                                    <div class="col-sm-4">
+                                        <input type="file" class="form-control" name="struktur" id="struktur"
+                                            onchange="previewImg() @error('struktur') is-invalid @enderror">
+                                        @if ($about->so)
+                                            <img class="img-fluid mt-2 col-sm-5 d-block" src="Storage/{{ $about->so }}">
+                                        @else
+                                            <img class="img-preview img-fluid mt-2 col-sm-5 d-block">
+                                        @endif                                        
+                                        @error('struktur')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <div class="col-sm text-center">
+                                        <button class="btn btn-success" id=""><i class="fa-solid fa-floppy-disk"></i>
+                                            Save</button>
+                                        <button class="btn btn-danger" onclick="aboutBtn()" type="button"><i
+                                                class="fa-solid fa-x"></i> Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
                         <hr>
-                        <form action="/setaccount" method="post" id="account">
+
+
+                        <div class="form-group px-4" id="acountShow">
+                            <div class="mb-3 row">
+                                <div class="col-sm-5">
+                                    <label class="col-form-label for="staticEmail">E-Mail</label>
+                                    <input type="email" class="form-control" id="email" value="{{ $acount->email }}" name="" readonly>
+                                </div>
+                                <div class="col-sm-5">
+                                    <label class="col-form-label" for="password">Password</label>
+                                    <input type="password" class="form-control" name="" value="........" disabled>
+                                </div>
+                                <div class="col-sm  py-0" style="margin-top:39px;">
+                                    <button class="btn btn-success mb-0" type="button"
+                                        onclick="acountBtn()"><i class="fa fa-pencil"></i> Edit</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form action="/setaccount/{{ $acount->id }}" method="post" id="acountEdit">
+                            @method('put')
                             @csrf
                             <div class="form-group px-4">
                                 <div class="mb-3 row">                                
-                                    <div class="col-sm-5">
-                                        <label class="col-form-label for="staticEmail">E-Mail</label>
-                                        <input type="email" class="form-control" id="email" name="email" readonly>
-                                    </div>       
-                                    <div class="col-sm-5">
-                                        <label class="col-form-label" for="password">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password" disabled>
+                                    <label class="col-sm-3 col-form-label for="staticEmail">E-Mail</label>
+                                    <div class="col-sm">                                        
+                                        <input type="email" class="form-control" id="email" value="{{ $acount->email }}" name="" readonly>
+                                    </div>                                
+                                </div>
+                                <div class="mb-3 row">                                
+                                    <label class="col-sm-3 col-form-label for="staticPassword">Password Lama</label>
+                                    <div class="col-sm">
+                                        <input type="password" class="form-control @error('passwordLama') is-invalid @enderror" id="passwordLama" name="passwordLama" autofocus required>
+                                        @error('passwordLama')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>                                            
+                                        @enderror 
+                                    </div>                                
+                                </div>
+                                <div class="mb-3 row">                                
+                                    <label class="col-sm-3 col-form-label for="staticPassword">Password Baru</label>
+                                    <div class="col-sm">
+                                        <input type="password" class="form-control @error('passwordBaru') is-invalid @enderror" id="passwordBaru" name="passwordBaru" required>
                                     </div> 
-                                    <div class="col-sm  py-0" style="margin-top:39px;">                                    
-                                        <button class="btn btn-success mb-0" type="button" id="btnAcount" onclick="acountBtn()"><i class="fa fa-pencil"></i> Edit</button>
-                                        {{-- Button Ketika Edit Aktif --}}
-                                        <div id="btnAcountHide">
-                                            <button class="btn btn-success mb-0"><i class="fa-solid fa-floppy-disk"></i> Save</button>
-                                            <button class="btn btn-danger mb-0" type="button" onclick="btnAcountCancel()"><i class="fa-solid fa-x"></i> Batal</button>
-                                        </div>                                        
-                                    </div>                         
-                                </div>   
+                                    @error('passwordBaru')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror                               
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm text-center">
+                                        <button type="" onclick="" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i> Simpan</i></button>
+                                    <button type="button" onclick="btnAcountCancel()" class="btn btn-danger"><i class="fa-solid fa-x"></i> Cancel</button>
+                                    </div>                                    
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -354,6 +451,33 @@
 
 @push('js')
     <script src="./assets/js/plugins/chartjs.min.js"></script>
+
+    <script>
+        //Membuat Preview Image
+        function previewImg() {
+            const image = document.querySelector('#struktur');
+            const imgPreview = document.querySelector('.img-preview');
+
+            imgPreview.style.display = 'blok';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+    </script>
+    {{-- Modal Galeri Popup --}}
+    <script type="text/javascript">
+        $(window).load(function() {
+            $('#slider').nivoSlider({
+                prevText: '',
+                nextText: '',
+                controlNav: false,
+            });
+        });
+    </script>
     <script>
         var ctx1 = document.getElementById("chart-line").getContext("2d");
 

@@ -2,30 +2,50 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Crypt;
 
 class UserProfileController extends Controller
 {
     public function show()
     {
-        return view('pages.user-profile');
+        // return view('pages.user-profile');
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $attributes = $request->validate([
-            'username' => ['required','max:255', 'min:2'],
-            'firstname' => ['max:100'],
-            'lastname' => ['max:100'],
-            'email' => ['required', 'email', 'max:255',  Rule::unique('users')->ignore(auth()->user()->id),],
-            'address' => ['max:100'],
-            'city' => ['max:100'],
-            'country' => ['max:100'],
-            'postal' => ['max:100'],
-            'about' => ['max:255']
+   
+        $validated = $request->validate([
+            'passwordLama' => 'required|min:8',            
+            'passwordBaru' => 'required|min:8'            
         ]);
+    
+        $validated['passwordLama'] = bcrypt($request->passwordLama);
+        $validated['passwordBaru'] = bcrypt($request->passwordBaru);     
+  
+        $cekPass    =   User::find($id);
+
+        if ($validated['passwordLama'] != $cekPass->password) {
+            # code...
+            return redirect('/dashboard')->with('gagal','Password Lama Salah !!!');
+        } else {
+            # code...
+            if ($validated['passwordBaru'] === $cekPass->password) {
+                # code...
+                return view('pages.dashboard')->with('gagal','Password Baru Sama Dengan Password Lama !!!');
+            } else {
+                # code...
+                $acount =   ($validated);
+                $cekPass->update($acount);
+
+                return view('pages.dashboard')->with('succes', 'Password Telah Berhasil Diubah !!!');
+            }
+            
+        }
+        
 
         // auth()->user()->update([
         //     'username' => $request->get('username'),
@@ -38,6 +58,6 @@ class UserProfileController extends Controller
         //     'postal' => $request->get('postal'),
         //     'about' => $request->get('about')
         // ]);
-        return back()->with('succes', 'Profile succesfully updated');
+        // return back()->with('succes', 'Profile succesfully updated');
     }
 }

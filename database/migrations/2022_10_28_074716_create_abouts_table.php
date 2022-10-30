@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
             $table->string('email')->unique();
-            $table->text('visiMisi');
+            $table->text('visi');
+            $table->text('misi');
             $table->string('so')->nullable();
             $table->text('tentang')->nullable();
             $table->timestamps();

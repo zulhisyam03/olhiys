@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use App\Models\Galery;
+use App\Models\User;
+use App\Models\About;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -26,7 +28,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.dashboard');
+        return view('pages.dashboard',[
+            'about' =>  About::all()->first(),
+            'acount'=>  User::all()->first()
+        ]);
     }
 
     public function data(){

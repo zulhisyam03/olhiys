@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/berita', [BeritaController::class, 'index']);
 	Route::get('/galery', [GaleryController::class, 'index']);
 	
+	Route::resource('/setaccount', UserProfileController::class)->middleware('auth');
 	//Resource Berita untuk menangani Method tiap Form GET,POST,PATCH,DELETE,CREATE
 	Route::resource('/galery', GaleryController::class)->middleware('auth');
 	Route::resource('/berita', BeritaController::class)->middleware('auth');

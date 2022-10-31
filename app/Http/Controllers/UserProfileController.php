@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 
 class UserProfileController extends Controller
@@ -19,31 +20,30 @@ class UserProfileController extends Controller
     {
    
         $validated = $request->validate([
-            'passwordLama' => 'required|min:8',            
-            'passwordBaru' => 'required|min:8'            
+            'email'        => 'required|email',
+            'passwordLama' => 'required|min:5',            
+            'passwordBaru' => 'required|min:5'            
         ]);
     
-        $validated['passwordLama'] = bcrypt($request->passwordLama);
-        $validated['passwordBaru'] = bcrypt($request->passwordBaru);     
+        // $validated['passwordBaru'] = bcrypt($request->passwordBaru);     
   
         $cekPass    =   User::find($id);
 
-        if ($validated['passwordLama'] != $cekPass->password) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->passwordLama])) {
             # code...
-            return redirect('/dashboard')->with('gagal','Password Lama Salah !!!');
-        } else {
-            # code...
-            if ($validated['passwordBaru'] === $cekPass->password) {
-                # code...
-                return view('pages.dashboard')->with('gagal','Password Baru Sama Dengan Password Lama !!!');
-            } else {
-                # code...
-                $acount =   ($validated);
-                $cekPass->update($acount);
-
-                return view('pages.dashboard')->with('succes', 'Password Telah Berhasil Diubah !!!');
-            }
             
+            $cekPass->password = $validated['passwordBaru'];
+            $cekPass->save();
+            
+            Auth::logout();
+
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
+            return redirect('/login');
+        } else {
+            # code...            
+            return redirect('/dashboard')->with('gagal', 'Password Lama Salah !!!');
         }
         
 

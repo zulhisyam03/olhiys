@@ -179,6 +179,7 @@
                                 <div class="mb-3 row">                                
                                     <label class="col-sm-3 col-form-label for="staticEmail">E-Mail</label>
                                     <div class="col-sm">                                        
+                                        <input type="hidden" name="email" value="{{ $acount->email }}">
                                         <input type="email" class="form-control" id="email" value="{{ $acount->email }}" name="" readonly>
                                     </div>                                
                                 </div>

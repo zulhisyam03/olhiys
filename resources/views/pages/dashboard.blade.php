@@ -37,30 +37,31 @@
                             <div class="mb-3 row">
                                 <label class="col-sm-3 col-form-label" for="formDisabled">Visi</label>
                                 <div class="col-sm">
-                                    <input type="text" class="form-control" name="visi" value="{{ Str::limit($about->visi,40,'..') }}" disabled>
+                                    <input type="text" class="form-control" value="{{ Str::limit($about->visi,40,'..') }}" disabled>
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label class="col-sm-3 col-form-label" for="formDisabled">Misi</label>
                                 <div class="col-sm">
-                                    <input type="text" class="form-control" name="misi" value="{{ Str::limit($about->misi,40,'..') }}" disabled>
+                                    <input type="text" class="form-control" value="{{ Str::limit($about->misi,40,'..') }}" disabled>
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label class="col-sm-3 col-form-label" for="formDisabled">Tentang OLHIY'S</label>
                                 <div class="col-sm">
-                                    <input type="text" class="form-control" name="tentang" value="{{ Str::limit($about->tentang,40,'..') }}" disabled>
+                                    <input type="text" class="form-control" value="{{ Str::limit($about->tentang,40,'..') }}" disabled>
                                 </div>
                             </div>
                             <div class="mb-3 row">
-                                <label class="col-sm-3 col-form-label " for="formDisabled">Struktur Organisasi</label>
+                                <label class="col-sm-3 col-form-label" for="formDisabled">Struktur Organisasi</label>
                                 <div class="col-sm-4">
+                                    @if ($about->so)
                                     <div class="portfolio-item">
                                         <div class="portfolio-thumb border border-2 border-success p-0"
-                                            style="height:150px;width:100%;">
-                                            <img src="Storage/{{ $about->so }}" alt="Struktur Organisasi" style="height: 100%;">
+                                            style="height:150px;width:100%;">                                              
+                                            <img src="storage/{{ $about->so }}" alt="Struktur Organisasi" style="height: 100%;">                                                                                                                                 
                                             <div class="overlay-p">
-                                                <a href="Storage/{{ $about->so }}"
+                                                <a href="storage/{{ $about->so }}"
                                                     data-rel="lightbox[portfolio]" style="padding-top:20%;height:100%;">
                                                     <ul>
                                                         <li class="fa-solid fa-magnifying-glass-plus fa-2xl"></i>
@@ -69,6 +70,9 @@
                                             </div>
                                         </div> <!-- /.portfolio-thumb -->
                                     </div>
+                                    @else
+                                        No Image Available
+                                    @endif                                    
                                 </div>
                             </div>
                             <div class="mb-3 row">
@@ -79,37 +83,58 @@
                             </div>
                         </div>
 
-                        <form action="/setabout" method="post" id="aboutEdit">
+                        <form action="/setabout/{{ $about->id }}" method="post" id="aboutEdit" enctype="multipart/form-data">
+                            @method('put')
+                            @csrf
                             <div class="form-group px-4">
                                 <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label" for="formDisabled">Visi</label>
                                     <div class="col-sm">
-                                        <input type="text" class="form-control" name="visi" value="{{ Str::limit($about->visi,40,'..') }}" required autofocus>
+                                        <textarea name="visi" id="" class="form-control" cols="30" rows="3" required>{{ old('visi',$about->visi) }}</textarea>
+                                        <div class="@error('visi') is-invlaid @enderror"></div>
+                                        @error('visi')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label" for="formDisabled">Misi</label>
                                     <div class="col-sm">
-                                        <input type="text" class="form-control" name="misi" value="{{ Str::limit($about->misi,40,'..') }}" required>
+                                        <textarea name="misi" id="" class="form-control" cols="30" rows="3" required>{{ old('misi', $about->misi) }}</textarea>
+                                        <div class="@error('misi') is-invlaid @enderror"></div>
+                                        @error('misi')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label" for="formDisabled">Tentang OLHIY'S</label>
                                     <div class="col-sm">
-                                        <input type="text" class="form-control" name="tentang" value="{{ Str::limit($about->tentang,40,'..') }}" required>
+                                        <textarea name="tentang" id="" class="form-control" cols="30" rows="3" required>{{ old('tentang', $about->tentang) }}</textarea>
+                                        <div class="@error('tentang') is-invlaid @enderror"></div>
+                                        @error('tentang')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label " for="formDisabled">Struktur Organisasi</label>
                                     <div class="col-sm-4">
-                                        <input type="file" class="form-control" name="struktur" id="struktur"
-                                            onchange="previewImg() @error('struktur') is-invalid @enderror">
+                                        <input type="hidden" name="oldImage" value="{{ $about->so }}">
+                                        <input type="file" class="form-control" name="so" id="image"
+                                            onchange="previewImg() @error('so') is-invalid @enderror">
                                         @if ($about->so)
-                                            <img class="img-fluid mt-2 col-sm-5 d-block" src="Storage/{{ $about->so }}">
+                                            <img class="img-preview img-fluid mt-2 col-sm-5 d-block" src="{{ asset('storage/'.$about->so) }}">
                                         @else
                                             <img class="img-preview img-fluid mt-2 col-sm-5 d-block">
                                         @endif                                        
-                                        @error('struktur')
+                                        @error('so')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -455,7 +480,7 @@
     <script>
         //Membuat Preview Image
         function previewImg() {
-            const image = document.querySelector('#struktur');
+            const image = document.querySelector('#image');
             const imgPreview = document.querySelector('.img-preview');
 
             imgPreview.style.display = 'blok';

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
@@ -43,6 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/galery', [GaleryController::class, 'index']);
 	
 	Route::resource('/setaccount', UserProfileController::class)->middleware('auth');
+	Route::resource('/setabout', AboutController::class)->middleware('auth');
 	//Resource Berita untuk menangani Method tiap Form GET,POST,PATCH,DELETE,CREATE
 	Route::resource('/galery', GaleryController::class)->middleware('auth');
 	Route::resource('/berita', BeritaController::class)->middleware('auth');

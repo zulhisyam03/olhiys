@@ -245,7 +245,7 @@
                         <h6 class="mb-0">Pesan Tamu</h6>
                     </div>
                     <div class="card-body pt-4 p-3">
-                        <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
+                        <table id="tableGuest" class="table table-striped table-bordered nowrap" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>Nama Tamu</th>
@@ -300,7 +300,7 @@
 
     <script>
         $(document).ready(function() {
-            $('#example').DataTable({
+            $('#tableGuest').DataTable({
                 responsive: {
                     details: {
                         display: $.fn.dataTable.Responsive.display.modal({

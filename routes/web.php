@@ -9,7 +9,8 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BeritaController;
-use App\Http\Controllers\ChangePassword;   
+use App\Http\Controllers\ChangePassword;
+use App\Http\Controllers\GuestController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserProfileController;
 /*
@@ -39,8 +40,11 @@ Route::get('/admin', function () {return redirect('/dashboard');})->middleware('
 	Route::post('/reset-password', [ResetPassword::class, 'send'])->middleware('guest')->name('reset.perform');
 	Route::get('/change-password', [ChangePassword::class, 'show'])->middleware('guest')->name('change-password');
 	Route::post('/change-password', [ChangePassword::class, 'update'])->middleware('guest')->name('change.perform');
-	Route::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');
+	Route::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');	
 Route::group(['middleware' => 'auth'], function () {
+
+	// Route::get('/dashboard', [GuestController::class, 'index']);
+	
 	Route::get('/berita', [BeritaController::class, 'index']);
 	Route::get('/galery', [GaleryController::class, 'index']);
 	

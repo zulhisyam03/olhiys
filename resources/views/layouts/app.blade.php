@@ -34,6 +34,8 @@
     <link rel="stylesheet" type="text/css" href="../../css/trix.css">
     <script type="text/javascript" src="../../js/trix.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+
     <style type="text/css">
         trix-toolbar [data-trix-button-group="file-tools"] {
             display: none;
@@ -42,7 +44,8 @@
         #aboutEdit {
             display: none;
         }
-        #acountEdit{
+
+        #acountEdit {
             display: none;
         }
     </style>
@@ -89,6 +92,8 @@
             });
     </script>
 
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
     <!--   Core JS Files   -->
     <script src="../../assets/js/core/popper.min.js"></script>
     <script src="../../assets/js/core/bootstrap.min.js"></script>
@@ -112,16 +117,16 @@
             var acountShow = document.getElementById("acountShow");
             var acountEdit = document.getElementById("acountEdit");
 
-            acountShow.style.display     = "none";
-            $("#acountEdit").fadeToggle("slow");                                          
+            acountShow.style.display = "none";
+            $("#acountEdit").fadeToggle("slow");
         }
 
         function btnAcountCancel() {
             var acountShow = document.getElementById("acountShow");
             var acountEdit = document.getElementById("acountEdit");
 
-            acountEdit.style.display     = "none";
-            $("#acountShow").fadeToggle("slow");                                                  
+            acountEdit.style.display = "none";
+            $("#acountShow").fadeToggle("slow");
         }
     </script>
 

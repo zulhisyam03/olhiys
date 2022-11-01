@@ -31,7 +31,7 @@ class BeritaController extends Controller
         
         return view('pages.berita',[
             'title'     => 'Berita',
-            'dataBerita'=> Berita::where('title','like','%'.$find.'%')->get(),
+            'dataBerita'=> Berita::where('title','like','%'.$find.'%')->paginate(10),
             'cekBerita'      => count($cekData)
         ]);
     }    

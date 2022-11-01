@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\About;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Guest;
 
 class HomeController extends Controller
 {
@@ -30,7 +31,8 @@ class HomeController extends Controller
     {
         return view('pages.dashboard',[
             'about' =>  About::all()->first(),
-            'acount'=>  User::all()->first()
+            'acount'=>  User::all()->first(),
+            'guestMessage' =>  Guest::orderBy('created_at','DESC')->paginate(10)
         ]);
     }
 

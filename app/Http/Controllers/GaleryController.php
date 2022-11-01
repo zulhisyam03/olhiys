@@ -31,7 +31,7 @@ class GaleryController extends Controller
 
         return view('pages.galery',[
             'title'     => 'Galery',
-            'Galery'    => Galery::where('title','like','%'.$find.'%')->get(),
+            'Galery'    => Galery::where('title','like','%'.$find.'%')->paginate(15),
             'jmlGalery' => count($cekGalery)
         ]);
     }    

@@ -61,4 +61,30 @@ class HomeController extends Controller
             'active' => 'home'
         ]);
     }
+
+    public function about(string $page){    
+        if ($page==='so') {
+            # code...
+            return view('about',[
+                'about'     => About::all()->first(),
+                'page'      => $page,
+                'title'     => 'Sturktur Organisasi',
+                'slide'     => Berita::orderBy('created_at','DESC')->limit(3)->get(),
+                'active'    => 'about'
+            ]);
+        } else if ($page === 'visiMisi'){
+            # code...
+            return view('about',[
+                'about'     => About::all()->first(),
+                'page'      => $page,
+                'title'     => 'Visi & Misi',
+                'slide'     => Berita::orderBy('created_at','DESC')->limit(3)->get(),
+                'active'    => 'about'
+            ]);
+        }       
+        else {
+            # code...
+            return abort(404);
+        }     
+    }
 }

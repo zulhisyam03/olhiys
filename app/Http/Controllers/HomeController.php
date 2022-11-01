@@ -27,8 +27,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
-    {
+    public function index(Request $request)
+    {       
         return view('pages.dashboard',[
             'about' =>  About::all()->first(),
             'acount'=>  User::all()->first(),

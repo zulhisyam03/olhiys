@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
         Storage::copy('lingkungan-hidup.jpg','upload-images/galery/lingkungan-hidup.jpg');
         Storage::copy('Struktur-Organisasi.jpg','upload-images/Struktur-oragnisasi.jpg');
 
-        Guest::factory(5)->create();
+        Guest::factory(50)->create();
         About::factory(1)->create();
         Berita::factory(12)->create();
         Galery::factory(20)->create();

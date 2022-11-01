@@ -32,7 +32,7 @@ class HomeController extends Controller
         return view('pages.dashboard',[
             'about' =>  About::all()->first(),
             'acount'=>  User::all()->first(),
-            'guestMessage' =>  Guest::orderBy('created_at','DESC')->paginate(10)
+            'guestMessage' =>  Guest::orderBy('created_at','DESC')->get()
         ]);
     }
 

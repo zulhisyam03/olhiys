@@ -34,8 +34,6 @@
     <link rel="stylesheet" type="text/css" href="../../css/trix.css">
     <script type="text/javascript" src="../../js/trix.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-
     <style type="text/css">
         trix-toolbar [data-trix-button-group="file-tools"] {
             display: none;
@@ -92,7 +90,6 @@
             });
     </script>
 
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 
     <!--   Core JS Files   -->
     <script src="../../assets/js/core/popper.min.js"></script>

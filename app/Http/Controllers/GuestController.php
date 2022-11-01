@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Guest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class GuestController extends Controller
 {
@@ -81,8 +82,11 @@ class GuestController extends Controller
      * @param  \App\Models\Guest  $guest
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Guest $guest)
+    public function destroy($guest)
     {
         //
+        $hapus  =   Guest::find($guest);
+        $hapus->delete();
+        return redirect('/dashboard')->with('succes','Data Tamu Telah Di Hapus !!!');
     }
 }

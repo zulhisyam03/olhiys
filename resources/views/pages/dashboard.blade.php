@@ -1,4 +1,9 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
+{{-- Datatables Responsif --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap5.min.css">
+{{-- <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap.min.css"> --}}
 
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
@@ -240,7 +245,35 @@
                         <h6 class="mb-0">Pesan Tamu</h6>
                     </div>
                     <div class="card-body pt-4 p-3">
-                        Isi Guest                                               
+                        <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Nama Tamu</th>
+                                    <th>Tanggal</th>
+                                    <th>Pesan</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $no = 1; ?>
+                                @foreach ($guestMessage as $guest)
+                                    <tr>
+                                        <td>{{ $guest->nama }} <p><small>{{ $guest->email }}</small></p>
+                                        </td>
+                                        <td>{{ $guest->created_at->format('d M Y') }}</td>
+                                        <td>{{ Str::limit($guest->message, 50, '...') }}</td>
+                                        <td class="text-center">
+                                            <form action="guestMessage/{{ $guest->id }}" method="post">
+                                                @method('delete')
+                                                @csrf
+                                                <button class="btn btn-danger" onclick="return confirm('Yakin Hapus Data?')"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</button>
+                                            </form>
+                                        </td>
+                                        <?php $no++; ?>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -252,7 +285,38 @@
 @push('js')
     <script src="./assets/js/plugins/chartjs.min.js"></script>
 
+    {{-- JS Datatables Responsiv --}}
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js">
+    </script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js">
+    </script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap.min.js"></script>
+
     <script>
+        $(document).ready(function() {
+            $('#example').DataTable({
+                responsive: {
+                    details: {
+                        display: $.fn.dataTable.Responsive.display.modal({
+                            header: function(row) {
+                                var data = row.data();
+                                return 'Details for ' + data[0] + ' ' + data[1];
+                            }
+                        }),
+                        renderer: $.fn.dataTable.Responsive.renderer.tableAll({
+                            tableClass: 'table'
+                        })
+                    }
+                }
+            });
+        });
+
         //Membuat Preview Image
         function previewImg() {
             const image = document.querySelector('#image');

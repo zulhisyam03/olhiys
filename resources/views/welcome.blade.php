@@ -49,7 +49,7 @@
             </p>
             <div class="row p-3 m-auto text-light rounded" style="background:url({{ asset('images/templatemo_reasonbg.jpg') }})">
                 <div class="col-sm-2 text-center m-auto">
-                    <a href="https://sigikab.go.id"><img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Lambang_Kabupaten_Sigi.png" alt="" class="img-thumbnail" style="height: 200px;width:200px;"></a>
+                    <a href="https://sigikab.go.id" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Lambang_Kabupaten_Sigi.png" alt="" class="img-thumbnail" style="height: 200px;width:200px;"></a>
                     <p><b>Pemerintah Kab.SIGI</b></p>                                   
                 </div>
                 <div class="col-sm-2 text-center m-auto">

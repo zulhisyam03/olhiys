@@ -257,7 +257,7 @@
                             <tbody>
                                 <?php $no = 1; ?>
                                 @foreach ($guestMessage as $guest)
-                                    <tr>
+                                    <tr class="{{ $guest->read == '0' ? 'bg-success':'' }}">
                                         <td>{{ $guest->nama }} <p><small>{{ $guest->email }}</small></p>
                                         </td>
                                         <td>{{ $guest->created_at->format('d M Y') }}</td>

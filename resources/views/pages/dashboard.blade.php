@@ -5,6 +5,12 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap5.min.css">
 {{-- <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap.min.css"> --}}
 
+<style>
+    .activeGuest:hover {
+        background: rgba(0, 0, 0, 0.192);
+    }
+</style>
+
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
     <div class="container-fluid py-4">
@@ -257,8 +263,11 @@
                             <tbody>
                                 <?php $no = 1; ?>
                                 @foreach ($guestMessage as $guest)
-                                    <tr class="{{ $guest->read == '0' ? 'bg-success':'' }}">
-                                        <td>{{ $guest->nama }} <p><small>{{ $guest->email }}</small></p>
+                                    <tr class="activeGuest{{ $guest->read == '0' ? 'bg-success' : '' }}">
+                                        <td class="colGuest">
+                                            <a href="#" value="" class="" title="Show Data" data-toggle="modal" data-target="">
+                                                {{ $guest->nama }} <p><small>{{ $guest->email }}</small></p>
+                                            </a>
                                         </td>
                                         <td>{{ $guest->created_at->format('d M Y') }}</td>
                                         <td>{{ Str::limit($guest->message, 50, '...') }}</td>
@@ -266,7 +275,9 @@
                                             <form action="guestMessage/{{ $guest->id }}" method="post">
                                                 @method('delete')
                                                 @csrf
-                                                <button class="btn btn-danger" onclick="return confirm('Yakin Hapus Data?')"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</button>
+                                                <button class="btn btn-danger"
+                                                    onclick="return confirm('Yakin Hapus Data?')"><i class="fa fa-trash"
+                                                        aria-hidden="true"></i> Hapus</button>
                                             </form>
                                         </td>
                                         <?php $no++; ?>
@@ -278,6 +289,7 @@
                 </div>
             </div>
         </div>
+        
         @include('layouts.footers.auth.footer')
     </div>
 @endsection
@@ -298,7 +310,7 @@
     <script type="text/javascript" charset="utf8"
         src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap.min.js"></script>
 
-    <script>
+    <script>       
         $(document).ready(function() {
             $('#tableGuest').DataTable({
                 responsive: {

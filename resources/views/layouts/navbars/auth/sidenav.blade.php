@@ -1,10 +1,10 @@
 <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
     id="sidenav-main">
-    <div class="sidenav-header" style="min-height:150px">
+    <div class="sidenav-header text-center" style="min-height:150px">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="{{ route('home') }}" target="_blank" >
-            <img src="{{ asset('images/logo-OLHIYS.png') }}" alt="" style="min-height:120px;">     
+            <img src="{{ asset('images/logo-OLHIYS.png') }}" alt="" style="min-height:120px;width:130px;">     
         </a>
     </div>
     <hr class="horizontal dark mt-0">

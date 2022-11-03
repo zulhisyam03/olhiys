@@ -7,7 +7,7 @@
 
 <style>
     .activeGuest:hover {
-        background: rgba(0, 0, 0, 0.192);
+        background: rgba(0, 0, 0, 0.048);
     }
 </style>
 
@@ -254,6 +254,7 @@
                         <table id="tableGuest" class="table table-bordered" style="width:100%">
                             <thead>
                                 <tr>
+                                    <td class="tutup"></td>
                                     <th>Nama Tamu</th>
                                     <th>Tanggal</th>
                                     <th>Pesan</th>
@@ -263,13 +264,16 @@
                             <tbody>
                                 <?php $no = 1; ?>
                                 @foreach ($guestMessage as $guest)
-                                    <tr class="activeGuest{{ $guest->read == '0' ? 'bg-success' : '' }}">
-                                        <td class="colGuest">
-                                            <a href="#" value="" class="" title="Show Data" data-toggle="modal" data-target="">
+                                    <tr class="activeGuest border" style="background: {{ $guest->read=='0' ? 'rgba(255, 0, 0, 0.082);':'' }}">
+                                        <td class="tutup">                                        
+                                        </td>
+                                        <td class="">                                            
+                                            <a href="#show{{ $guest->id }}" value="" class="" title="Show Data" data-bs-toggle="modal" data-bs-target="#show{{ $guest->id }}">
                                                 {{ $guest->nama }} <p><small>{{ $guest->email }}</small></p>
                                             </a>
+                                            @include('layouts.modalGuest')
                                         </td>
-                                        <td>{{ $guest->created_at->format('d M Y') }}</td>
+                                        <td>{{ $guest->created_at->diffForHumans() }}<p>{{ $guest->created_at->format('d M Y') }}</p></td>
                                         <td class="text-wrap">{{ Str::limit($guest->message, 150, '...') }}</td>
                                         <td class="text-center">
                                             <form action="guestMessage/{{ $guest->id }}" method="post">

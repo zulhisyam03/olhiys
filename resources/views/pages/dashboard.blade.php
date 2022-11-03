@@ -248,7 +248,7 @@
                         <table id="tableGuest" class="table table-secondary table-striped table-hover" style="width:100%">
                             <thead>
                                 <tr>
-                                    <td class="tutup"></td>
+                                    <td class="d-none"></td>
                                     <th>Nama Tamu</th>
                                     <th>Tanggal</th>
                                     <th>Pesan</th>
@@ -259,11 +259,13 @@
                                 <?php $no = 1; ?>
                                 @foreach ($guestMessage as $guest)
                                     <tr class="{{ $guest->read=='0' ? 'table-danger':'' }}">
-                                        <td class="tutup">                                        
+                                        <td class="d-none">                                        
                                         </td>
                                         <td class="">                                            
                                             <a href="#show{{ $guest->id }}" value="" class="" title="Show Data" data-bs-toggle="modal" data-bs-target="#show{{ $guest->id }}">
-                                                {{ $guest->nama }} <p><small>{{ $guest->email }}</small></p>
+                                                <div style="width:100%;height:100%;margin-left:-25px;padding-left:25px;position: relative;">
+                                                    {{ $guest->nama }} <p><small>{{ $guest->email }}</small></p>
+                                                </div>                                                
                                             </a>
                                             @include('layouts.modalGuest')
                                         </td>

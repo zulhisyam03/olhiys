@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="show{{ $guest->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="show{{ $guest->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -34,7 +34,11 @@
                     @csrf
                     <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin Hapus?')"><i class="fa-solid fa-trash"></i> Hapus</button>
                 </form>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <form action="guestMessage/{{ $guest->id }}" method="post">     
+                    @method('put')
+                    @csrf               
+                    <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </form>
             </div>
         </div>
     </div>

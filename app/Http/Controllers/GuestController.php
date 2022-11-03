@@ -81,9 +81,18 @@ class GuestController extends Controller
      * @param  \App\Models\Guest  $guest
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Guest $guest)
+    public function update(Request $request, $id)
     {
         //
+        $data   = Guest::find($id);
+
+        if ($data->read == '0') {
+            # code...
+            $data->read = '1';
+            $data->save();
+        }        
+
+        return redirect('/dashboard');
     }
 
     /**

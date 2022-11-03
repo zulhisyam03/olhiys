@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
             'username' => 'admin',
             'firstname' => 'Admin',
             'lastname' => 'Admin',
-            'email' => 'olhiys@gmail.com',
-            'password' => bcrypt('secret')
+            'email' => 'olhiys.org@gmail.com',
+            'password' => bcrypt('admin')
         ]);        
 
         Storage::copy('lingkungan-hidup.jpg','upload-images/lingkungan-hidup.jpg');

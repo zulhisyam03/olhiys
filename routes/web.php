@@ -30,6 +30,8 @@ Route::get('/showBerita/{slug}', [HomeController::class, 'beritaGuest']);
 Route::get('/guest-galery', [HomeController::class, 'galery']);
 Route::get('/about/page/{page}', [HomeController::class, 'about']);
 
+Route::post('/contactUs', [GuestController::class, 'store']);
+
 
 Route::get('/admin', function () {return redirect('/dashboard');})->middleware('auth');
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');

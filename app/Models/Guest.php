@@ -11,6 +11,7 @@ class Guest extends Model
     protected $fillable = [
         'email',
         'nama',
-        'message'
+        'message',
+        'read'
     ];
 }

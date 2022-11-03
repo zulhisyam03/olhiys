@@ -251,7 +251,7 @@
                         <h6 class="mb-0">Pesan Tamu</h6>
                     </div>
                     <div class="card-body pt-4 p-3">
-                        <table id="tableGuest" class="table table-bordered nowrap" style="width:100%">
+                        <table id="tableGuest" class="table table-bordered" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>Nama Tamu</th>

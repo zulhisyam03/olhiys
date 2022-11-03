@@ -40,6 +40,16 @@ class GuestController extends Controller
     public function store(Request $request)
     {
         //
+        $validated = $request->validate([
+            'email'     =>  'required|email',
+            'nama'      =>  'required',
+            'message'   =>  'required',
+            'read'      =>  'required'
+        ]);
+
+        Guest::create($validated);       
+
+        return redirect('/')->with('succes','Pesan Terkirim !!!');
     }
 
     /**

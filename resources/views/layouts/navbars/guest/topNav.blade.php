@@ -22,6 +22,7 @@
                         <li><a class="dropdown-item" href="/#contactUs">Hubungi kami</a></li>
                         <li><a class="dropdown-item" href="/about/page/visiMisi">Visi & Misi</a></li>
                         <li><a class="dropdown-item" href="/about/page/so">Struktur Organisasi</a></li>
+                        <li><a class="dropdown-item" href="/#tentangKami">Tentang Kami</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

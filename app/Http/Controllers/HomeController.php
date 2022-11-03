@@ -38,6 +38,7 @@ class HomeController extends Controller
 
     public function data(){
         return view('welcome', [
+            'about'      =>  About::all()->first(),
             'dataBerita' => Berita::orderBy('created_at','DESC')->paginate(8),
             'slide'      => Berita::orderBy('created_at','DESC')->limit(3)->get(),
             'active'     => 'home',

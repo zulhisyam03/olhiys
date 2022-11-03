@@ -1,9 +1,4 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
-{{-- Datatables Responsif --}}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap5.min.css">
-{{-- <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap.min.css"> --}}
 
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])

@@ -85,6 +85,28 @@
     </div>
     {{-- END Sponsor --}}
     <p></p>
+    {{-- Tentang Olhiys --}}
+    <div class="container bg-light position-relative py-2 text-dark rounded" id="tentangKami" style="min-height:200px">
+        <p class="text-muted"><small><b> Home</b> <i class="fa-solid fa-angles-right"></i> Tentang Kami</small> </p>
+        <div class="row mx-2">
+            <div class="card">
+                <div class="card-header" id="contactUs">
+                    <h4>Tentang Kami</h4>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">                        
+                        <p align='justify'>{{ $about->tentang }}</p>
+                        <h3 class="text-center">Addres</h3>
+                        <div class="col-12">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d428.5019120788602!2d119.91638727559204!3d-0.9527664595988282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d8bf107d7216b05%3A0x247ff434eb903f4d!2s2WX8%2B2J7%2C%20Jl.%20Poros%20Palu-Palolo%2C%20Mpanau%2C%20Kec.%20Sigi%20Biromaru%2C%20Kabupaten%20Sigi%2C%20Sulawesi%20Tengah%2094231!5e0!3m2!1sid!2sid!4v1664227514709!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- END Tentang Olhiys --}}
+    <p></p>
     {{-- Contact Us --}}
     <div class="container bg-light position-relative py-2 text-dark rounded" id="" style="min-height:200px">
         <p class="text-muted"><small><b> Home</b> <i class="fa-solid fa-angles-right"></i> Kontak Kami</small> </p>
@@ -149,5 +171,5 @@
             </div>
         </div>
     </div>
-    {{-- END Sponsor --}}
+    {{-- END Contact Us --}}
 @endsection

@@ -251,7 +251,7 @@
                         <h6 class="mb-0">Pesan Tamu</h6>
                     </div>
                     <div class="card-body pt-4 p-3">
-                        <table id="tableGuest" class="table table-striped table-bordered nowrap" style="width:100%">
+                        <table id="tableGuest" class="table table-bordered nowrap" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>Nama Tamu</th>
@@ -270,7 +270,7 @@
                                             </a>
                                         </td>
                                         <td>{{ $guest->created_at->format('d M Y') }}</td>
-                                        <td>{{ Str::limit($guest->message, 50, '...') }}</td>
+                                        <td class="text-wrap">{{ Str::limit($guest->message, 150, '...') }}</td>
                                         <td class="text-center">
                                             <form action="guestMessage/{{ $guest->id }}" method="post">
                                                 @method('delete')

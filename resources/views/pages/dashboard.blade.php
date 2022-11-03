@@ -5,12 +5,6 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap5.min.css">
 {{-- <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap.min.css"> --}}
 
-<style>
-    .activeGuest:hover {
-        background: rgba(0, 0, 0, 0.048);
-    }
-</style>
-
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
     <div class="container-fluid py-4">
@@ -251,7 +245,7 @@
                         <h6 class="mb-0">Pesan Tamu</h6>
                     </div>
                     <div class="card-body pt-4 p-3">
-                        <table id="tableGuest" class="table table-bordered" style="width:100%">
+                        <table id="tableGuest" class="table table-secondary table-striped table-hover" style="width:100%">
                             <thead>
                                 <tr>
                                     <td class="tutup"></td>
@@ -264,7 +258,7 @@
                             <tbody>
                                 <?php $no = 1; ?>
                                 @foreach ($guestMessage as $guest)
-                                    <tr class="activeGuest border" style="background: {{ $guest->read=='0' ? 'rgba(255, 0, 0, 0.082);':'' }}">
+                                    <tr class="{{ $guest->read=='0' ? 'table-danger':'' }}">
                                         <td class="tutup">                                        
                                         </td>
                                         <td class="">                                            

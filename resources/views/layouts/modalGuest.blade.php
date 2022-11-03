@@ -18,7 +18,7 @@
                     </div>
                     <div class="row mb-2">
                         <label for="" class="col-sm-3 col-form-label ">Tanggal: </label>
-                        <div class="col-sm pt-2"><span class="label">{{ $guest->created_at }}</span></div>
+                        <div class="col-sm pt-2"><span class="label">{{ $guest->created_at->format('d M Y H:i:s') }}</span></div>
                     </div>
                     <div class="row mb-2">
                         <label for="" class="col-sm-3 col-form-label ">Pesan: </label>

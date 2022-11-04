@@ -7,16 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/loading.css') }}">
-
-    {{-- <link rel="stylesheet" href="{{ asset('css/loading.css') }}"> --}}
-
+    <link rel="stylesheet" href="{{ asset('css/loading.css') }}">    
     <title>Document</title>
+
+    <style>
+        body {
+            background: rgba(3, 3, 34, 0.829);
+        }
+    </style>
 </head>
 
 <body onload="loading()">
     <div id="loader"></div>
-    <div id="myDiv" style="display: none;" class="animated-bottom">
+    <div id="myLoad" style="display: none;" class="animated-bottom">
         <nav class="container-fluid bg-success">
             <div class="container py-1">
                 <div class="row text-light ">

@@ -27,9 +27,6 @@
     <script type="text/javascript" src="../../js/jquery.min.js"></script>
     <script type="text/JavaScript" src="../../js/slimbox2.js"></script>
 
-    {{-- Lazod.js --}}
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
-
     {{-- Datatables Responsif --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
@@ -59,34 +56,36 @@
     </style>
 </head>
 
-<body class="{{ $class ?? '' }}">
-
-    @guest
-        @yield('content')
-    @endguest
-
-    @auth
-        @if (in_array(request()->route()->getName(),
-            ['sign-in-static', 'sign-up-static', 'login', 'register', 'recover-password', 'rtl', 'virtual-reality']))
+<body onload="loading()" class="{{ $class ?? '' }}">
+    <div id="loader"></div>
+    <div id="myLoad" class="animate-bottom">
+        @guest
             @yield('content')
-        @else
-            @if (!in_array(request()->route()->getName(),
-                ['profile', 'profile-static']))
-                <div class="min-height-300 bg-primary position-absolute w-100"></div>
-            @elseif (in_array(request()->route()->getName(),
-                ['profile-static', 'profile']))
-                <div class="position-absolute w-100 min-height-300 top-0"
-                    style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg'); background-position-y: 50%;">
-                    <span class="mask bg-primary opacity-6"></span>
-                </div>
-            @endif
-            @include('layouts.navbars.auth.sidenav')
-            <main class="main-content border-radius-lg">
+        @endguest
+
+        @auth
+            @if (in_array(request()->route()->getName(),
+                ['sign-in-static', 'sign-up-static', 'login', 'register', 'recover-password', 'rtl', 'virtual-reality']))
                 @yield('content')
-            </main>
-            @include('components.fixed-plugin')
-        @endif
-    @endauth
+            @else
+                @if (!in_array(request()->route()->getName(),
+                    ['profile', 'profile-static']))
+                    <div class="min-height-300 bg-primary position-absolute w-100"></div>
+                @elseif (in_array(request()->route()->getName(),
+                    ['profile-static', 'profile']))
+                    <div class="position-absolute w-100 min-height-300 top-0"
+                        style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg'); background-position-y: 50%;">
+                        <span class="mask bg-primary opacity-6"></span>
+                    </div>
+                @endif
+                @include('layouts.navbars.auth.sidenav')
+                <main class="main-content border-radius-lg">
+                    @yield('content')
+                </main>
+                @include('components.fixed-plugin')
+            @endif
+        @endauth
+    </div>    
 
     <!-- ckeditor5 -->
     <script>

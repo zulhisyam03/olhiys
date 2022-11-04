@@ -27,6 +27,9 @@
     <script type="text/javascript" src="../../js/jquery.min.js"></script>
     <script type="text/JavaScript" src="../../js/slimbox2.js"></script>
 
+    {{-- Lazod.js --}}
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+
     {{-- Datatables Responsif --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
@@ -36,6 +39,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <link id="pagestyle" href="../../assets/css/argon-dashboard.css" rel="stylesheet" />
+
 
     <link rel="stylesheet" type="text/css" href="../../css/trix.css">
     <script type="text/javascript" src="../../js/trix.js"></script>
@@ -96,6 +100,14 @@
             });
     </script>
 
+    <script>
+        const observer = lozad('.lozad', {
+            rootMargin: '10px 0px', // syntax similar to that of CSS Margin
+            threshold: 0.1, // ratio of element convergence
+            enableAutoReload: true // it will reload the new image when validating attributes changes
+        });
+        observer.observe();
+    </script>
 
     <!--   Core JS Files   -->
     <script src="../../assets/js/core/popper.min.js"></script>

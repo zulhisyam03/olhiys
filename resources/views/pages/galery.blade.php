@@ -135,7 +135,7 @@
                                         <div class="column">
                                             <div class="portfolio-item">
                                                 <div class="portfolio-thumb border border-2 border-danger p-0" style="height:150px;width:100%;">
-                                                    <img src="storage/{{ $galeri->image }}" alt="{{ $galeri->title }}" style="height: 100%;">
+                                                    <img class="lozad" data-src="storage/{{ $galeri->image }}" src="storage/{{ $galeri->image }}" alt="{{ $galeri->title }}" style="height: 100%;">
                                                     <div class="overlay-p">
                                                         <a href="storage/{{ $galeri->image }}" data-rel="lightbox[portfolio]" style="padding-top:20%;height:100%;">
                                                             <ul>

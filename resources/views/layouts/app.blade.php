@@ -67,7 +67,6 @@
                     </div>
                 </div>
             </div>
-            <p class="loading-text">Loading ...</p>
         </div>
     </div>
 

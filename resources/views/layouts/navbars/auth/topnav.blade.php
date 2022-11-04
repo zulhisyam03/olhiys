@@ -58,7 +58,7 @@
 
             {{-- END SEARCH --}}
             <ul class="navbar-nav justify-content-end" style="width:100%;">
-                <li class="nav-item d-flex align-items-center">
+                <li class="nav-item d-flex align-items-center" style="padding-top:{{ $title == 'Dashboard' ? '12px;' : '-4px' }}">
                     <form role="form" method="post" action="{{ route('logout') }}" id="logout-form">
                         @csrf
                         <a href="{{ route('logout') }}"

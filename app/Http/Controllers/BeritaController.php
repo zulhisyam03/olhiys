@@ -34,7 +34,8 @@ class BeritaController extends Controller
         return view('pages.berita',[
             'title'     => 'Berita',
             'dataBerita'=> Berita::where('title','like','%'.$find.'%')->paginate(10),
-            'cekBerita'      => count($cekData)
+            'cekBerita'      => count($cekData),
+            'findNotifGuest' => Guest::where('read', '0')->count()
         ]);
     }    
 
@@ -93,7 +94,8 @@ class BeritaController extends Controller
         //
         return view('pages.news', [
             "title"     =>  "Berita",
-            "posting"   =>  Berita::where('slug',$slug)->first()
+            "posting"   =>  Berita::where('slug',$slug)->first(),
+            'findNotifGuest' => Guest::where('read', '0')->count()
         ]); 
     }
 

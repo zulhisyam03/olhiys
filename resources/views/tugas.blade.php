@@ -126,7 +126,15 @@
         </form>
     </div>
     
-    <footer class="bg-success text-center text-light">Copyright &copy; Chelsy 2022</footer>    
+    <footer class="bg-success text-center text-light">Copyright &copy; Chelsy 2022</footer>
+
+    <div class="animated">
+        <div class="circle">
+            <div class="innercircle">
+              <div id="flex"><h1 id="number">0</h1><h1>%</h1></div>
+            </div>
+        </div>        
+    </div>
 
 </body>
 

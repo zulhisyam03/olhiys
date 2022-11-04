@@ -1,16 +1,10 @@
-const number = document.getElementById('number');
-const animated = document.querySelector('.animated');
-const body  = document.querySelector('body');
-let counter = 1;
+var myVar;
 
-function increase() {
-    number.innerHTML = counter;
-    counter++;
+function loading() {
+    myVar = setTimeout(showPage, 3000);
 }
-setInterval(increase, 51);
 
-function hide() {
-    animated.style.display = 'none';
-    body.style.display  = 'inline';
+function showPage() {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("myDiv").style.display = "block";
 }
-setTimeout(hide, 5080);

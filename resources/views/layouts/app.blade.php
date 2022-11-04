@@ -57,7 +57,15 @@
 </head>
 
 <body onload="loading()" class="{{ $class ?? '' }}">
-    <div id="loader"></div>
+    <span class="back">
+        <span>L</span>
+        <span>o</span>
+        <span>a</span>
+        <span>d</span>
+        <span>i</span>
+        <span>n</span>
+        <span>g</span>
+    </span>
     <div id="myLoad" class="animate-bottom">
         @guest
             @yield('content')

@@ -1,5 +1,6 @@
 <!-- Modal -->
-<div class="modal fade" id="show{{ $guest->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="show{{ $guest->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -18,7 +19,8 @@
                     </div>
                     <div class="row mb-2">
                         <label for="" class="col-sm-3 col-form-label ">Tanggal: </label>
-                        <div class="col-sm pt-2"><span class="label">{{ $guest->created_at->format('d M Y H:i:s') }}</span></div>
+                        <div class="col-sm pt-2"><span
+                                class="label">{{ $guest->created_at->format('d M Y H:i:s') }}</span></div>
                     </div>
                     <div class="row mb-2">
                         <label for="" class="col-sm-3 col-form-label ">Pesan: </label>
@@ -32,13 +34,18 @@
                 <form action="guestMessage/{{ $guest->id }}" method="post">
                     @method('delete')
                     @csrf
-                    <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin Hapus?')"><i class="fa-solid fa-trash"></i> Hapus</button>
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin Hapus?')"><i
+                            class="fa-solid fa-trash"></i> Hapus</button>
                 </form>
-                <form action="guestMessage/{{ $guest->id }}" method="post">     
-                    @method('put')
-                    @csrf               
-                    <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </form>
+                @if ($guest->read == '0')
+                    <form action="guestMessage/{{ $guest->id }}" method="post">
+                        @method('put')
+                        @csrf
+                        <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </form>
+                @else
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                @endif
             </div>
         </div>
     </div>

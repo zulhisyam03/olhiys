@@ -5,6 +5,7 @@ function loading() {
 }
 
 function showPage() {
-    document.getElementById("loader").style.display = "none";
+    document.querySelector("body").style.display = "inline";
+    document.querySelector(".back").style.display = "none";
     document.getElementById("myLoad").style.display = "block";
 }

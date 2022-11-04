@@ -7,6 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('css/loading.css') }}">
+    <script src="{{ asset('js/loading.js') }}" defer></script>
+
     <title>Document</title>
     <style type="text/css">
         body {
@@ -15,7 +19,7 @@
     </style>
 </head>
 
-<body>
+<body>   
     <nav class="container-fluid bg-success">
         <div class="container py-1">
             <div class="row text-light ">
@@ -122,8 +126,7 @@
         </form>
     </div>
     
-
-    <footer class="bg-success text-center text-light">Copyright &copy; Chelsy 2022</footer>
+    <footer class="bg-success text-center text-light">Copyright &copy; Chelsy 2022</footer>    
 
 </body>
 

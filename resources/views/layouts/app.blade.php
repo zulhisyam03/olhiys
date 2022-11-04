@@ -57,115 +57,120 @@
 </head>
 
 <body onload="loading()" class="{{ $class ?? '' }}">
-    <span class="back">
-        <span>L</span>
-        <span>o</span>
-        <span>a</span>
-        <span>d</span>
-        <span>i</span>
-        <span>n</span>
-        <span>g</span>
-    </span>
-    <div id="myLoad" class="animate-bottom">
-        @guest
-            @yield('content')
-        @endguest
-
-        @auth
-            @if (in_array(request()->route()->getName(),
-                ['sign-in-static', 'sign-up-static', 'login', 'register', 'recover-password', 'rtl', 'virtual-reality']))
-                @yield('content')
-            @else
-                @if (!in_array(request()->route()->getName(),
-                    ['profile', 'profile-static']))
-                    <div class="min-height-300 bg-primary position-absolute w-100"></div>
-                @elseif (in_array(request()->route()->getName(),
-                    ['profile-static', 'profile']))
-                    <div class="position-absolute w-100 min-height-300 top-0"
-                        style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg'); background-position-y: 50%;">
-                        <span class="mask bg-primary opacity-6"></span>
+    <div class="loader-wrap">
+        <div class="loader">
+            <div class="circle-1 circle">
+                <div class="circle-2 circle">
+                    <div class="circle-3 circle">
+                        <div class="circle-4 circle">
+                        </div>
                     </div>
-                @endif
-                @include('layouts.navbars.auth.sidenav')
-                <main class="main-content border-radius-lg">
+                </div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
+    </div>
+
+        <div id="myLoad" class="animate-bottom">
+            @guest
+                @yield('content')
+            @endguest
+
+            @auth
+                @if (in_array(request()->route()->getName(),
+                    ['sign-in-static', 'sign-up-static', 'login', 'register', 'recover-password', 'rtl', 'virtual-reality']))
                     @yield('content')
-                </main>
-                @include('components.fixed-plugin')
-            @endif
-        @endauth
-    </div>    
+                @else
+                    @if (!in_array(request()->route()->getName(),
+                        ['profile', 'profile-static']))
+                        <div class="min-height-300 bg-primary position-absolute w-100"></div>
+                    @elseif (in_array(request()->route()->getName(),
+                        ['profile-static', 'profile']))
+                        <div class="position-absolute w-100 min-height-300 top-0"
+                            style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg'); background-position-y: 50%;">
+                            <span class="mask bg-primary opacity-6"></span>
+                        </div>
+                    @endif
+                    @include('layouts.navbars.auth.sidenav')
+                    <main class="main-content border-radius-lg">
+                        @yield('content')
+                    </main>
+                    @include('components.fixed-plugin')
+                @endif
+            @endauth
+        </div>
 
-    <!-- ckeditor5 -->
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#editorBerita'))
-            .then(editor => {
-                console.log(editor);
-            })
-            .catch(error => {
-                console.error(error);
+        <!-- ckeditor5 -->
+        <script>
+            ClassicEditor
+                .create(document.querySelector('#editorBerita'))
+                .then(editor => {
+                    console.log(editor);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        </script>
+
+        <script>
+            const observer = lozad('.lozad', {
+                rootMargin: '10px 0px', // syntax similar to that of CSS Margin
+                threshold: 0.1, // ratio of element convergence
+                enableAutoReload: true // it will reload the new image when validating attributes changes
             });
-    </script>
+            observer.observe();
+        </script>
 
-    <script>
-        const observer = lozad('.lozad', {
-            rootMargin: '10px 0px', // syntax similar to that of CSS Margin
-            threshold: 0.1, // ratio of element convergence
-            enableAutoReload: true // it will reload the new image when validating attributes changes
-        });
-        observer.observe();
-    </script>
+        <!--   Core JS Files   -->
+        <script src="../../assets/js/core/popper.min.js"></script>
+        <script src="../../assets/js/core/bootstrap.min.js"></script>
+        <script src="../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+        <script src="../../assets/js/plugins/smooth-scrollbar.min.js"></script>
 
-    <!--   Core JS Files   -->
-    <script src="../../assets/js/core/popper.min.js"></script>
-    <script src="../../assets/js/core/bootstrap.min.js"></script>
-    <script src="../../assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="../../assets/js/plugins/smooth-scrollbar.min.js"></script>
-
-    <script>
-        function aboutBtn() {
-            var show = document.getElementById("aboutShow");
-            var edit = document.getElementById("aboutEdit");
-            if (show.style.display === "none") {
-                show.style.display = "block";
-                edit.style.display = "none";
-            } else {
-                show.style.display = "none";
-                $("#aboutEdit").fadeToggle("slow");
+        <script>
+            function aboutBtn() {
+                var show = document.getElementById("aboutShow");
+                var edit = document.getElementById("aboutEdit");
+                if (show.style.display === "none") {
+                    show.style.display = "block";
+                    edit.style.display = "none";
+                } else {
+                    show.style.display = "none";
+                    $("#aboutEdit").fadeToggle("slow");
+                }
             }
-        }
 
-        function acountBtn() {
-            var acountShow = document.getElementById("acountShow");
-            var acountEdit = document.getElementById("acountEdit");
+            function acountBtn() {
+                var acountShow = document.getElementById("acountShow");
+                var acountEdit = document.getElementById("acountEdit");
 
-            acountShow.style.display = "none";
-            $("#acountEdit").fadeToggle("slow");
-        }
-
-        function btnAcountCancel() {
-            var acountShow = document.getElementById("acountShow");
-            var acountEdit = document.getElementById("acountEdit");
-
-            acountEdit.style.display = "none";
-            $("#acountShow").fadeToggle("slow");
-        }
-    </script>
-
-    <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-            var options = {
-                damping: '0.5'
+                acountShow.style.display = "none";
+                $("#acountEdit").fadeToggle("slow");
             }
-            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-        }
-    </script>
-    <!-- Github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../../assets/js/argon-dashboard.js"></script>
-    @stack('js');
+
+            function btnAcountCancel() {
+                var acountShow = document.getElementById("acountShow");
+                var acountEdit = document.getElementById("acountEdit");
+
+                acountEdit.style.display = "none";
+                $("#acountShow").fadeToggle("slow");
+            }
+        </script>
+
+        <script>
+            var win = navigator.platform.indexOf('Win') > -1;
+            if (win && document.querySelector('#sidenav-scrollbar')) {
+                var options = {
+                    damping: '0.5'
+                }
+                Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+            }
+        </script>
+        <!-- Github buttons -->
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+        <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+        <script src="../../assets/js/argon-dashboard.js"></script>
+        @stack('js');
 </body>
 
 </html>

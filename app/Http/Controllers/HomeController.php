@@ -12,7 +12,7 @@ use App\Models\Guest;
 
 class HomeController extends Controller
 {
-        /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -28,67 +28,82 @@ class HomeController extends Controller
      * @return \Illuminate\View\View
      */
     public function index(Request $request)
-    {       
-        return view('pages.dashboard',[
+    {
+        return view('pages.dashboard', [
             'about' =>  About::all()->first(),
-            'acount'=>  User::all()->first(),
-            'guestMessage' =>  Guest::orderBy('created_at','DESC')->get(),
+            'acount' =>  User::all()->first(),
+            'guestMessage' =>  Guest::orderBy('created_at', 'DESC')->get(),
             'findNotifGuest' => Guest::where('read', '0')->count()
         ]);
     }
 
-    public function data(){
+    public function data()
+    {
         return view('welcome', [
             'about'      =>  About::all()->first(),
-            'dataBerita' => Berita::orderBy('created_at','DESC')->paginate(8),
-            'slide'      => Berita::orderBy('created_at','DESC')->limit(3)->get(),
+            'dataBerita' => Berita::orderBy('created_at', 'DESC')->paginate(8),
+            'slide'      => Berita::orderBy('created_at', 'DESC')->limit(3)->get(),
             'active'     => 'home',
             'title'      => 'Home'
         ]);
     }
 
-    public function galery(){
+    public function galery()
+    {
 
-        return view('galeryGuest',[
-            'dataGalery' => Galery::orderBy('created_at','DESC')->paginate(20),
+        return view('galeryGuest', [
+            'dataGalery' => Galery::orderBy('created_at', 'DESC')->paginate(20),
             'jmlGalery' => Galery::count(),
-            'slide'      => Berita::orderBy('created_at','DESC')->limit(3)->get(),
+            'slide'      => Berita::orderBy('created_at', 'DESC')->limit(3)->get(),
             'active' => 'galery',
             'title'
         ]);
     }
-    public function beritaGuest($slug){
+    public function beritaGuest($slug)
+    {
         return view('showBerita', [
             'title' => 'Berita',
-            'dataBerita' => Berita::where('slug',$slug)->first(),
-            'slide'      => Berita::orderBy('created_at','DESC')->limit(3)->get(),
+            'dataBerita' => Berita::where('slug', $slug)->first(),
+            'slide'      => Berita::orderBy('created_at', 'DESC')->limit(3)->get(),
             'active' => 'home'
         ]);
     }
 
-    public function about(string $page){    
-        if ($page==='so') {
+    public function about(string $page)
+    {
+        if ($page === 'so') {
             # code...
-            return view('about',[
+            return view('about', [
                 'about'     => About::all()->first(),
                 'page'      => $page,
                 'title'     => 'Sturktur Organisasi',
-                'slide'     => Berita::orderBy('created_at','DESC')->limit(3)->get(),
+                'slide'     => Berita::orderBy('created_at', 'DESC')->limit(3)->get(),
                 'active'    => 'about'
             ]);
-        } else if ($page === 'visiMisi'){
+        } else if ($page === 'visiMisi') {
             # code...
-            return view('about',[
+            return view('about', [
                 'about'     => About::all()->first(),
                 'page'      => $page,
                 'title'     => 'Visi & Misi',
-                'slide'     => Berita::orderBy('created_at','DESC')->limit(3)->get(),
+                'slide'     => Berita::orderBy('created_at', 'DESC')->limit(3)->get(),
                 'active'    => 'about'
             ]);
-        }       
-        else {
+        } else {
             # code...
             return abort(404);
-        }     
+        }
+    }
+
+    public function find(Request $find)
+    {
+        $find = $find->find;
+        return view('find', [
+            'dataBerita'    =>  Berita::where('title', 'like', '%' . $find . '%')->paginate(8),
+            'dataGalery'    =>  Galery::where('title', 'like', '%' . $find . '%')->paginate(10),
+                'title'     => $find,
+                'slide'     => Berita::orderBy('created_at', 'DESC')->limit(3)->get(),
+                'active'    => 'home'
+        ]);
     }
 }

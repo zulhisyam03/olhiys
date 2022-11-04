@@ -30,7 +30,7 @@ Route::get('/showBerita/{slug}', [HomeController::class, 'beritaGuest']);
 Route::get('/guest-galery', [HomeController::class, 'galery']);
 Route::get('/about/page/{page}', [HomeController::class, 'about']);
 
-Route::get('/tugas',function() {return view('tugas');});
+Route::post('/search', [HomeController::class, 'find']);
 
 Route::post('/contactUs', [GuestController::class, 'store']);
 

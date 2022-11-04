@@ -7,10 +7,10 @@ function increase() {
     number.innerHTML = counter;
     counter++;
 }
-setInterval(increase, 50);
+setInterval(increase, 51);
 
 function hide() {
     animated.style.display = 'none';
     body.style.display  = 'inline';
 }
-setTimeout(hide, 5085);
+setTimeout(hide, 5080);

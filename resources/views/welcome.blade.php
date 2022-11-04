@@ -90,7 +90,7 @@
         <p class="text-muted"><small><b> Home</b> <i class="fa-solid fa-angles-right"></i> Tentang Kami</small> </p>
         <div class="row mx-2">
             <div class="card">
-                <div class="card-header" id="contactUs">
+                <div class="card-header" id="">
                     <h4>Tentang Kami</h4>
                 </div>
                 <div class="card-body">

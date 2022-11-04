@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Galery;
+use App\Models\Guest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -20,7 +21,8 @@ class GaleryController extends Controller
         return view('pages.galery', [
             'title'  => 'Galery',
             'Galery' => Galery::orderBy('created_at', 'DESC')->paginate(15),
-            'jmlGalery' => Galery::count()
+            'jmlGalery' => Galery::count(),
+            'findNotifGuest' => Guest::where('read', '0')->count()
         ]);
     }
 

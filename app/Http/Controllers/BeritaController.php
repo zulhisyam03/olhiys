@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Guest;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -21,7 +22,8 @@ class BeritaController extends Controller
         return view('pages.berita', [            
             "title"     =>  "Berita",
             "dataBerita"=>  Berita::orderBy('created_at','DESC')->paginate(10),
-            "cekBerita" =>  $jmlBerita
+            "cekBerita" =>  $jmlBerita,
+            'findNotifGuest' => Guest::where('read', '0')->count()
         ]);
     }
 

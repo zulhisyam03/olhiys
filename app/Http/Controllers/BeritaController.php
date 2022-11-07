@@ -47,7 +47,9 @@ class BeritaController extends Controller
     public function create()
     {
         //
-        return view('pages.createBerita');
+        return view('pages.createBerita',[
+            'findNotifGuest' => Guest::where('read', '0')->count()
+        ]);
     }
 
     /**
@@ -109,7 +111,8 @@ class BeritaController extends Controller
     {
         //
         return view('pages.editBerita',[
-            'berita' => Berita::where('slug',$slug)->first()
+            'berita' => Berita::where('slug',$slug)->first(),
+            'findNotifGuest' => Guest::where('read', '0')->count()
         ] );
 
     }

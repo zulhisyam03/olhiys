@@ -111,8 +111,7 @@ class BeritaController extends Controller
     {
         //
         return view('pages.editBerita',[
-            'berita' => Berita::where('slug',$slug)->first(),
-            'findNotifGuest' => Guest::where('read', '0')->count()
+            'berita' => Berita::where('slug',$slug)->first()
         ] );
 
     }
